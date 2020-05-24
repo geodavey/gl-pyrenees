@@ -4268,7 +4268,7 @@
       "id": "hrp-highlight",
       "type": "line",
       "source": "pyrenees",
-      "source-layer": "hrproute",
+      "source-layer": "hrp_route",
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
         "line-width": {
@@ -4295,7 +4295,7 @@
       "id": "hrp",
       "type": "line",
       "source": "pyrenees",
-      "source-layer": "hrproute",
+      "source-layer": "hrp_route",
       "paint": {
         "line-color": "rgba(255, 0, 0, 1)",
         "line-width": {
@@ -5773,7 +5773,7 @@
       "id": "hrp-copy",
       "type": "symbol",
       "source": "pyrenees",
-      "source-layer": "hrproute",
+      "source-layer": "hrp_route",
       "paint": {
         "text-halo-color": "rgba(255, 0, 0, 1)",
         "text-halo-width": 100,
@@ -5821,6 +5821,43 @@
         "text-max-angle": 360,
         "text-keep-upright": true,
         "text-letter-spacing": -0.05
+      }
+    },
+    {
+      "id": "pyr_supermarkets",
+      "type": "symbol",
+      "source": "pyrenees",
+      "source-layer": "supermarkets",
+      "paint": {},
+      "layout": {
+        "icon-image": "grocery_11",
+        "text-anchor": "top",
+        "text-field": "",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-max-width": 9,
+        "text-offset": [
+          0,
+          0.6
+        ],
+        "text-size": 11,
+        "icon-allow-overlap": false,
+        "visibility": "visible",
+        "icon-size": {
+          "stops": [
+            [
+              9,
+              1
+            ],
+            [
+              16,
+              1.3
+            ]
+          ]
+        },
+        "text-ignore-placement": false,
+        "symbol-spacing": 10
       }
     }
   ],

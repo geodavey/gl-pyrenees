@@ -8,11 +8,11 @@ tippecanoe --drop-densest-as-needed \
     --force \
     -z 13 \
     -o "${DST_VTILE}" \
-    "${SRC_DATA}/hrp-route.geojson"
+    ${SRC_DATA}/*.geojson
 
 tippecanoe --drop-densest-as-needed \
     --no-tile-compression \
     --force \
     -z 13 \
     -e "${DST_PBFS}" \
-    "${SRC_DATA}/hrp-route.geojson"
+    ${SRC_DATA}/*.geojson

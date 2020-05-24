@@ -28,5 +28,10 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "@derhuerst/query-overpass": "^2.0.0",
+    "@turf/turf": "^5.1.6",
+    "query-overpass": "^1.5.5"
   }
 }
