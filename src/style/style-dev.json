@@ -4265,6 +4265,75 @@
       }
     },
     {
+      "id": "hrp-highlight",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hrproute",
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {
+          "stops": [
+            [
+              6,
+              4
+            ],
+            [
+              10,
+              5
+            ]
+          ]
+        },
+        "line-blur": 0,
+        "line-dasharray": [
+          1
+        ]
+      },
+      "minzoom": 0,
+      "layout": {}
+    },
+    {
+      "id": "hrp",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hrproute",
+      "paint": {
+        "line-color": "rgba(255, 0, 0, 1)",
+        "line-width": {
+          "stops": [
+            [
+              6,
+              1.2
+            ],
+            [
+              10,
+              1.6
+            ]
+          ]
+        },
+        "line-blur": 0,
+        "line-dasharray": {
+          "stops": [
+            [
+              6,
+              [
+                2,
+                1
+              ]
+            ],
+            [
+              10,
+              [
+                3,
+                1
+              ]
+            ]
+          ]
+        }
+      },
+      "minzoom": 0,
+      "layout": {}
+    },
+    {
       "id": "water_name_line",
       "type": "symbol",
       "source": "openmaptiles",
@@ -5701,38 +5770,58 @@
       }
     },
     {
-      "id": "hrp-highlight",
-      "type": "line",
+      "id": "hrp-copy",
+      "type": "symbol",
       "source": "pyrenees",
       "source-layer": "hrproute",
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-width": 4,
-        "line-blur": 0,
-        "line-dasharray": [
-          2,
-          1
-        ]
+        "text-halo-color": "rgba(255, 0, 0, 1)",
+        "text-halo-width": 100,
+        "text-halo-blur": 0,
+        "text-color": "rgba(255, 255, 255, 1)",
+        "text-opacity": 1,
+        "text-translate": [
+          0,
+          0
+        ],
+        "text-translate-anchor": "viewport"
       },
       "minzoom": 0,
-      "layout": {}
-    },
-    {
-      "id": "hrp",
-      "type": "line",
-      "source": "pyrenees",
-      "source-layer": "hrproute",
-      "paint": {
-        "line-color": "rgba(255, 0, 0, 1)",
-        "line-width": 1.2,
-        "line-blur": 0,
-        "line-dasharray": [
-          2,
-          1
-        ]
-      },
-      "minzoom": 0,
-      "layout": {}
+      "layout": {
+        "symbol-spacing": {
+          "stops": [
+            [
+              7,
+              10
+            ],
+            [
+              10,
+              600
+            ]
+          ]
+        },
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-rotation-alignment": "viewport",
+        "text-size": 12,
+        "icon-size": 0.8,
+        "text-field": "{name}",
+        "text-allow-overlap": false,
+        "visibility": "visible",
+        "symbol-placement": "line",
+        "text-ignore-placement": false,
+        "symbol-z-order": "auto",
+        "symbol-avoid-edges": false,
+        "text-max-width": 10,
+        "text-max-angle": 360,
+        "text-keep-upright": true,
+        "text-letter-spacing": -0.05
+      }
     }
   ],
   "id": "osm-liberty"
