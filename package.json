@@ -6,7 +6,7 @@
   "scripts": {
     "dev:maputnik": "maputnik --watch -f src/style/style-dev.json",
     "dev:app": "webpack-dev-server --config webpack.dev.js --progress --hot",
-    "develop": "npm run dev:app",
+    "develop": "npm-run-all -p dev:app dev:maputnik",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -20,6 +20,7 @@
     "html-webpack-plugin": "^4.3.0",
     "json-loader": "^0.5.7",
     "mapbox-gl": "^1.10.1",
+    "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-map-gl": "^5.2.5",

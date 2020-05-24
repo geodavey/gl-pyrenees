@@ -43,6 +43,15 @@
       ],
       "minzoom": 11,
       "maxzoom": 13
+    },
+    "pyrenees": {
+      "type": "vector",
+      "tiles": [
+        "http://localhost:8080/data/pyrenees/{z}/{x}/{y}.pbf"
+      ],
+      "minZoom": 0,
+      "maxZoom": 14,
+      "maxzoom": 13
     }
   },
   "sprite": "https://nst-guide.github.io/osm-liberty-topo/sprites/osm-liberty-topo",
@@ -208,6 +217,9 @@
         "hillshade-shadow-color": "hsl(39, 21%, 33%)",
         "hillshade-illumination-direction": 315,
         "hillshade-exaggeration": 0.6
+      },
+      "layout": {
+        "visibility": "visible"
       }
     },
     {
@@ -3954,7 +3966,8 @@
         ]
       ],
       "layout": {
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "#9e9cab",
@@ -3996,7 +4009,8 @@
       ],
       "layout": {
         "line-cap": "round",
-        "line-join": "round"
+        "line-join": "round",
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "hsl(248, 1%, 41%)",
@@ -4026,10 +4040,14 @@
             ],
             [
               12,
-              3
+              1.5
             ]
           ]
-        }
+        },
+        "line-dasharray": [
+          3,
+          4
+        ]
       }
     },
     {
@@ -5551,7 +5569,8 @@
             ]
           ]
         },
-        "text-transform": "none"
+        "text-transform": "none",
+        "visibility": "visible"
       },
       "paint": {
         "text-color": "#334",
@@ -5596,7 +5615,8 @@
             ]
           ]
         },
-        "text-transform": "none"
+        "text-transform": "none",
+        "visibility": "visible"
       },
       "paint": {
         "text-color": "#334",
@@ -5641,7 +5661,8 @@
             ]
           ]
         },
-        "text-transform": "none"
+        "text-transform": "none",
+        "visibility": "visible"
       },
       "paint": {
         "text-color": "#334",
@@ -5678,6 +5699,40 @@
         "text-halo-color": "rgba(255,255,255,0.7)",
         "text-halo-width": 1
       }
+    },
+    {
+      "id": "hrp-highlight",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hrproute",
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": 4,
+        "line-blur": 0,
+        "line-dasharray": [
+          2,
+          1
+        ]
+      },
+      "minzoom": 0,
+      "layout": {}
+    },
+    {
+      "id": "hrp",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hrproute",
+      "paint": {
+        "line-color": "rgba(255, 0, 0, 1)",
+        "line-width": 1.2,
+        "line-blur": 0,
+        "line-dasharray": [
+          2,
+          1
+        ]
+      },
+      "minzoom": 0,
+      "layout": {}
     }
   ],
   "id": "osm-liberty"

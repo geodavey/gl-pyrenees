@@ -10,6 +10,7 @@ const config = {
 
   devServer: {
     disableHostCheck: true,
+    contentBase: resolve("public"),
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
@@ -47,6 +48,10 @@ const config = {
         use: ["json-loader"],
       },
     ],
+  },
+
+  output: {
+      path: resolve("public")
   },
 
   plugins: [new HtmlWebPackPlugin()],
