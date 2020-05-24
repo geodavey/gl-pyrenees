@@ -5824,10 +5824,110 @@
       }
     },
     {
+      "id": "pyr_convenience",
+      "type": "symbol",
+      "source": "pyrenees",
+      "source-layer": "pois",
+      "paint": {
+        "icon-color": "rgba(184, 39, 39, 1)"
+      },
+      "layout": {
+        "icon-image": "shop_11",
+        "text-anchor": "top",
+        "text-field": "",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-max-width": 9,
+        "text-offset": [
+          0,
+          0.6
+        ],
+        "text-size": 11,
+        "icon-allow-overlap": false,
+        "visibility": "visible",
+        "icon-size": {
+          "stops": [
+            [
+              9,
+              0.8
+            ],
+            [
+              16,
+              0.9
+            ]
+          ]
+        },
+        "text-ignore-placement": false,
+        "symbol-spacing": 1,
+        "symbol-z-order": "auto",
+        "text-allow-overlap": true
+      },
+      "filter": [
+        "all",
+        [
+          "==",
+          "shop",
+          "convenience"
+        ]
+      ],
+      "minzoom": 10,
+      "maxzoom": 24
+    },
+    {
+      "id": "pyr_wilderness_huts",
+      "type": "symbol",
+      "source": "pyrenees",
+      "source-layer": "pois",
+      "paint": {},
+      "layout": {
+        "icon-image": "shelter_11",
+        "text-anchor": "top",
+        "text-field": "",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-max-width": 9,
+        "text-offset": [
+          0,
+          0.6
+        ],
+        "text-size": 11,
+        "icon-allow-overlap": false,
+        "visibility": "visible",
+        "icon-size": {
+          "stops": [
+            [
+              9,
+              1
+            ],
+            [
+              16,
+              1.3
+            ]
+          ]
+        },
+        "text-ignore-placement": false,
+        "symbol-spacing": 1,
+        "symbol-z-order": "auto",
+        "text-allow-overlap": true
+      },
+      "filter": [
+        "all",
+        [
+          "==",
+          "tourism",
+          "wilderness_hut"
+        ]
+      ],
+      "minzoom": 9,
+      "maxzoom": 24
+    },
+    {
       "id": "pyr_supermarkets",
       "type": "symbol",
       "source": "pyrenees",
-      "source-layer": "supermarkets",
+      "source-layer": "pois",
       "paint": {},
       "layout": {
         "icon-image": "grocery_11",
@@ -5857,8 +5957,65 @@
           ]
         },
         "text-ignore-placement": false,
-        "symbol-spacing": 10
-      }
+        "symbol-spacing": 1,
+        "symbol-z-order": "auto",
+        "text-allow-overlap": true
+      },
+      "filter": [
+        "all",
+        [
+          "==",
+          "shop",
+          "supermarket"
+        ]
+      ],
+      "minzoom": 9,
+      "maxzoom": 24
+    },
+    {
+      "id": "hr_all",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "minzoom": 9,
+      "maxzoom": 24
+    },
+    {
+      "id": "hr_major",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "filter": [
+        "all",
+        [
+          "in",
+          "ref",
+          "HRP",
+          "GR11",
+          "GR 11",
+          "GR 10"
+        ]
+      ],
+      "paint": {
+        "line-width": 3,
+        "line-color": [
+          "match",
+          [
+            "get",
+            "ref"
+          ],
+          "HRP",
+          "#fbb03b",
+          "GR 11",
+          "#223b53",
+          "GR11",
+          "#223b53",
+          "GR 10",
+          "#e55e5e",
+          "#000000"
+        ]
+      },
+      "minzoom": 0
     }
   ],
   "id": "osm-liberty"
