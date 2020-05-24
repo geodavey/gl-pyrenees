@@ -4,15 +4,28 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "dev:maputnik": "maputnik --watch -f src/style/style-dev.json",
+    "dev:app": "webpack-dev-server --config webpack.dev.js --progress --hot",
+    "develop": "npm run dev:app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "^4.3.0",
+    "json-loader": "^0.5.7",
     "mapbox-gl": "^1.10.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-map-gl": "^5.2.5",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.4.6",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
   }
 }
