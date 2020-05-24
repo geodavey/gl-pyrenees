@@ -10,13 +10,12 @@ const config = {
 
   devServer: {
     disableHostCheck: true,
-    index: "index.html",
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
   },
 
-  entry: "./src/map.js",
+  entry: "./src/app.js",
 
   module: {
     rules: [

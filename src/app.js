@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-const Map = (props) => {
+const App = (props) => {
     return <div>lol</div>
 };
 
-ReactDOM.render(<Map/>, document.body);
+ReactDOM.render(<App/>, document.body);
