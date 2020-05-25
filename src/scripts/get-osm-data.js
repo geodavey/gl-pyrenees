@@ -41,6 +41,7 @@ out geom meta;
         return feat;
       })
       .filter((feat) => {
+        // filter out Point's and feats with no geom
         // if linestring was fully outside clip it will have no geom
         return !(
           typeof feat.geometry === "undefined" ||
@@ -81,6 +82,8 @@ const clipLineToPoly = (line, poly) => {
     let newCoords = [];
 
     clippedFeats.forEach((feat, idx) => {
+      // if first point is inside, add all even numbered features
+      // if first point is outside, add all odd numbered features
       if ((firstPointInside + idx + 1) % 2 === 0) {
         newCoords.push(feat.geometry.coordinates);
       }
