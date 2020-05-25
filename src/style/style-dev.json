@@ -78,7 +78,7 @@
         ]
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "fill-antialias": false,
@@ -103,7 +103,7 @@
         ]
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "fill-antialias": true,
@@ -133,7 +133,7 @@
         ]
       ],
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "fill-antialias": false,
@@ -161,7 +161,7 @@
         "fill-opacity": 0.3
       },
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       },
       "maxzoom": 22
     },
@@ -171,7 +171,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 10,
+      "maxzoom": 12,
       "filter": [
         "all",
         [
@@ -205,7 +205,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 10,
+      "maxzoom": 12,
       "filter": [
         "all",
         [
@@ -228,7 +228,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 10,
+      "maxzoom": 12,
       "filter": [
         "all",
         [
@@ -251,7 +251,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 10,
+      "maxzoom": 12,
       "filter": [
         "all",
         [
@@ -274,7 +274,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 10,
+      "maxzoom": 12,
       "filter": [
         "all",
         [
@@ -1035,6 +1035,66 @@
       }
     },
     {
+      "id": "hr_minor-casing",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all"
+      ],
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-blur": 0,
+        "line-width": {
+          "stops": [
+            [
+              6,
+              2
+            ],
+            [
+              10,
+              3
+            ]
+          ]
+        }
+      },
+      "layout": {
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "hr_minor",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all"
+      ],
+      "paint": {
+        "line-color": "rgba(234, 118, 24, 1)",
+        "line-blur": 0,
+        "line-width": {
+          "stops": [
+            [
+              6,
+              0.6
+            ],
+            [
+              10,
+              1.7
+            ]
+          ]
+        }
+      },
+      "layout": {
+        "visibility": "visible"
+      }
+    },
+    {
       "id": "hr_major-casing",
       "type": "line",
       "source": "pyrenees",
@@ -1125,31 +1185,6 @@
         ]
       },
       "minzoom": 0
-    },
-    {
-      "id": "hr_minor",
-      "type": "line",
-      "source": "pyrenees",
-      "source-layer": "hiking_routes",
-      "minzoom": 10,
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "network",
-          "iwn",
-          "nwn"
-        ]
-      ],
-      "paint": {
-        "line-color": "rgba(163, 111, 18, 1)",
-        "line-blur": 0,
-        "line-width": 1
-      },
-      "layout": {
-        "visibility": "none"
-      }
     },
     {
       "id": "tunnel_motorway_link_casing",
@@ -5176,7 +5211,7 @@
         ],
         "text-size": 11,
         "icon-allow-overlap": false,
-        "visibility": "visible",
+        "visibility": "none",
         "icon-size": {
           "stops": [
             [
@@ -6341,6 +6376,46 @@
       "source-layer": "pyr_footprint",
       "paint": {},
       "layout": {}
+    },
+    {
+      "id": "pyr_resupply-text",
+      "type": "symbol",
+      "source": "pyrenees",
+      "source-layer": "resupply",
+      "paint": {
+        "text-translate": [
+          8,
+          0
+        ],
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 2
+      },
+      "layout": {
+        "icon-image": "grocery_11",
+        "text-field": "{name}",
+        "text-font": [
+          "Open Sans Regular",
+          "Arial Unicode MS Regular"
+        ],
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-size": {
+          "stops": [
+            [
+              1,
+              0
+            ],
+            [
+              8,
+              0
+            ],
+            [
+              8.01,
+              12
+            ]
+          ]
+        }
+      }
     }
   ],
   "id": "topo"

@@ -1,0 +1,24 @@
+{
+"type": "FeatureCollection",
+"name": "resupply",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": null, "name": "Lecsun" }, "geometry": { "type": "Point", "coordinates": [ -0.634355112382381, 42.934251786990316 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Aldudes" }, "geometry": { "type": "Point", "coordinates": [ -1.426622943180096, 43.097748504330241 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Bera" }, "geometry": { "type": "Point", "coordinates": [ -1.681662619432702, 43.28114777465133 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Elizonda" }, "geometry": { "type": "Point", "coordinates": [ -1.519734398681744, 43.144063599182807 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Candanchu" }, "geometry": { "type": "Point", "coordinates": [ -0.530270711318667, 42.788079146560889 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Gavarnie" }, "geometry": { "type": "Point", "coordinates": [ -0.009088179276181, 42.73273404126433 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Parzan" }, "geometry": { "type": "Point", "coordinates": [ 0.209159509913363, 42.661731319943222 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Benasque" }, "geometry": { "type": "Point", "coordinates": [ 0.52234870421673, 42.60608519759743 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Salardu" }, "geometry": { "type": "Point", "coordinates": [ 0.901277707757612, 42.705563405979206 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Tavascan" }, "geometry": { "type": "Point", "coordinates": [ 1.257144033710068, 42.643890664669236 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Arinsal" }, "geometry": { "type": "Point", "coordinates": [ 1.48592961456347, 42.571316994498915 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Pas de la Casa" }, "geometry": { "type": "Point", "coordinates": [ 1.732884406672682, 42.542879234760257 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Bolquere" }, "geometry": { "type": "Point", "coordinates": [ 2.078300887331288, 42.502926408761112 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Sur Tech" }, "geometry": { "type": "Point", "coordinates": [ 2.632421837266383, 42.45560372251034 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Amélie-Les-Bains" }, "geometry": { "type": "Point", "coordinates": [ 2.666972458296778, 42.474821613125165 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "Macanet de Cabrenys" }, "geometry": { "type": "Point", "coordinates": [ 2.748204525020814, 42.385993903590403 ] } },
+{ "type": "Feature", "properties": { "id": null, "name": "el Pertús" }, "geometry": { "type": "Point", "coordinates": [ 2.863266927017638, 42.463289244011101 ] } }
+]
+}

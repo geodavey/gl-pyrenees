@@ -16,6 +16,8 @@ const outDir = "../data";
 const pyrBbox = turf.bbox(pyrFootprint);
 const osmBbox = `${pyrBbox[1]}, ${pyrBbox[0]}, ${pyrBbox[3]}, ${pyrBbox[2]}`;
 
+console.log(pyrBbox);
+return;
 //
 // Hiking Routes
 //
