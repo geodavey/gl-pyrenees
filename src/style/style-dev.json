@@ -996,6 +996,162 @@
       }
     },
     {
+      "id": "hr_gr",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "paint": {
+        "line-width": 2,
+        "line-color": [
+          "match",
+          [
+            "get",
+            "ref"
+          ],
+          "HRP",
+          "#fbb03b",
+          "GR 11",
+          "#223b53",
+          "GR11",
+          "#223b53",
+          "GR 10",
+          "#e55e5e",
+          "#000000"
+        ]
+      },
+      "minzoom": 0,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ref",
+          "GR 11",
+          "GR10",
+          "GR 10"
+        ]
+      ],
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "hr_major-casing",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "minzoom": 7.5,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "network",
+          "iwn",
+          "nwn"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-blur": 0,
+        "line-width": {
+          "stops": [
+            [
+              6,
+              2
+            ],
+            [
+              10,
+              3
+            ]
+          ]
+        }
+      },
+      "layout": {
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "hr_major",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "minzoom": 7,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "network",
+          "iwn",
+          "nwn"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(234, 118, 24, 1)",
+        "line-blur": 0,
+        "line-width": {
+          "stops": [
+            [
+              6,
+              0.6
+            ],
+            [
+              10,
+              1.7
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "hr_hrp",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "filter": [
+        "all",
+        [
+          "in",
+          "ref",
+          "HRP"
+        ]
+      ],
+      "paint": {
+        "line-width": 1.8,
+        "line-color": "rgba(255, 0, 0, 1)",
+        "line-translate": [
+          0,
+          0
+        ]
+      },
+      "minzoom": 0
+    },
+    {
+      "id": "hr_minor",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "!in",
+          "network",
+          "iwn",
+          "nwn"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(163, 111, 18, 1)",
+        "line-blur": 0,
+        "line-width": 1
+      },
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
       "id": "tunnel_motorway_link_casing",
       "type": "line",
       "metadata": {},
@@ -2482,7 +2638,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "#e9ac77",
@@ -2500,7 +2656,9 @@
             ]
           ]
         }
-      }
+      },
+      "minzoom": 9.5,
+      "maxzoom": 24
     },
     {
       "id": "road_path_pedestrian",
@@ -2578,10 +2736,10 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "rgba(21, 10, 1, 1)",
         "line-opacity": 1,
         "line-width": {
           "base": 1.2,
@@ -2604,7 +2762,9 @@
             ]
           ]
         }
-      }
+      },
+      "minzoom": 9.5,
+      "maxzoom": 24
     },
     {
       "id": "road_motorway_casing",
@@ -2612,7 +2772,7 @@
       "metadata": {},
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 5,
+      "minzoom": 9.5,
       "filter": [
         "all",
         [
@@ -2635,7 +2795,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "rgba(230, 144, 81, 1)",
@@ -2660,7 +2820,8 @@
             ]
           ]
         }
-      }
+      },
+      "maxzoom": 24
     },
     {
       "id": "road_minor",
@@ -3013,10 +3174,10 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 238, 170, 1)",
+        "line-color": "#000",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -3034,7 +3195,9 @@
             ]
           ]
         }
-      }
+      },
+      "minzoom": 9.5,
+      "maxzoom": 24
     },
     {
       "id": "road_secondary_tertiary_construction",
@@ -3060,10 +3223,10 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
-        "line-color": "#fff",
+        "line-color": "#000",
         "line-dasharray": [
           2,
           2
@@ -3085,7 +3248,9 @@
             ]
           ]
         }
-      }
+      },
+      "minzoom": 9.5,
+      "maxzoom": 24
     },
     {
       "id": "road_trunk_primary",
@@ -3111,10 +3276,10 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
-        "line-color": "#fea",
+        "line-color": "#000",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -3132,7 +3297,8 @@
             ]
           ]
         }
-      }
+      },
+      "minzoom": 9.5
     },
     {
       "id": "road_trunk_primary_construction",
@@ -3163,7 +3329,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "#fea",
@@ -3188,7 +3354,9 @@
             ]
           ]
         }
-      }
+      },
+      "minzoom": 9.5,
+      "maxzoom": 24
     },
     {
       "id": "road_motorway",
@@ -3196,7 +3364,7 @@
       "metadata": {},
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 5,
+      "minzoom": 9.5,
       "filter": [
         "all",
         [
@@ -3219,7 +3387,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "line-color": {
@@ -3227,11 +3395,11 @@
           "stops": [
             [
               5,
-              "rgba(251, 183, 100, 1)"
+              "#000"
             ],
             [
               6,
-              "rgba(255, 204, 136, 1)"
+              "#000"
             ]
           ]
         },
@@ -3252,7 +3420,8 @@
             ]
           ]
         }
-      }
+      },
+      "maxzoom": 24
     },
     {
       "id": "road_motorway_construction",
@@ -3283,7 +3452,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "line-color": {
@@ -4800,7 +4969,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(136, 136, 136, 1)",
@@ -4986,150 +5155,6 @@
         "text-halo-color": "rgba(255, 255, 255, 0.45)",
         "text-halo-width": 2
       }
-    },
-    {
-      "id": "hr_all-casing",
-      "type": "line",
-      "source": "pyrenees",
-      "source-layer": "hiking_routes",
-      "minzoom": 7,
-      "maxzoom": 24,
-      "filter": [
-        "all"
-      ],
-      "paint": {
-        "line-color": "rgba(252, 252, 252, 1)",
-        "line-width": 3,
-        "line-blur": 0.2
-      },
-      "layout": {
-        "visibility": "none"
-      }
-    },
-    {
-      "id": "hr_minor",
-      "type": "line",
-      "source": "pyrenees",
-      "source-layer": "hiking_routes",
-      "minzoom": 10,
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "!in",
-          "network",
-          "iwn",
-          "nwn"
-        ]
-      ],
-      "paint": {
-        "line-color": "rgba(163, 111, 18, 1)",
-        "line-blur": 0,
-        "line-width": 1
-      }
-    },
-    {
-      "id": "hr_major-casing",
-      "type": "line",
-      "source": "pyrenees",
-      "source-layer": "hiking_routes",
-      "minzoom": 7,
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "network",
-          "iwn",
-          "nwn"
-        ]
-      ],
-      "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-blur": 0,
-        "line-width": 2
-      }
-    },
-    {
-      "id": "hr_major",
-      "type": "line",
-      "source": "pyrenees",
-      "source-layer": "hiking_routes",
-      "minzoom": 7,
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        [
-          "in",
-          "network",
-          "iwn",
-          "nwn"
-        ]
-      ],
-      "paint": {
-        "line-color": "rgba(125, 84, 15, 1)",
-        "line-blur": 0,
-        "line-width": 1,
-        "line-dasharray": [
-          3,
-          3
-        ]
-      }
-    },
-    {
-      "id": "hr_gr",
-      "type": "line",
-      "source": "pyrenees",
-      "source-layer": "hiking_routes",
-      "paint": {
-        "line-width": 2,
-        "line-color": [
-          "match",
-          [
-            "get",
-            "ref"
-          ],
-          "HRP",
-          "#fbb03b",
-          "GR 11",
-          "#223b53",
-          "GR11",
-          "#223b53",
-          "GR 10",
-          "#e55e5e",
-          "#000000"
-        ]
-      },
-      "minzoom": 0,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ref",
-          "GR 11",
-          "GR10",
-          "GR 10"
-        ]
-      ]
-    },
-    {
-      "id": "hr_hrp",
-      "type": "line",
-      "source": "pyrenees",
-      "source-layer": "hiking_routes",
-      "filter": [
-        "all",
-        [
-          "in",
-          "ref",
-          "HRP"
-        ]
-      ],
-      "paint": {
-        "line-width": 2,
-        "line-color": "rgba(255, 0, 0, 1)"
-      },
-      "minzoom": 0
     },
     {
       "id": "pyr_supermarkets",
@@ -5793,7 +5818,7 @@
             ]
           ]
         },
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "text-color": "#333",
@@ -5862,7 +5887,7 @@
             ],
             [
               11,
-              20
+              16
             ]
           ]
         },
@@ -5943,7 +5968,7 @@
           "stops": [
             [
               7,
-              14
+              13
             ],
             [
               11,
@@ -6018,7 +6043,7 @@
           "stops": [
             [
               7,
-              18
+              13
             ],
             [
               11,
@@ -6113,7 +6138,7 @@
           ]
         },
         "text-transform": "none",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "text-color": "rgba(47, 49, 60, 1)",
@@ -6165,7 +6190,7 @@
           ]
         },
         "text-transform": "none",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "text-color": "rgba(47, 49, 60, 1)",
@@ -6217,7 +6242,7 @@
           ]
         },
         "text-transform": "none",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "text-color": "rgba(47, 49, 60, 1)",
@@ -6269,7 +6294,7 @@
           ]
         },
         "text-transform": "none",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "text-color": "rgba(47, 49, 60, 1)",
