@@ -1099,7 +1099,7 @@
       "type": "line",
       "source": "pyrenees",
       "source-layer": "hiking_routes",
-      "minzoom": 7.5,
+      "minzoom": 7,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -5323,9 +5323,10 @@
               1
             ]
           ]
-        }
+        },
+        "visibility": "none"
       },
-      "minzoom": 11,
+      "minzoom": 7,
       "maxzoom": 24
     },
     {
@@ -5714,11 +5715,6 @@
           "==",
           "$type",
           "Point"
-        ],
-        [
-          "==",
-          "rank",
-          1
         ],
         [
           "==",
@@ -6378,7 +6374,7 @@
       "layout": {}
     },
     {
-      "id": "pyr_resupply-text",
+      "id": "pyr_resupply",
       "type": "symbol",
       "source": "pyrenees",
       "source-layer": "resupply",
@@ -6415,6 +6411,62 @@
             ]
           ]
         }
+      },
+      "minzoom": 7
+    },
+    {
+      "id": "pyr_peaks3000",
+      "type": "symbol",
+      "source": "pyrenees",
+      "source-layer": "peaks3000",
+      "layout": {
+        "icon-image": "mountain_11",
+        "icon-allow-overlap": false,
+        "icon-padding": {
+          "stops": [
+            [
+              10,
+              30
+            ],
+            [
+              15,
+              30
+            ]
+          ]
+        },
+        "symbol-z-order": "auto",
+        "symbol-sort-key": [
+          "*",
+          [
+            "to-number",
+            [
+              "get",
+              "ele"
+            ]
+          ],
+          -1
+        ],
+        "text-padding": 2,
+        "text-field": "{name}\n{ele} m",
+        "text-anchor": "top",
+        "text-justify": "center",
+        "text-size": 11,
+        "icon-offset": [
+          0,
+          0
+        ],
+        "visibility": "visible"
+      },
+      "minzoom": 8,
+      "paint": {
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(255,255,255,1)",
+        "text-color": "#222",
+        "text-halo-blur": 1,
+        "text-translate": [
+          0,
+          8
+        ]
       }
     }
   ],

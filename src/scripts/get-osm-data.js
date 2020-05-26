@@ -16,8 +16,30 @@ const outDir = "../data";
 const pyrBbox = turf.bbox(pyrFootprint);
 const osmBbox = `${pyrBbox[1]}, ${pyrBbox[0]}, ${pyrBbox[3]}, ${pyrBbox[2]}`;
 
-console.log(pyrBbox);
-return;
+//
+// Peaks > 3000m
+
+queryOverpass(`
+[bbox:${osmBbox}][out:json];
+  ( node[natural="peak"]["ele"~"^3[0-9]{3}"]["name"]["ele"]; );
+out geom meta;
+`)
+.then((osmJSON) => {
+  let peaksCollection = osmtogeojson({ elements: osmJSON });
+  peaksCollection.features = peaksCollection.features.map((feat) => {
+
+    feat.properties = filterTags(feat.properties, [
+      "name",
+      "prominence",
+      "ele",
+    ]);
+
+    return feat;
+  })
+
+  saveGeoJSON(peaksCollection, "peaks3000");
+})
+//
 //
 // Hiking Routes
 //
@@ -56,16 +78,6 @@ out geom meta;
   .catch((err) => {
     console.log(err);
   });
-
-//
-//
-//
-
-const saveGeoJSON = (features, slug) => {
-  fs.writeFileSync(`${outDir}/${slug}.geojson`, JSON.stringify(features));
-
-  console.log(`Saved ${slug}...`);
-};
 
 const clipLineToPoly = (line, poly) => {
   let clippedCollection = turf.lineSplit(line, poly);
@@ -122,6 +134,16 @@ const clipAllLinesToPoly = (lines, poly) => {
   }
 };
 
+//
+//
+//
+
+const saveGeoJSON = (features, slug) => {
+  fs.writeFileSync(`${outDir}/${slug}.geojson`, JSON.stringify(features));
+
+  console.log(`Saved ${slug}...`);
+};
+
 const filterTags = (tags, keepTags) => {
   let newTags = {};
 
@@ -133,6 +155,11 @@ const filterTags = (tags, keepTags) => {
 };
 
 return;
+
+
+//
+// POIs
+//
 
 queryOverpass(`
   [out:json]; 
