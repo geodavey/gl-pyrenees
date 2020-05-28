@@ -18,16 +18,15 @@ const osmBbox = `${pyrBbox[1]}, ${pyrBbox[0]}, ${pyrBbox[3]}, ${pyrBbox[2]}`;
 
 //
 // Peaks > 3000m
+//
 
 queryOverpass(`
 [bbox:${osmBbox}][out:json];
   ( node[natural="peak"]["ele"~"^3[0-9]{3}"]["name"]["ele"]; );
 out geom meta;
-`)
-.then((osmJSON) => {
+`).then((osmJSON) => {
   let peaksCollection = osmtogeojson({ elements: osmJSON });
   peaksCollection.features = peaksCollection.features.map((feat) => {
-
     feat.properties = filterTags(feat.properties, [
       "name",
       "prominence",
@@ -35,11 +34,11 @@ out geom meta;
     ]);
 
     return feat;
-  })
+  });
 
   saveGeoJSON(peaksCollection, "peaks3000");
-})
-//
+});
+
 //
 // Hiking Routes
 //
@@ -68,9 +67,8 @@ out geom meta;
         // filter out Point's and feats with no geom
         // if linestring was fully outside clip it will have no geom
         return !(
-          typeof feat.geometry === "undefined" ||
-          feat.geometry.type === "Point"
-        )
+          typeof feat.geometry === "undefined" || feat.geometry.type === "Point"
+        );
       });
 
     saveGeoJSON(routesCollection, "hiking_routes");
@@ -112,9 +110,11 @@ const clipAllLinesToPoly = (lines, poly) => {
     let clippedCoords = clipLineToPoly(turf.feature(lines), poly);
     if (clippedCoords.length == 0) return;
     else {
+      // TODO figure out why this makes it all work
       if (typeof clippedCoords[0][0][0] !== "undefined")
         return turf.lineString(clippedCoords[0]).geometry;
       else return turf.lineString(clippedCoords).geometry;
+      //
     }
   } else if (lines.type == "MultiLineString") {
     let newLineStrings = [];
@@ -128,6 +128,7 @@ const clipAllLinesToPoly = (lines, poly) => {
       if (typeof clippedCoords[0][0][0] !== "undefined")
         newLineStrings.push(clippedCoords[0]);
       else newLineStrings.push(clippedCoords);
+      //
     });
 
     return turf.multiLineString(newLineStrings).geometry;
@@ -155,7 +156,6 @@ const filterTags = (tags, keepTags) => {
 };
 
 return;
-
 
 //
 // POIs

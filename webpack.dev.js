@@ -2,7 +2,7 @@ const resolve = require("path").resolve;
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const BABEL_CONFIG = {
-  presets: ["@babel/env", "@babel/react"]
+  presets: ["@babel/env", "@babel/react"],
 };
 
 const config = {
@@ -33,6 +33,11 @@ const config = {
         ],
       },
       {
+        // SVG loading
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
+      },
+      {
         // enable SASS loading
         test: /\.scss$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
@@ -51,7 +56,7 @@ const config = {
   },
 
   output: {
-      path: resolve("public")
+    path: resolve("public"),
   },
 
   plugins: [new HtmlWebPackPlugin()],

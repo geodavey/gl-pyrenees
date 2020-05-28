@@ -432,11 +432,11 @@
           "stops": [
             [
               6,
-              0.9
+              0.7
             ],
             [
               10,
-              1
+              0.9
             ]
           ]
         },
@@ -1055,7 +1055,7 @@
             ],
             [
               10,
-              3
+              2.5
             ]
           ]
         }
@@ -1085,10 +1085,14 @@
             ],
             [
               10,
-              1.7
+              1.2
             ]
           ]
-        }
+        },
+        "line-dasharray": [
+          3,
+          1
+        ]
       },
       "layout": {
         "visibility": "visible"
@@ -5004,7 +5008,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "rgba(136, 136, 136, 1)",
@@ -5034,19 +5038,24 @@
           "stops": [
             [
               3,
-              1
+              0.7
             ],
             [
-              5,
-              1.2
+              7,
+              0.9
             ],
             [
               12,
-              3
+              2
             ]
           ]
-        }
-      }
+        },
+        "line-dasharray": [
+          3,
+          3
+        ]
+      },
+      "maxzoom": 24
     },
     {
       "id": "water_name_line",
@@ -5202,7 +5211,8 @@
         "text-anchor": "top",
         "text-field": "",
         "text-font": [
-          "Open Sans Regular"
+          "Roboto Regular",
+          "Noto Sans Regular"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -5253,7 +5263,8 @@
         "text-anchor": "top",
         "text-field": "",
         "text-font": [
-          "Open Sans Regular"
+          "Roboto Regular",
+          "Noto Sans Regular"
         ],
         "text-max-width": 9,
         "text-offset": [
@@ -5326,7 +5337,7 @@
         },
         "visibility": "visible"
       },
-      "minzoom": 9.5,
+      "minzoom": 11,
       "maxzoom": 24
     },
     {
@@ -5672,7 +5683,8 @@
           ]
         },
         "text-font": [
-          "Open Sans Regular"
+          "Roboto Regular",
+          "Noto Sans Regular"
         ],
         "text-offset": [
           0,
@@ -6388,26 +6400,34 @@
       },
       "layout": {
         "icon-image": "grocery_11",
-        "text-field": "{name}",
-        "text-font": [
-          "Open Sans Regular",
-          "Arial Unicode MS Regular"
-        ],
-        "text-justify": "left",
-        "text-anchor": "left",
-        "text-size": {
+        "text-field": {
           "stops": [
             [
-              1,
-              0
+              0,
+              ""
             ],
             [
               8,
-              0
+              "{name}"
+            ]
+          ]
+        },
+        "text-font": [
+          "Roboto Regular",
+          "Noto Sans Regular"
+        ],
+        "text-justify": "left",
+        "text-anchor": "left",
+        "text-size": 12,
+        "icon-size": {
+          "stops": [
+            [
+              6,
+              0.7
             ],
             [
-              8.01,
-              12
+              10,
+              1
             ]
           ]
         }
@@ -6450,11 +6470,15 @@
         "text-field": {
           "stops": [
             [
-              6,
+              0,
+              ""
+            ],
+            [
+              8,
               "{name}"
             ],
             [
-              9,
+              10,
               "{name}\n{ele} m"
             ]
           ]
@@ -6466,9 +6490,24 @@
           0,
           0
         ],
-        "visibility": "visible"
+        "visibility": "visible",
+        "icon-size": {
+          "stops": [
+            [
+              6,
+              0.6
+            ],
+            [
+              10,
+              1
+            ]
+          ]
+        },
+        "text-font": [
+          "Noto Sans Regular"
+        ]
       },
-      "minzoom": 8,
+      "minzoom": 7,
       "paint": {
         "text-halo-width": 1,
         "text-halo-color": "rgba(255,255,255,1)",
@@ -6478,7 +6517,8 @@
           0,
           8
         ]
-      }
+      },
+      "maxzoom": 24
     }
   ],
   "id": "topo"
