@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import MapGL, { GeolocateControl, Marker, Source, Layer } from "react-map-gl";
 
 import mapStyle from "./style/style-dev.json";
-
-import GdvPin from "./style/gDv-pin.svg";
+import GdvPinMarker from "./components/gdvPinMarker";
 
 const Map = (props) => {
   let [viewport, setViewport] = useState({
@@ -11,9 +10,6 @@ const Map = (props) => {
     latitude: 42.6993485,
     zoom: 7,
   });
-
-  let gdvPinHeight = 50;
-  let gdvPinRatio = 76 / 62;
 
   return (
     <MapGL
@@ -24,28 +20,16 @@ const Map = (props) => {
       mapStyle={mapStyle}
     >
       {props.updates.features.map((upd, idx) => {
-        // markers for previous waypoints
-        if (idx !== props.updates.features.length - 1) {
-          return;
-        } else {
-          // marker for current waypoint
-          return (
-            <Marker
-              key={idx}
-              longitude={upd.geometry.coordinates[0]}
-              latitude={upd.geometry.coordinates[1]}
-              offsetTop={-gdvPinHeight}
-              offsetLeft={(-gdvPinHeight/2) / gdvPinRatio}
-              height={gdvPinHeight}
-              width={gdvPinHeight / gdvPinRatio}
-            >
-              <GdvPin
-                height={gdvPinHeight}
-                width={gdvPinHeight / gdvPinRatio}
-              />
-            </Marker>
-          );
-        }
+        let pinHeight = idx !== props.updates.features.length - 1 ? 30 : 50;
+
+        return (
+          <GdvPinMarker
+            key={idx}
+            longitude={upd.geometry.coordinates[0]}
+            latitude={upd.geometry.coordinates[1]}
+            height={pinHeight}
+          />
+        );
       })}
       <Source id="gdv_tracks" type="geojson" data={props.tracks}>
         <Layer
@@ -53,15 +37,12 @@ const Map = (props) => {
           type="line"
           paint={{
             "line-color": "#4b4b4b",
-            "line-width": 2
+            "line-width": 2,
           }}
         />
       </Source>
       <Source id="gdv_waypoints" type="geojson" data={props.waypoints}>
-        <Layer
-          id="gdv_waypoints"
-          type="circle"
-        />
+        <Layer id="gdv_waypoints" type="circle" />
       </Source>
       <GeolocateControl
         positionOptions={{ enableHighAccuracy: true }}
