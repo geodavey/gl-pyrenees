@@ -14,7 +14,6 @@ const gdvPinMarker = (props) => {
   console.log(markerProps);
   return (
     <Marker
-      key={props.key}
       longitude={props.longitude}
       latitude={props.latitude}
       {...markerProps}

@@ -5341,6 +5341,39 @@
       "maxzoom": 24
     },
     {
+      "id": "gdv_tracks-placeholder",
+      "type": "circle",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "layout": {
+        "visibility": "none"
+      },
+      "minzoom": 0,
+      "maxzoom": 24
+    },
+    {
+      "id": "gdv_waypoints-placeholder",
+      "type": "circle",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "layout": {
+        "visibility": "none"
+      },
+      "minzoom": 0,
+      "maxzoom": 24
+    },
+    {
+      "id": "gdv_updates-placeholder",
+      "type": "circle",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "layout": {
+        "visibility": "none"
+      },
+      "minzoom": 0,
+      "maxzoom": 24
+    },
+    {
       "id": "road_label_track",
       "type": "symbol",
       "metadata": {},
