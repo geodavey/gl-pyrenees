@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import MapGL, { GeolocateControl, Marker } from "react-map-gl";
+import MapGL, { GeolocateControl, Marker, Source, Layer } from "react-map-gl";
 
 import mapStyle from "./style/style-dev.json";
 
-import tstGeojson from "./data/peaks3000.geojson";
 import GdvPin from "./style/gDv-pin.svg";
 
 const Map = (props) => {
@@ -24,19 +23,19 @@ const Map = (props) => {
       onViewportChange={setViewport}
       mapStyle={mapStyle}
     >
-      {tstGeojson.features.map((tst, idx) => {
+      {props.updates.features.map((upd, idx) => {
         // markers for previous waypoints
-        if (idx !== tstGeojson.features.length - 1) {
+        if (idx !== props.updates.features.length - 1) {
           return;
         } else {
           // marker for current waypoint
-          console.log(tst);
           return (
             <Marker
               key={idx}
-              longitude={tst.geometry.coordinates[0]}
-              latitude={tst.geometry.coordinates[1]}
+              longitude={upd.geometry.coordinates[0]}
+              latitude={upd.geometry.coordinates[1]}
               offsetTop={-gdvPinHeight}
+              offsetLeft={(-gdvPinHeight/2) / gdvPinRatio}
               height={gdvPinHeight}
               width={gdvPinHeight / gdvPinRatio}
             >
@@ -48,6 +47,22 @@ const Map = (props) => {
           );
         }
       })}
+      <Source id="gdv_tracks" type="geojson" data={props.tracks}>
+        <Layer
+          id="gdv_tracks"
+          type="line"
+          paint={{
+            "line-color": "#4b4b4b",
+            "line-width": 2
+          }}
+        />
+      </Source>
+      <Source id="gdv_waypoints" type="geojson" data={props.waypoints}>
+        <Layer
+          id="gdv_waypoints"
+          type="circle"
+        />
+      </Source>
       <GeolocateControl
         positionOptions={{ enableHighAccuracy: true }}
         trackUserLocation={true}

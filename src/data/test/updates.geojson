@@ -1,0 +1,70 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "photo": "",
+                "caption": "",
+                "location": "San Sebastian",
+                "time": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-1.97506193, 43.31477156]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "photo": "",
+                "caption": "",
+                "location": "Elizondo",
+                "time": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-1.51987787, 43.14377404]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "photo": "",
+                "caption": "",
+                "location": "Somewhere",
+                "time": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-1.28309941, 42.57759188]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "photo": "",
+                "caption": "",
+                "location":"Huesca",
+                "time": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-0.38929293, 42.13888737]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "photo": "",
+                "caption": "",
+                "location":"Parzan",
+                "time": ""
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [0.21055872, 42.66136863]
+            }
+        }
+    ]
+}
