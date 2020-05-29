@@ -16,6 +16,7 @@ const Map = (props) => {
   });
 
   let mapRef = React.createRef();
+  let { data } = props;
 
   //
   // Grab sprites from style once loaded
@@ -45,7 +46,7 @@ const Map = (props) => {
     >
 
       {/* Waypoints Markers */}
-      {sprite && props.waypoints.features.map((wpt, idx) => {
+      {sprite && data.waypoints.features.map((wpt, idx) => {
         return (
           <SpriteMarker
             key={idx}
@@ -60,8 +61,8 @@ const Map = (props) => {
       })}
 
       {/* Updates Markers */}
-      {props.updates.features.map((upd, idx) => {
-        let pinHeight = idx !== props.updates.features.length - 1 ? 30 : 50;
+      {data.updates.features.map((upd, idx) => {
+        let pinHeight = idx !== data.updates.features.length - 1 ? 30 : 50;
 
         return (
           <GdvPinMarker
@@ -74,7 +75,7 @@ const Map = (props) => {
       })}
 
       {/* Tracks  */}
-      <Source id="gdv_tracks" type="geojson" data={props.tracks}>
+      <Source id="gdv_tracks" type="geojson" data={data.tracks}>
         <Layer
           id="gdv_tracks-casing"
           beforeId="gdv_tracks-placeholder"
