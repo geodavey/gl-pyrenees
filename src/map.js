@@ -4,6 +4,7 @@ import MapGL, { GeolocateControl, Marker, Source, Layer } from "react-map-gl";
 import mapStyle from "./style/style-dev.json";
 import GdvPinMarker from "./components/gdvPinMarker";
 import SpriteMarker from "./components/spriteMarker";
+import SpriteMarkers from "./components/spriteMarkers";
 
 import "./map.scss";
 
@@ -44,21 +45,21 @@ const Map = (props) => {
       onViewportChange={setViewport}
       mapStyle={mapStyle}
     >
-
-      {/* Waypoints Markers */}
-      {sprite && data.waypoints.features.map((wpt, idx) => {
-        return (
-          <SpriteMarker
-            key={idx}
-            longitude={wpt.geometry.coordinates[0]}
-            latitude={wpt.geometry.coordinates[1]}
-            sprite={sprite}
-            height={11}
-            width={11}
-            icon="dot_11"
-          />
-        );
-      })}
+      {/* Waypoints Markers
+      {sprite &&
+        data.waypoints.features.map((wpt, idx) => {
+          return (
+            <SpriteMarker
+              key={idx}
+              longitude={wpt.geometry.coordinates[0]}
+              latitude={wpt.geometry.coordinates[1]}
+              sprite={sprite}
+              height={11}
+              width={11}
+              icon="dot_11"
+            />
+          );
+        })} */}
 
       {/* Updates Markers */}
       {data.updates.features.map((upd, idx) => {
@@ -95,6 +96,31 @@ const Map = (props) => {
           }}
         />
       </Source>
+
+      {/* Refuges
+      {sprite && data.refuges.features.map((rfg, idx) => {
+        return (
+          <SpriteMarker
+            key={idx}
+            longitude={rfg.geometry.coordinates[0]}
+            latitude={rfg.geometry.coordinates[1]}
+            sprite={sprite}
+            height={11}
+            width={11}
+            icon="dot_11"
+          />
+        );
+      })} */}
+{/* 
+      {sprite && (
+        <SpriteMarkers
+          data={data.refuges}
+          sprite={sprite}
+          height={11}
+          width={11}
+          icon="dot_11"
+        />
+      )} */}
 
       {/* Controls */}
       <GeolocateControl

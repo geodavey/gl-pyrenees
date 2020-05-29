@@ -78,7 +78,7 @@
         ]
       ],
       "layout": {
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "fill-antialias": false,
@@ -103,7 +103,7 @@
         ]
       ],
       "layout": {
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "fill-antialias": true,
@@ -161,7 +161,7 @@
         "fill-opacity": 0.3
       },
       "layout": {
-        "visibility": "none"
+        "visibility": "visible"
       },
       "maxzoom": 22
     },
@@ -171,7 +171,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 12,
+      "maxzoom": 11,
       "filter": [
         "all",
         [
@@ -205,7 +205,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 12,
+      "maxzoom": 11,
       "filter": [
         "all",
         [
@@ -228,7 +228,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 12,
+      "maxzoom": 11,
       "filter": [
         "all",
         [
@@ -251,7 +251,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 12,
+      "maxzoom": 11,
       "filter": [
         "all",
         [
@@ -274,7 +274,7 @@
       "source": "landcover",
       "source-layer": "globallandcover",
       "minzoom": 0,
-      "maxzoom": 12,
+      "maxzoom": 11,
       "filter": [
         "all",
         [
@@ -2722,7 +2722,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "#444",
@@ -2736,7 +2736,7 @@
             ],
             [
               20,
-              21
+              7
             ]
           ]
         }
@@ -3275,7 +3275,7 @@
             ],
             [
               20,
-              17
+              9
             ]
           ]
         }
@@ -5254,7 +5254,18 @@
       "layout": {
         "icon-image": "grocery_11",
         "text-anchor": "top",
-        "text-field": "",
+        "text-field": {
+          "stops": [
+            [
+              6,
+              "{name}"
+            ],
+            [
+              10,
+              "{name}"
+            ]
+          ]
+        },
         "text-font": [
           "Roboto Regular",
           "Noto Sans Regular"
@@ -5266,7 +5277,7 @@
         ],
         "text-size": 11,
         "icon-allow-overlap": false,
-        "visibility": "none",
+        "visibility": "visible",
         "icon-size": {
           "stops": [
             [
@@ -5292,7 +5303,7 @@
           "supermarket"
         ]
       ],
-      "minzoom": 10,
+      "minzoom": 7,
       "maxzoom": 24
     },
     {
@@ -5306,7 +5317,18 @@
       "layout": {
         "icon-image": "shop_11",
         "text-anchor": "top",
-        "text-field": "",
+        "text-field": {
+          "stops": [
+            [
+              6,
+              "{name}"
+            ],
+            [
+              10,
+              "{name}"
+            ]
+          ]
+        },
         "text-font": [
           "Roboto Regular",
           "Noto Sans Regular"
@@ -5344,11 +5366,11 @@
           "convenience"
         ]
       ],
-      "minzoom": 11,
+      "minzoom": 7,
       "maxzoom": 24
     },
     {
-      "id": "pyr_refuges",
+      "id": "pyr_refuges-placeholder",
       "type": "symbol",
       "source": "pyrenees",
       "source-layer": "pyr_refuges",
@@ -5380,7 +5402,7 @@
             ]
           ]
         },
-        "visibility": "visible"
+        "visibility": "none"
       },
       "minzoom": 11,
       "maxzoom": 24
@@ -6530,7 +6552,8 @@
               1
             ]
           ]
-        }
+        },
+        "visibility": "visible"
       },
       "minzoom": 7
     },

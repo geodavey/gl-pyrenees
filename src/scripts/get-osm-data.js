@@ -7,9 +7,7 @@ const getSingleFeatureGeoJSON = (path) => {
   return JSON.parse(fs.readFileSync(path)).features[0];
 };
 
-const hrpLineString = getSingleFeatureGeoJSON("../data/hrp_route.geojson");
 const pyrFootprint = getSingleFeatureGeoJSON("../data/pyr_footprint.geojson");
-const bufferKm = 12;
 const outDir = "../data";
 
 // get bounding box from pyr footprint. osm has minY first
@@ -136,7 +134,7 @@ const clipAllLinesToPoly = (lines, poly) => {
 };
 
 //
-//
+// Utils
 //
 
 const saveGeoJSON = (features, slug) => {
@@ -153,55 +151,4 @@ const filterTags = (tags, keepTags) => {
   });
 
   return newTags;
-};
-
-return;
-
-//
-// POIs
-//
-
-queryOverpass(`
-  [out:json]; 
-    ( 
-        nwr[tourism="wilderness_hut"](${bbox});
-        nwr[tourism="alpine_hut"](${bbox});
-        nwr[shop="convenience"](${bbox});
-        nwr[shop="supermarket"](${bbox});
-    );
-  out center;
-`)
-  .then((poiNodes) => {
-    let poiFeatures = poiNodes
-      .map(nodeToGeoJSON)
-      .filter((n) => isNodeInBuffer(n, bufferKm));
-    saveGeoJSON(poiFeatures, "pois");
-  })
-  .catch((err) => {
-    console.log("ERROR", err);
-  });
-
-const isNodeInBuffer = (node) => {
-  return (
-    turf.pointToLineDistance(node, hrpLineString, { units: "kilometers" }) <
-    bufferKm
-  );
-};
-
-const nodeToGeoJSON = (n) => {
-  // convert Overpass response to GeoJSON
-  // assumes all responses are nodes/points
-
-  // use center lat/lon if lat/lon not defined (for relations/closed ways)
-  let lon = typeof n.lon === "undefined" ? n.center.lon : n.lon;
-  let lat = typeof n.lat === "undefined" ? n.center.lat : n.lat;
-
-  return {
-    type: "Feature",
-    geometry: {
-      type: "Point",
-      coordinates: [lon, lat],
-    },
-    properties: Object.assign({}, n.tags, { id: n.id }),
-  };
 };
