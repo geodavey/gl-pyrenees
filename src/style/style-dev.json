@@ -1168,6 +1168,40 @@
       }
     },
     {
+      "id": "hr_hrp-casing",
+      "type": "line",
+      "source": "pyrenees",
+      "source-layer": "hiking_routes",
+      "filter": [
+        "all",
+        [
+          "in",
+          "ref",
+          "HRP"
+        ]
+      ],
+      "paint": {
+        "line-width": {
+          "stops": [
+            [
+              6,
+              2.6
+            ],
+            [
+              10,
+              3.6
+            ]
+          ]
+        },
+        "line-color": "rgba(255,255,255,1)",
+        "line-translate": [
+          0,
+          0
+        ]
+      },
+      "minzoom": 0
+    },
+    {
       "id": "hr_hrp",
       "type": "line",
       "source": "pyrenees",
@@ -1181,7 +1215,18 @@
         ]
       ],
       "paint": {
-        "line-width": 1.8,
+        "line-width": {
+          "stops": [
+            [
+              6,
+              0.9
+            ],
+            [
+              10,
+              1.9
+            ]
+          ]
+        },
         "line-color": "rgba(255, 0, 0, 1)",
         "line-translate": [
           0,
@@ -2398,7 +2443,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "#000",
         "line-opacity": 1,
         "line-width": {
           "base": 1.2,
@@ -2551,7 +2596,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "#000",
         "line-opacity": 1,
         "line-width": {
           "base": 1.2,
@@ -2680,7 +2725,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#e9ac77",
+        "line-color": "#444",
         "line-opacity": 1,
         "line-width": {
           "base": 1.2,
@@ -2778,7 +2823,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(21, 10, 1, 1)",
+        "line-color": "#000",
         "line-opacity": 1,
         "line-width": {
           "base": 1.2,
@@ -2797,7 +2842,7 @@
             ],
             [
               20,
-              23
+              12
             ]
           ]
         }
@@ -2837,7 +2882,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(230, 144, 81, 1)",
+        "line-color": "#000",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -3109,7 +3154,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#fea",
+        "line-color": "#000",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -3165,7 +3210,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#fc8",
+        "line-color": "#000",
         "line-width": {
           "base": 1.2,
           "stops": [
@@ -3315,7 +3360,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "#000",
@@ -3332,7 +3377,7 @@
             ],
             [
               20,
-              19
+              10
             ]
           ]
         }
@@ -3371,7 +3416,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#fea",
+        "line-color": "#000",
         "line-dasharray": [
           2,
           2
@@ -3468,7 +3513,7 @@
       "metadata": {},
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 5,
+      "minzoom": 9.5,
       "filter": [
         "all",
         [
@@ -3499,11 +3544,11 @@
           "stops": [
             [
               5,
-              "hsl(26, 87%, 62%)"
+              "#000"
             ],
             [
               6,
-              "#fc8"
+              "#000"
             ]
           ]
         },
@@ -5693,7 +5738,7 @@
         "text-halo-color": "rgba(255, 0, 0, 1)",
         "text-halo-width": 100,
         "text-halo-blur": 0,
-        "text-color": "rgba(255, 255, 255, 1)",
+        "text-color": "rgba(255,255,255,1)",
         "text-opacity": 1,
         "text-translate": [
           0,
@@ -5724,7 +5769,7 @@
           0
         ],
         "text-rotation-alignment": "viewport",
-        "text-size": 12,
+        "text-size": 11,
         "icon-size": 0.8,
         "text-field": "{ref}",
         "text-allow-overlap": false,
@@ -5752,7 +5797,7 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "mountain_peak",
-      "minzoom": 9,
+      "minzoom": 11,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -6415,8 +6460,30 @@
       "type": "line",
       "source": "pyrenees",
       "source-layer": "pyr_footprint",
-      "paint": {},
-      "layout": {}
+      "paint": {
+        "line-dasharray": {
+          "stops": [
+            [
+              6,
+              [
+                14,
+                3
+              ]
+            ],
+            [
+              10,
+              [
+                6,
+                3
+              ]
+            ]
+          ]
+        },
+        "line-color": "rgba(0, 0, 0, 0.51)"
+      },
+      "layout": {},
+      "minzoom": 7,
+      "maxzoom": 24
     },
     {
       "id": "pyr_resupply",

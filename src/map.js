@@ -45,7 +45,7 @@ const Map = (props) => {
     >
 
       {/* Waypoints Markers */}
-      {props.waypoints.features.map((wpt, idx) => {
+      {sprite && props.waypoints.features.map((wpt, idx) => {
         return (
           <SpriteMarker
             key={idx}
@@ -76,11 +76,20 @@ const Map = (props) => {
       {/* Tracks  */}
       <Source id="gdv_tracks" type="geojson" data={props.tracks}>
         <Layer
+          id="gdv_tracks-casing"
+          beforeId="gdv_tracks-placeholder"
+          type="line"
+          paint={{
+            "line-color": "#fff",
+            "line-width": 5,
+          }}
+        />
+        <Layer
           id="gdv_tracks"
           beforeId="gdv_tracks-placeholder"
           type="line"
           paint={{
-            "line-color": "#4b4b4b",
+            "line-color": "#d37aff",
             "line-width": 2,
           }}
         />

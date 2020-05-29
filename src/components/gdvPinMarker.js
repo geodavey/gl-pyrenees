@@ -11,7 +11,6 @@ const gdvPinMarker = (props) => {
     offsetLeft: -props.height / 2 / props.nativeRatio,
   };
 
-  console.log(markerProps);
   return (
     <Marker
       longitude={props.longitude}
