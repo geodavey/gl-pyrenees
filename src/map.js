@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MapGL, { GeolocateControl, Marker, Source, Layer } from "react-map-gl";
 
-import mapStyle from "./style/style-dev.json";
+import mapStyle from "./style/style.json";
 import GdvPinMarker from "./components/gdvPinMarker";
 import SpriteMarker from "./components/spriteMarker";
 import SpriteMarkers from "./components/spriteMarkers";

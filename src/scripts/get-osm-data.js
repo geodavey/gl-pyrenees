@@ -8,7 +8,7 @@ const getSingleFeatureGeoJSON = (path) => {
 };
 
 const pyrFootprint = getSingleFeatureGeoJSON("../data/pyr_footprint.geojson");
-const outDir = "../data";
+const outDir = "../data/pyr";
 
 // get bounding box from pyr footprint. osm has minY first
 const pyrBbox = turf.bbox(pyrFootprint);
