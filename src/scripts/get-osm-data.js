@@ -7,7 +7,7 @@ const getSingleFeatureGeoJSON = (path) => {
   return JSON.parse(fs.readFileSync(path)).features[0];
 };
 
-const pyrFootprint = getSingleFeatureGeoJSON("../data/pyr_footprint.geojson");
+const pyrFootprint = getSingleFeatureGeoJSON("../data/pyr/footprint.geojson");
 const outDir = "../data/pyr";
 
 // get bounding box from pyr footprint. osm has minY first

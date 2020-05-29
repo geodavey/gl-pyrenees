@@ -34,6 +34,14 @@ const config = {
         ],
       },
       {
+        test: /\.(png)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      {
         // SVG loading
         test: /\.svg$/,
         use: ["@svgr/webpack"],

@@ -8,6 +8,7 @@ DST_PBFS="../../public/data/pyr/"
 tippecanoe --drop-densest-as-needed \
     --force \
     -z 13 \
+    -r1 \
     -o "${DST_MBTL}" \
     ${SRC_DATA}/*.geojson
 
@@ -16,6 +17,7 @@ tippecanoe --drop-densest-as-needed \
     --no-tile-compression \
     --force \
     -z 13 \
+    -r1 \
     -e "${DST_PBFS}" \
     ${SRC_DATA}/*.geojson
 
