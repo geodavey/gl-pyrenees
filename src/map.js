@@ -57,15 +57,15 @@ const Map = (props) => {
     ).then((mapStyle) => setMapStyle(mapStyle));
   }, []);
 
-  // for some reason have got to fire a fake loading
-  // in order for controls to be displayed immediately
-  // let [fakeLoaded, setFakeLoaded] = useState(false);
-  // useEffect(() => {
-  //   if (mapStyle && MapGL && !fakeLoaded && mapRef.current) {
-  //       mapRef.current.getMap().fire("load", { fake: true });
-  //       setFakeLoaded(true);
-  //   }
-  // }, [mapStyle, MapGL]);
+  // fire a fake loading event once style is loaded to trick map
+  // into rendering local layers and controls immediately
+  useEffect(() => {
+    if (mapStyle && MapGL && mapRef.current) {
+      mapRef.current.getMap().on("style.load", (e) => {
+        e.target.fire("load", { fake: true });
+      });
+    }
+  }, [mapStyle, MapGL]);
 
   let { data } = props;
 
@@ -79,10 +79,9 @@ const Map = (props) => {
           onViewportChange={setViewport}
           mapStyle={mapStyle}
           onLoad={(e) => {
-            if (e && !"fake" in e) setIsMapLoaded(true);
+            if (e && !("fake" in e)) setIsMapLoaded(true);
           }}
           transformRequest={(url) => {
-            // TODO remoooveee thisssss !!!! style json
             if (url.indexOf("/") === -1) return; // fix webpack-dev-server
 
             let url_ = new URL(url);
@@ -212,7 +211,7 @@ const Map = (props) => {
           )}
 
           {/* Controls */}
-          <MapGL.NavigationControl showCompass showZoom position="top-left" />
+          <MapGL.NavigationControl showZoom position="top-left" />
           <MapGL.FullscreenControl position="top-left" />
           <MapGL.ScaleControl
             maxWidth={100}
