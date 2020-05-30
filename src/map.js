@@ -154,7 +154,7 @@ const Map = (props) => {
             layout={{
               "icon-image": "gdvPin",
               "icon-anchor": "bottom",
-              "icon-size": ["case", ["==", ["get", "last"], true], 0.4, 0.2],
+              "icon-size": ["case", ["==", ["get", "last"], true], 0.6, 0.3],
               "icon-allow-overlap": true,
             }}
           />

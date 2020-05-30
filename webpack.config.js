@@ -42,7 +42,10 @@ const config = {
         test: /\.(png)$/i,
         use: [
           {
-            loader: "file-loader",
+            loader: "url-loader",
+            options: {
+              limit: 10240,
+            }
           },
         ],
       },
