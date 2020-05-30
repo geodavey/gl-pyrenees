@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import "mapbox-gl/dist/mapbox-gl.css";
-import gdvPin from "./style/gdvPin.png";
-
 import HoverPopup from "./components/hoverPopup";
 import SelectedPopup from "./components/selectedPopup";
 
 import Loader from "./components/loader";
+
+import gdvPin from "./style/gdvPin.png";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "./map.scss";
 
 const Map = (props) => {
   let mapRef = React.createRef();

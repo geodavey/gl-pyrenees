@@ -1,0 +1,6 @@
+.mapboxgl-ctrl-attrib {
+  // Mobile devices
+  &.mapboxgl-compact::after {
+    background-image: url(./style/heart.png) !important;
+  }
+}
