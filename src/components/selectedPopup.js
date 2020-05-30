@@ -13,7 +13,7 @@ export default (props) => {
       <Popup longitude={lon} latitude={lat} closeOnClick={false} maxWidth={400} onClose={props.onClose}>
         <div
           style={{
-            width: "300px",
+            width: "280px",
             paddingBottom: "66%",
             position: "relative",
           }}
