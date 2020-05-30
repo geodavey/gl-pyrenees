@@ -63,18 +63,6 @@ const Map = (props) => {
     if (mapStyle && MapGL && mapRef.current) {
       mapRef.current.getMap().on("style.load", (e) => {
         e.target.fire("load", { fake: true });
-        e.target.on("render", (e) => {
-          console.log("render", e);
-        });
-        e.target.on("rendercomplete", (e) => {
-          console.log("rendercomplete", e);
-        });
-        e.target.on("load", (e) => {
-          console.log("load", e);
-        });
-        e.target.on("loadend", (e) => {
-          console.log("loadend", e);
-        });
       });
     }
   }, [mapStyle, MapGL]);
@@ -92,7 +80,7 @@ const Map = (props) => {
           mapStyle={mapStyle}
           onLoad={(e) => {
             if (e && !("fake" in e))
-              e.target.once("render", (e) => {
+              e.target.once("idle", (e) => {
                 setIsMapLoaded(true);
               });
           }}
