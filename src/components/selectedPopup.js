@@ -7,7 +7,6 @@ export default (props) => {
   let layerId = feature.layer.id;
 
   let [lon, lat] = feature.geometry.coordinates;
-  console.log("selectedPopup22", [lon, lat]);
 
   if (layerId === "pyr_refuges")
     return (
