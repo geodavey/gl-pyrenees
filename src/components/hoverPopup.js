@@ -8,8 +8,6 @@ export default (props) => {
 
   let [lon, lat] = feature.geometry.coordinates;
 
-  console.log(feature);
-
   if (layerId === "pyr_refuges")
     return (
       <Popup longitude={lon} latitude={lat} maxWidth={400}>
@@ -43,23 +41,7 @@ export default (props) => {
           </div>
         </div>
         <div style={{ textAlign: "center" }}>
-          <a
-            href={`http://www.pyrenees-refuges.com/fr/affiche.php?numenr=${featProps.id}`}
-          >
-            (view on pyrenees-refuges.com)
-          </a>
-        </div>
-        <div>
-          <span style={{ fontWeight: "bold" }}>Name:</span>
-          {featProps.name || "(unknown)"}
-        </div>
-        <div>
-          <span style={{ fontWeight: "bold" }}>Altitude:</span>
-          {`${featProps.alt}m` || "(unknown)"}
-        </div>
-        <div>
-          <span style={{ fontWeight: "bold" }}>Capacity:</span>
-          {featProps.cap || "(unknown)"}
+          {featProps.name || "(unknown name)"}
         </div>
       </Popup>
     );

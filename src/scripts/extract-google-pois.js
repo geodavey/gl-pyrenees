@@ -1,6 +1,9 @@
 const turf = require("@turf/turf");
 const fs = require("fs");
 
+// Take "Starred Places" extract from Google Maps (via takeout.google.com)
+// Add it to output file but don't overwrite any features (so can do manual editing on output)
+
 let input = process.argv[2];
 let output = process.argv[3];
 
@@ -20,7 +23,7 @@ let existingIds = existingJSON.features.map((feat) => {
   return feat.properties.id;
 });
 
-inputJSON.features = inputJSON.features
+let newFeatures = inputJSON.features
   .filter((feat) => {
     // only get places inside pyr footprint
     // and that have a cid= (are a business of some sort)
@@ -39,7 +42,7 @@ inputJSON.features = inputJSON.features
       geometry: feat.geometry,
       properties: {
         id: parseInt(feat.properties["Google Maps URL"].split("?cid=")[1]),
-        type: "", // to be filled in manually
+        type: "", // to be filled in manually later
         place: "", // manual
         name: feat.properties["Location"]["Business Name"],
         address: feat.properties["Location"]["Address"],
@@ -49,7 +52,7 @@ inputJSON.features = inputJSON.features
 
 // combined dataset
 let outputJSON = turf.featureCollection([
-  ...inputJSON.features,
+  ...newFeatures,
   ...existingJSON.features,
 ]);
 

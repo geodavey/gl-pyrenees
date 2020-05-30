@@ -1,23 +1,28 @@
 const resolve = require("path").resolve;
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const BABEL_CONFIG = {
   presets: ["@babel/env", "@babel/react"],
 };
 
 const config = {
-  mode: "development",
-
   devServer: {
     disableHostCheck: true,
     contentBase: resolve("public"),
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
-    compress: true
+    compress: true,
   },
 
-  entry: "./src/app.js",
+  entry: {
+    app: resolve("./src/app.js"),
+  },
+
+  output: {
+    chunkFilename: "[name].bundle.js",
+    path: resolve("public"),
+  },
 
   module: {
     rules: [
@@ -37,7 +42,7 @@ const config = {
         test: /\.(png)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
           },
         ],
       },
@@ -64,11 +69,25 @@ const config = {
     ],
   },
 
-  output: {
-    path: resolve("public"),
+  optimization: {
+    usedExports: true,
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: "styles",
+          test: /\.css$/,
+          chunks: "all",
+          enforce: true,
+        },
+      },
+    },
   },
 
-  plugins: [new HtmlWebPackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "index.html",
+    }),
+  ],
 };
 
 module.exports = config;

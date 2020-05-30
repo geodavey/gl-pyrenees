@@ -12,7 +12,11 @@ import MapGL, {
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapStyle from "./style/style.json";
 import gdvPin from "./style/gdvPin.png";
-import Popup from "./components/popup";
+
+import HoverPopup from "./components/hoverPopup";
+import SelectedPopup from "./components/selectedPopup";
+
+console.log(gdvPin);
 
 const Map = (props) => {
   let mapRef = React.createRef();
@@ -20,6 +24,8 @@ const Map = (props) => {
   // set initial viewport to be centered on last update
   let lastUpdate =
     props.data.updates.features[props.data.updates.features.length - 1];
+
+  lastUpdate.properties.last = true;
   let [viewport, setViewport] = useState({
     longitude: lastUpdate.geometry.coordinates[0],
     latitude: lastUpdate.geometry.coordinates[1],
@@ -35,11 +41,12 @@ const Map = (props) => {
       setViewport({
         longitude: selectedFeature.geometry.coordinates[0],
         latitude: selectedFeature.geometry.coordinates[1],
-        zoom: 13,
+        zoom: 14,
+        viewportChangeMethod: "flyTo",
         viewportChangeOptions: {
           duration: 2000,
           padding: {
-            top: 400,
+            top: 300,
           },
         },
       });
@@ -57,11 +64,21 @@ const Map = (props) => {
       ref={mapRef}
       style={{ width: "100%", height: "100%" }}
       onViewportChange={setViewport}
-      viewportChangeMethod={"flyTo"}
-      viewportChangeOptions={{ duration: 2000 }}
       mapStyle={mapStyle}
       onLoad={(e) => {
         if (e && !"fake" in e) props.onLoad(e);
+      }}
+      transformRequest={(url) => {
+        // TODO remoooveee thisssss !!!! style json
+        if (url.indexOf("/") === -1) return; // fix webpack-dev-server
+
+        let url_ = new URL(url);
+        let loc = window.location;
+
+        if (url.search("//localhost") != -1)
+          return {
+            url: `${loc.origin}${loc.pathname}${url_.pathname}`,
+          };
       }}
       {...viewport}
     >
@@ -113,7 +130,7 @@ const Map = (props) => {
         layout={{
           "icon-image": "gdvPin",
           "icon-anchor": "bottom",
-          "icon-size": 0.2,
+          "icon-size": ["case", ["==", ["get", "last"], true], 0.4, 0.2],
           "icon-allow-overlap": true,
         }}
       />
@@ -125,12 +142,19 @@ const Map = (props) => {
         source="pyr"
         source-layer="refuges"
         onClick={(r) => {
-          console.log("onClick", r);
           setHoveredFeature(null);
           setSelectedFeature(r.features[0]);
         }}
         onHover={(r) => {
-          setHoveredFeature(r.features[0]);
+          let feat = r.features[0];
+
+          if (
+            selectedFeature &&
+            feat.properties.id === selectedFeature.properties.id
+          )
+            return;
+
+          setHoveredFeature(feat);
           r.target.getCanvas().style.setProperty("cursor", "pointer");
         }}
         onLeave={(r) => {
@@ -154,7 +178,13 @@ const Map = (props) => {
       />
 
       {/* Popup */}
-      {hoveredFeature && <Popup feature={hoveredFeature} />}
+      {hoveredFeature && <HoverPopup feature={hoveredFeature} />}
+      {selectedFeature && (
+        <SelectedPopup
+          feature={selectedFeature}
+          onClose={() => setSelectedFeature(null)}
+        />
+      )}
 
       {/* Controls */}
       <NavigationControl showCompass showZoom position="top-left" />

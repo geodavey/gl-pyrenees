@@ -2745,6 +2745,54 @@
       "maxzoom": 24
     },
     {
+      "id": "road_path_pedestrian-casing",
+      "type": "line",
+      "metadata": {},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "$type",
+          "LineString"
+        ],
+        [
+          "!in",
+          "brunnel",
+          "bridge",
+          "tunnel"
+        ],
+        [
+          "in",
+          "class",
+          "path",
+          "pedestrian"
+        ]
+      ],
+      "layout": {
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255,255,255,1)",
+        "line-width": {
+          "base": 1.2,
+          "stops": [
+            [
+              14,
+              2.5
+            ],
+            [
+              20,
+              9
+            ]
+          ]
+        }
+      }
+    },
+    {
       "id": "road_path_pedestrian",
       "type": "line",
       "metadata": {},
@@ -2776,7 +2824,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(169, 169, 169, 1)",
+        "line-color": "rgba(234, 118, 24, 1)",
         "line-dasharray": [
           3,
           2

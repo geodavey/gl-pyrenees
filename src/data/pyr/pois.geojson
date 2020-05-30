@@ -1,0 +1,445 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [0.2182953, 42.6349415], "type": "Point" },
+      "properties": {
+        "id": 17553341150240870000,
+        "type": "resupply",
+        "place": "Bielsa",
+        "name": "Solans supermercado",
+        "address": "Ctra. Parzán, 2, 22350 Bielsa, Huesca, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.6794464, 42.4814245], "type": "Point" },
+      "properties": {
+        "id": 16729563438174657000,
+        "type": "resupply",
+        "place": "Amélie-les-Bains-Palalda",
+        "name": "Leader Price",
+        "address": "Ville Nouvelle, 66110 Amélie-les-Bains-Palalda, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.8644644, 42.459977], "type": "Point" },
+      "properties": {
+        "id": 5201338923052058000,
+        "type": "resupply",
+        "place": "Le Perthus",
+        "name": "Boucherie Paco, Super Frontera",
+        "address": "Carrer Dr. Subiró, 1, 17709 Le Perthus, Girona, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.8668979, 42.4285537], "type": "Point" },
+      "properties": {
+        "id": 6619191199599302000,
+        "type": "resupply",
+        "place": "Els Límits",
+        "name": "Novavenda",
+        "address": "Sector Duana nova Parcela 1, 17700 Els Límits, Girona, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.4812679, 42.4034059], "type": "Point" },
+      "properties": {
+        "id": 8491565122500016000,
+        "type": "resupply",
+        "place": "Prats-de-Mollo-la-Preste",
+        "name": "Relais des Mousquetaires Oulrich",
+        "address": "17 Rue du Jardin d'Enfants, 66230 Prats-de-Mollo-la-Preste, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.3720679, 42.312935], "type": "Point" },
+      "properties": {
+        "id": 9795468901742578000,
+        "type": "resupply",
+        "place": "Camprodon",
+        "name": "Esclat",
+        "address": "Carrer Freixenet, 46, 17867 Camprodon, Girona, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.3648102, 42.3116208], "type": "Point" },
+      "properties": {
+        "id": 10065716869799145000,
+        "type": "resupply",
+        "place": "Camprodon",
+        "name": "Charter supermarket",
+        "address": "Plaça de la Vila, 9, 10, 17867 Camprodon, Girona, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.6358339, 42.4563849], "type": "Point" },
+      "properties": {
+        "id": 8397038916941024000,
+        "type": "resupply",
+        "place": "Arles-sur-Tech",
+        "name": "SPAR",
+        "address": "17 Boulevard de La Mairie, 66150 Arles-sur-Tech, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.9211369, 42.4267649], "type": "Point" },
+      "properties": {
+        "id": 182132866873046180,
+        "type": "resupply",
+        "place": "Puigcerdà",
+        "name": "Carrefour Market",
+        "address": "Carretera Puigcerdá, Ctra. Seu d'Urgell, Km. 0, 1, 17520 Puigcerdà, Girona, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.946542, 42.4325647], "type": "Point" },
+      "properties": {
+        "id": 3455930382501557000,
+        "type": "resupply",
+        "place": "Bourg-Madame",
+        "name": "ALDI",
+        "address": "Avenue des Pyrénées, 66760 Bourg-Madame, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.9431257, 42.4349498], "type": "Point" },
+      "properties": {
+        "id": 3445267018488772000,
+        "type": "resupply",
+        "place": "Bourg-Madame",
+        "name": "Carrefour Market",
+        "address": "7 Rue du Belloch, 66760 Bourg-Madame, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.985037, 42.4629038], "type": "Point" },
+      "properties": {
+        "id": 16798961738328293000,
+        "type": "resupply",
+        "place": "Llívia",
+        "name": "Supermercat Charter",
+        "address": "Carrer del Raval, 55, 17527 Llívia, Girona, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.0723648, 42.5718], "type": "Point" },
+      "properties": {
+        "id": 4770750770831494000,
+        "type": "resupply",
+        "place": "Les Angles",
+        "name": "SPAR",
+        "address": "Immeuble Panoramic, Route de Mont Louis, 66210 Les Angles, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.0131039, 42.4989356], "type": "Point" },
+      "properties": {
+        "id": 16066365867150123000,
+        "type": "resupply",
+        "place": "Égat",
+        "name": "Lidl",
+        "address": "2 Rue de las Devese, 66120 Égat, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [2.0411286, 42.5040113], "type": "Point" },
+      "properties": {
+        "id": 9836146454840961000,
+        "type": "resupply",
+        "place": "Font-Romeu-Odeillo-Via",
+        "name": "Carrefour Contact",
+        "address": "Avenue Mal Joffre, 66120 Font-Romeu-Odeillo-Via, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.731195, 42.543831], "type": "Point" },
+      "properties": {
+        "id": 16059870057129787000,
+        "type": "resupply",
+        "place": "Pas de la Casa",
+        "name": "HIPERPAS II",
+        "address": "Carrer Sant Jordi, 45, AD200 Pas de la Casa, Andorra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.5890218, 42.5364472], "type": "Point" },
+      "properties": {
+        "id": 14103236470040211000,
+        "type": "resupply",
+        "place": "Encamp",
+        "name": "ECLER",
+        "address": "Av. de François Mitterrand, 120, AD200 Encamp, Andorra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.486007, 42.571368], "type": "Point" },
+      "properties": {
+        "id": 4052607019441302500,
+        "type": "resupply",
+        "place": "Arinsal",
+        "name": "SUPERMERCAT MOLES ARINSAL",
+        "address": "Carretera General, 27, AD400 La Massana, Andorra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.2361729, 42.5828709], "type": "Point" },
+      "properties": {
+        "id": 11132044082390254000,
+        "type": "resupply",
+        "place": "Ainet de Cardós",
+        "name": "IOGURTS CAL JOANET",
+        "address": "Carretera Tavascan, 25571 Ainet de Cardós, Lleida, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [0.5977378, 42.7981437], "type": "Point" },
+      "properties": {
+        "id": 9719222803161340000,
+        "type": "resupply",
+        "place": "Bagnères-de-Luchon",
+        "name": "Lidl",
+        "address": "18 Rue Clément Ader, 31110 Bagnères-de-Luchon, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-0.1144502, 42.8891316], "type": "Point" },
+      "properties": {
+        "id": 11698550835854664000,
+        "type": "resupply",
+        "place": "Cauterets",
+        "name": "Carrefour Montagne",
+        "address": "5 Bis Avenue du Gén Leclerc, 65110 Cauterets, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-0.322371, 42.629467], "type": "Point" },
+      "properties": {
+        "id": 11520451200684663000,
+        "type": "resupply",
+        "place": "Biescas",
+        "name": "DIA",
+        "address": "Cajal 7, Calle de Ram, 22630 New York, Huesca, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-0.6053906, 42.9769809], "type": "Point" },
+      "properties": {
+        "id": 7568809878204271000,
+        "type": "resupply",
+        "place": "Accous",
+        "name": "Intermarché CONTACT Accous et Drive",
+        "address": "Chemin D'Arrechau, 64490 Accous, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-0.749813, 42.7383928], "type": "Point" },
+      "properties": {
+        "id": 12037273213373106000,
+        "type": "resupply",
+        "place": "Hecho",
+        "name": "SUPERMARKET ALTO ARAGON DONE",
+        "address": "Calle Mayor, 24, 22720 Hecho, Huesca, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-0.2827094, 42.7238409], "type": "Point" },
+      "properties": {
+        "id": 12140028787601263000,
+        "type": "resupply",
+        "place": "Panticosa",
+        "name": "Supermercado Altoaragón",
+        "address": "Calle Acceso Telesilla, 4, 22661 Panticosa, Huesca, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-1.0894037, 42.9062163], "type": "Point" },
+      "properties": {
+        "id": 12560688254993110000,
+        "type": "resupply",
+        "place": "Ochagavía",
+        "name": "Supermercados Coviran",
+        "address": "Barrio Irigoyen, 42, 45, 31680 Ochagavía, Navarra, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-0.0035872, 42.8727162], "type": "Point" },
+      "properties": {
+        "id": 8156298889293814000,
+        "type": "resupply",
+        "place": "Luz-Saint-Sauveur",
+        "name": "Carrefour Montagne",
+        "address": "Rue d'Ossun, 65120 Luz-Saint-Sauveur, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [0.4092085, 42.7960437], "type": "Point" },
+      "properties": {
+        "id": 13794734838294145000,
+        "type": "resupply",
+        "place": "Loudenvielle",
+        "name": "Carrefour Montagne",
+        "address": "Centre Commercial du Baladan, 65510 Loudenvielle, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [0.333223, 42.827211], "type": "Point" },
+      "properties": {
+        "id": 3444795438321943600,
+        "type": "resupply",
+        "place": "Bourisp",
+        "name": "Carrefour Market",
+        "address": "Chemin de Vielle Aure, 65170 Bourisp, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.1317947, 42.4157625], "type": "Point" },
+      "properties": {
+        "id": 10705270588678978000,
+        "type": "resupply",
+        "place": "Sort",
+        "name": "Dia",
+        "address": "Carrer del Dr. Carles Pol i Aleu, 50, 56, 25560 Sort, Lleida, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.6419226, 42.579245], "type": "Point" },
+      "properties": {
+        "id": 13899003860319000000,
+        "type": "resupply",
+        "place": "El Tarter",
+        "name": "Caves Manacor",
+        "address": "Carretera General, AD100 El Tarter, Andorra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [0.7407708, 42.4068355], "type": "Point" },
+      "properties": {
+        "id": 15850063938660225000,
+        "type": "resupply",
+        "place": "El Pont de Suert",
+        "name": "Caprabo",
+        "address": "Carrer Ciutat de Lleida, 8, 25520 El Pont de Suert, Lleida, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [1.4560583, 42.3607287], "type": "Point" },
+      "properties": {
+        "id": 8330408213250520000,
+        "type": "resupply",
+        "place": "La Seu d'Urgell",
+        "name": "MERCADONA",
+        "address": "Av. del Valira, s/n, 25700 La Seu d'Urgell, Lleida, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [0.7939375, 42.7030926], "type": "Point" },
+      "properties": {
+        "id": 6081011494404454000,
+        "type": "resupply",
+        "place": "Viella",
+        "name": "Mercadona",
+        "address": "C/ Anglada (N-230, Av. Castiero, C-28, 25530 Viella, Lleida, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [0.5253303, 42.6055492], "type": "Point" },
+      "properties": {
+        "id": 2018646667793170000,
+        "type": "resupply",
+        "place": "Benasque",
+        "name": "Eroski",
+        "address": "Av. de Francia, 42, 22440 Benasque, Huesca, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [0.2090953, 42.6620222], "type": "Point" },
+      "properties": {
+        "id": 16016221033121982000,
+        "type": "resupply",
+        "place": "Parzán",
+        "name": "Supermercado Mazcaray",
+        "address": "22365 Bielsa, Huesca, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-0.031092, 42.729565], "type": "Point" },
+      "properties": {
+        "id": 8948555104557468000,
+        "type": "resupply",
+        "place": "Esquièze-Sère",
+        "name": "Carrefour Market",
+        "address": "1 place Montblanc, 65120 Esquièze-Sère, France"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-0.5152205, 42.7519271], "type": "Point" },
+      "properties": {
+        "id": 13732057601941223000,
+        "type": "resupply",
+        "place": "Candanchú",
+        "name": "Supermercado el Canfranero",
+        "address": "Av. de Fernando el Católico, N 5, 22880 Canfranc-Estación, Huesca, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-1.5162227, 43.1466431], "type": "Point" },
+      "properties": {
+        "id": 8634755875776470000,
+        "type": "resupply",
+        "place": "Elizondo",
+        "name": "EROSKI",
+        "address": "Plaza los Fueros, 3, 31700 Elizondo, Navarra, Spain"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "coordinates": [-1.8378253, 43.3206569], "type": "Point" },
+      "properties": {
+        "id": 4028608422100873700,
+        "type": "resupply",
+        "place": "Irún",
+        "name": "Decathlon Irún",
+        "address": "Centro Comercial Txingudi, Calle Ventas, 20305 Araso, SS, Spain"
+      }
+    }
+  ]
+}
