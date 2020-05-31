@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import HoverPopup from "./components/hoverPopup";
 import SelectedPopup from "./components/selectedPopup";
+import MapUtils from "mapbox-gl-utils";
 
 import Loader from "./components/loader";
 
@@ -12,21 +13,27 @@ import "./map.scss";
 const Map = (props) => {
   let mapRef = React.createRef();
 
-  // set initial viewport to be centered on last update
+  //
+  // Viewport
+  //
+
+  // set initial view to be last update
   let lastUpdate =
     props.data.updates.features[props.data.updates.features.length - 1];
-
-  lastUpdate.properties.last = true;
   let [viewport, setViewport] = useState({
     longitude: lastUpdate.geometry.coordinates[0],
     latitude: lastUpdate.geometry.coordinates[1],
     zoom: 10,
   });
 
-  // setup for popup
+  //
+  // Popup interaction
+  //
+
   let [selectedFeature, setSelectedFeature] = useState(null);
   let [hoveredFeature, setHoveredFeature] = useState(null);
 
+  // fly to feature once selected
   useEffect(() => {
     if (selectedFeature)
       setViewport({
@@ -43,10 +50,12 @@ const Map = (props) => {
       });
   }, [selectedFeature]);
 
+  //
   // Lazy load map-gl and style
+  //
+
   let [MapGL, setMapGL] = useState(null);
   let [mapStyle, setMapStyle] = useState(null);
-  let [isMapLoaded, setIsMapLoaded] = useState(false);
 
   useEffect(() => {
     import(
@@ -58,12 +67,57 @@ const Map = (props) => {
     ).then((mapStyle) => setMapStyle(mapStyle));
   }, []);
 
-  // fire a fake loading event once style is loaded to trick map
-  // into rendering local layers and controls immediately
+  //
+  // Swap layer sources & Set-up Interactivity
+  //
+
+  let [isMapLoaded, setIsMapLoaded] = useState(false);
+
   useEffect(() => {
     if (mapStyle && MapGL && mapRef.current) {
-      mapRef.current.getMap().on("style.load", (e) => {
-        e.target.fire("load", { fake: true });
+      let map = mapRef.current.getMap();
+      const U = MapUtils.init(map);
+
+      map.on("style.load", (e) => {
+        let hoverLayers = ["pyr_refuges"];
+        let popupLayers = ["pyr_refuges", "pyr_resupply", "gdv_updates"];
+
+        // icons
+        map.U.addImage("gdvPin", gdvPin);
+
+        // replace test source data with real data
+        map.U.setData("gdv_tracks", data.tracks);
+        map.U.setData("gdv_updates", data.updates);
+        map.U.setData("gdv_waypoints", data.waypoints);
+
+        // add click handlers to popup layers
+        map.U.hoverPointer(popupLayers);
+        map.U.hoverFeatureState(popupLayers);
+        map.U.clickLayer(popupLayers, (e) => {
+          setHoveredFeature(null);
+          setSelectedFeature(e.features[0]);
+        });
+
+        // hover layers
+        hoverLayers.forEach((lyr) => {
+          map.on("mousemove", lyr, (e) => {
+            map.getCanvas().style.cursor = "pointer";
+            setHoveredFeature(e.features[0]);
+          });
+          map.on("mouseleave", lyr, (e) => {
+            setHoveredFeature(null);
+          });
+        });
+
+        // fire a fake loading event to trick map to render controls immediately
+        // set map loaded on idle (once all rendering stops)
+        map.fire("load", { fake: true });
+        map.on("load", (e) => {
+          if (e)
+            map.once("idle", (e) => {
+              setIsMapLoaded(true);
+            });
+        });
       });
     }
   }, [mapStyle, MapGL]);
@@ -77,16 +131,12 @@ const Map = (props) => {
         <MapGL.default
           ref={mapRef}
           style={{ width: "100%", height: "100%" }}
+          attributionControl={false}
           onViewportChange={setViewport}
           mapStyle={mapStyle}
-          onLoad={(e) => {
-            if (e && !("fake" in e))
-              e.target.once("idle", (e) => {
-                setIsMapLoaded(true);
-              });
-          }}
+          onLoad={(e) => {}}
           transformRequest={(url) => {
-            if (url.indexOf("/") === -1) return; // fix webpack-dev-server
+            // rewrite references from style
 
             let url_ = new URL(url);
             let loc = window.location;
@@ -98,113 +148,6 @@ const Map = (props) => {
           }}
           {...viewport}
         >
-          <MapGL.Image id="gdvPin" image={gdvPin} />
-
-          {/* Sources */}
-          <MapGL.Source
-            id="gdv_tracks"
-            type="geojson"
-            data={data.tracks}
-          ></MapGL.Source>
-          <MapGL.Source
-            id="gdv_updates"
-            type="geojson"
-            data={data.updates}
-          ></MapGL.Source>
-          <MapGL.Source
-            id="gdv_waypoints"
-            type="geojson"
-            data={data.waypoints}
-          ></MapGL.Source>
-
-          {/* Waypoints */}
-          <MapGL.Layer
-            id="gdv_waypoints"
-            type="symbol"
-            source="gdv_waypoints"
-            before="gdv_waypoints-placeholder"
-            layout={{
-              "icon-image": "dot_11",
-            }}
-          />
-
-          {/* Tracks */}
-          <MapGL.Layer
-            id="gdv_tracks-casing"
-            type="line"
-            source="gdv_tracks"
-            before="gdv_tracks-placeholder"
-            paint={{
-              "line-color": "#fff",
-              "line-width": 5,
-            }}
-          />
-          <MapGL.Layer
-            id="gdv_tracks"
-            type="line"
-            source="gdv_tracks"
-            before="gdv_tracks-placeholder"
-            paint={{
-              "line-color": "#d37aff",
-              "line-width": 2,
-            }}
-          />
-
-          {/* Updates */}
-          <MapGL.Layer
-            id="gdv_updates"
-            type="symbol"
-            source="gdv_updates"
-            layout={{
-              "icon-image": "gdvPin",
-              "icon-anchor": "bottom",
-              "icon-size": ["case", ["==", ["get", "last"], true], 0.6, 0.3],
-              "icon-allow-overlap": true,
-            }}
-          />
-
-          {/* Refuges */}
-          <MapGL.Layer
-            id="pyr_refuges"
-            type="symbol"
-            source="pyr"
-            source-layer="refuges"
-            onClick={(r) => {
-              setHoveredFeature(null);
-              setSelectedFeature(r.features[0]);
-            }}
-            onHover={(r) => {
-              let feat = r.features[0];
-
-              if (
-                selectedFeature &&
-                feat.properties.id === selectedFeature.properties.id
-              )
-                return;
-
-              setHoveredFeature(feat);
-              r.target.getCanvas().style.setProperty("cursor", "pointer");
-            }}
-            onLeave={(r) => {
-              setHoveredFeature(null);
-              r.target.getCanvas().style.removeProperty("cursor");
-            }}
-            layout={{
-              "icon-image": {
-                stops: [
-                  [0, ""],
-                  [10, "shelter_11"],
-                ],
-              },
-              "icon-size": {
-                stops: [
-                  [10, 0.5],
-                  [12, 1],
-                ],
-              },
-            }}
-          />
-
           {/* Popup */}
           {hoveredFeature && <HoverPopup feature={hoveredFeature} />}
           {selectedFeature && (
@@ -221,6 +164,11 @@ const Map = (props) => {
             maxWidth={100}
             unit="metric"
             position="bottom-left"
+          />
+          <MapGL.AttributionControl
+            compact={true}
+            position="bottom-right"
+            customAttribution="<a style='display:block;text-align:center;font-size:20px;margin:0.3em 0 0.3em 0.8em;border-bottom:1px solid #ccc' href='https://github.com/1papaya/gl-pyrenees'>¡ Viva La Open Source !</a>"
           />
         </MapGL.default>
       )}

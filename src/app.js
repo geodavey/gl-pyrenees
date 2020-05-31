@@ -4,11 +4,12 @@ import ReactDOM from "react-dom";
 import Map from "./map";
 import "./app.scss";
 
+// data in public folder to be accessible to Maputnik served
+// by webpack-dev-server
 let data = {
-  tracks: require("./data/test/tracks.geojson"),
-  waypoints: require("./data/test/waypoints.geojson"),
-  updates: require("./data/test/updates.geojson"),
-  refuges: require("./data/pyr/refuges.geojson")
+  tracks: require("../public/data/test/gdv_tracks.geojson"),
+  waypoints: require("../public/data/test/gdv_waypoints.geojson"),
+  updates: require("../public/data/test/gdv_updates.geojson")
 }
 
 const App = (props) => {

@@ -1,6 +1,12 @@
+// Override attribution styles
 .mapboxgl-ctrl-attrib {
-  // Mobile devices
-  &.mapboxgl-compact::after {
-    background-image: url(./style/heart.png) !important;
+    // Mobile
+  &.mapboxgl-compact
+  {
+      &::after {
+        background-image: url(./style/heart.png) !important;
+      }
+
+      text-align: center;
   }
 }
