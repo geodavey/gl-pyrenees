@@ -78,6 +78,10 @@ const Map = (props) => {
     if (mapStyle && MapGL && mapRef.current) {
       let map = mapRef.current.getMap();
 
+      map.once("load", (e) => {
+        setIsMapLoaded(true);
+      });
+
       // add custom icons [iconName, iconURL]
       let icons = [["gdvPin", gdvPin]];
       icons.forEach((ic) => {
@@ -130,9 +134,7 @@ const Map = (props) => {
         // fire a fake loading event to trick map to render controls immediately
         // set map loaded on idle (once all rendering stops)
         // map.fire("load", { fake: true });
-        map.once("idle", (e) => {
-          setIsMapLoaded(true);
-        });
+
       });
     }
   }, [mapStyle, MapGL]);
