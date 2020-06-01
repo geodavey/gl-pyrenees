@@ -22,7 +22,7 @@ export default (props) => {
         setIsSuppressed(true);
       }}
     >
-      <Loader type="TailSpin" color="#ccc" height={80} width={80} style={{}} />
+      <Loader type="TailSpin" color="#ccc" height={80} width={80} />
     </div>
   );
 };

@@ -3115,7 +3115,7 @@
       "source": "pyr",
       "source-layer": "refuges",
       "paint": {},
-      "layout": { 
+      "layout": {
         "icon-image": {
           "stops": [
             [0, ""],
@@ -3170,6 +3170,12 @@
       "source": "gdv_updates",
       "layout": {
         "icon-image": "gdvPin",
+        "icon-size": [
+          "case",
+          ["==", ["get", "feature-state"], "hover"],
+          0.6,
+          0.3
+        ],
         "icon-anchor": "bottom",
         "icon-allow-overlap": true
       },

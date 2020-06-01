@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-import HoverPopup from "./components/hoverPopup";
-import SelectedPopup from "./components/selectedPopup";
 import MapUtils from "mapbox-gl-utils";
 
+import Popup from "./components/popup";
 import Loader from "./components/loader";
-
 import gdvPin from "./style/gdvPin.png";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./map.scss";
@@ -76,36 +74,45 @@ const Map = (props) => {
   useEffect(() => {
     if (mapStyle && MapGL && mapRef.current) {
       let map = mapRef.current.getMap();
-      const U = MapUtils.init(map);
 
       map.on("style.load", (e) => {
-        let hoverLayers = ["pyr_refuges"];
-        let popupLayers = ["pyr_refuges", "pyr_resupply", "gdv_updates"];
+        let popupLayers = ["pyr_refuges", "gdv_updates"];
 
-        // icons
-        map.U.addImage("gdvPin", gdvPin);
-
-        // replace test source data with real data
-        map.U.setData("gdv_tracks", data.tracks);
-        map.U.setData("gdv_updates", data.updates);
-        map.U.setData("gdv_waypoints", data.waypoints);
-
-        // add click handlers to popup layers
-        map.U.hoverPointer(popupLayers);
-        map.U.hoverFeatureState(popupLayers);
-        map.U.clickLayer(popupLayers, (e) => {
-          setHoveredFeature(null);
-          setSelectedFeature(e.features[0]);
+        // icons [iconName, iconURL]
+        let icons = [["gdvPin", gdvPin]];
+        icons.forEach((ic) => {
+          map.loadImage(ic[1], (err, data) => {
+            map.addImage(ic[0], data);
+          });
         });
 
-        // hover layers
-        hoverLayers.forEach((lyr) => {
-          map.on("mousemove", lyr, (e) => {
-            map.getCanvas().style.cursor = "pointer";
-            setHoveredFeature(e.features[0]);
+        // replace test source data with real data
+        map.getSource("gdv_tracks").setData(data.tracks);
+        map.getSource("gdv_updates").setData(data.updates);
+        map.getSource("gdv_waypoints").setData(data.waypoints);
+
+        // add click & hover handlers for popup layers
+        popupLayers.forEach((lyr) => {
+          map.on("click", lyr, (e) => {
+            setHoveredFeature(null);
+            setSelectedFeature(e.features[0]);
           });
+
+          map.on("mousemove", lyr, (e) => {
+            let feat = e.features[0];
+
+            if (
+              selectedFeature &&
+              feat.properties.id !== selectedFeature.properties.id
+            )
+              setHoveredFeature(feat);
+
+            map.getCanvas().style.setProperty("cursor", "pointer");
+          });
+
           map.on("mouseleave", lyr, (e) => {
             setHoveredFeature(null);
+            map.getCanvas().style.removeProperty("cursor");
           });
         });
 
@@ -134,7 +141,6 @@ const Map = (props) => {
           attributionControl={false}
           onViewportChange={setViewport}
           mapStyle={mapStyle}
-          onLoad={(e) => {}}
           transformRequest={(url) => {
             // rewrite references from style
 
@@ -149,10 +155,11 @@ const Map = (props) => {
           {...viewport}
         >
           {/* Popup */}
-          {hoveredFeature && <HoverPopup feature={hoveredFeature} />}
+          {hoveredFeature && <Popup feature={hoveredFeature} type="hover" />}
           {selectedFeature && (
-            <SelectedPopup
+            <Popup
               feature={selectedFeature}
+              type="detail"
               onClose={() => setSelectedFeature(null)}
             />
           )}
@@ -170,6 +177,7 @@ const Map = (props) => {
             position="bottom-right"
             customAttribution="<a style='display:block;text-align:center;font-size:20px;margin:0.3em 0 0.3em 0.8em;border-bottom:1px solid #ccc' href='https://github.com/1papaya/gl-pyrenees'>¡ Viva La Open Source !</a>"
           />
+          <MapGL.GeolocateControl position="top-left" />
         </MapGL.default>
       )}
     </div>
