@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-
-import MapUtils from "mapbox-gl-utils";
-
 import Popup from "./components/popup";
 import Loader from "./components/loader";
 import gdvPin from "./style/gdvPin.png";
