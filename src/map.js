@@ -63,7 +63,7 @@ const Map = (props) => {
   }, []);
 
   //
-  // Swap layer sources & Set-up Interactivity
+  // Swap layer Sources & Set-up Interactivity
   //
 
   let [isMapLoaded, setIsMapLoaded] = useState(false);
@@ -72,8 +72,7 @@ const Map = (props) => {
     if (mapStyle && MapGL && mapRef.current) {
       let map = mapRef.current.getMap();
 
-      // add icons
-      // [iconName, iconURL]
+      // add custom icons [iconName, iconURL]
       let icons = [["gdvPin", gdvPin]];
       icons.forEach((ic) => {
         map.loadImage(ic[1], (err, data) => {
@@ -83,6 +82,7 @@ const Map = (props) => {
 
       // add click & hover handlers for popup layers
       let popupLayers = ["pyr_refuges", "gdv_updates"];
+
       popupLayers.forEach((lyr) => {
         map.on("click", lyr, (e) => {
           setHoveredFeature(null);
@@ -92,12 +92,14 @@ const Map = (props) => {
         map.on("mousemove", lyr, (e) => {
           let feat = e.features[0];
 
+          // no hover popup on features already selected
           if (
             selectedFeature &&
-            feat.properties.id !== selectedFeature.properties.id
+            feat.properties.id === selectedFeature.properties.id
           )
-            setHoveredFeature(feat);
+          return;
 
+          setHoveredFeature(feat);
           map.getCanvas().style.setProperty("cursor", "pointer");
         });
 
@@ -133,6 +135,7 @@ const Map = (props) => {
       {!isMapLoaded && <Loader />}
       {MapGL && mapStyle && (
         <MapGL.default
+        {...viewport}
           ref={mapRef}
           style={{ width: "100%", height: "100%" }}
           attributionControl={false}
@@ -149,7 +152,6 @@ const Map = (props) => {
                 url: `${loc.origin}${loc.pathname}${url_.pathname}`,
               };
           }}
-          {...viewport}
         >
           {/* Popup */}
           {hoveredFeature && <Popup feature={hoveredFeature} type="hover" />}

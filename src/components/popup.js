@@ -68,6 +68,9 @@ export default (props) => {
           )}
         </div>
       )}
+      {layerId === "gdv_updates" && (
+        <div style={{ height: 400, width: 300 }}>sko buffs</div>
+      )}
     </Popup>
   );
 };
