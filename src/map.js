@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Popup from "./components/popup";
 import Loader from "./components/loader";
-import gdvPin from "./style/gdvPin.png";
+
 import "mapbox-gl/dist/mapbox-gl.css";
+import gdvPin from "./style/gdvPin.png";
 import "./map.scss";
 
 const Map = (props) => {
@@ -39,8 +40,7 @@ const Map = (props) => {
       setViewport({
         longitude: selectedFeature.geometry.coordinates[0],
         latitude: selectedFeature.geometry.coordinates[1],
-        // always add tiny bit to zoom to make sure transition is applied
-        zoom: viewport.zoom + 0.000001, 
+        zoom: viewport.zoom + 1,
         viewportChangeMethod: "flyTo",
         viewportChangeOptions: {
           duration: 2000,
@@ -96,15 +96,20 @@ const Map = (props) => {
         layer: { id: "gdv_updates" },
       });
 
-      // add click & hover handlers for popup layers
-      let popupLayers = ["pyr_refuges", "gdv_updates"];
+      // Popup Layers
+      let popupLayers = ["pyr_refuges", "pyr_resupply", "gdv_updates"];
 
       popupLayers.forEach((lyr) => {
         map.on("click", lyr, (e) => {
           setHoveredFeature(null);
-          setSelectedFeature(e.features[0]);
+          setTimeout(setSelectedFeature, 100, e.features[0]);
         });
+      });
 
+      // Hover Layers
+      let hoverLayers = ["pyr_refuges", "gdv_updates"];
+
+      hoverLayers.forEach((lyr) => {
         map.on("mousemove", lyr, (e) => {
           let feat = e.features[0];
 
@@ -116,11 +121,22 @@ const Map = (props) => {
             return;
 
           setHoveredFeature(feat);
-          map.getCanvas().style.setProperty("cursor", "pointer");
         });
 
         map.on("mouseleave", lyr, (e) => {
           setHoveredFeature(null);
+        });
+      });
+
+      // Set cursor to pointer on popup & hover layers
+      let cursorLayers = [...popupLayers, ...hoverLayers];
+
+      cursorLayers.forEach((lyr) => {
+        map.on("mousemove", lyr, (e) => {
+          map.getCanvas().style.setProperty("cursor", "pointer");
+        });
+
+        map.on("mouseleave", lyr, (e) => {
           map.getCanvas().style.removeProperty("cursor");
         });
       });
@@ -130,11 +146,6 @@ const Map = (props) => {
         map.getSource("gdv_tracks").setData(data.tracks);
         map.getSource("gdv_updates").setData(data.updates);
         map.getSource("gdv_waypoints").setData(data.waypoints);
-
-        // fire a fake loading event to trick map to render controls immediately
-        // set map loaded on idle (once all rendering stops)
-        // map.fire("load", { fake: true });
-
       });
     }
   }, [mapStyle, MapGL]);
@@ -143,7 +154,15 @@ const Map = (props) => {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      {!isMapLoaded && <Loader />}
+      {!isMapLoaded && (
+        <Loader
+          onSuppressed={() =>
+            // fire fake load event on loader suppression
+            // will force controls to be rendered
+            mapRef.current.getMap().fire("load", { fake: true })
+          }
+        />
+      )}
       {MapGL && mapStyle && (
         <MapGL.default
           {...viewport}
@@ -165,11 +184,18 @@ const Map = (props) => {
           }}
         >
           {/* Popup */}
-          {hoveredFeature && <Popup feature={hoveredFeature} type="hover" />}
+          {hoveredFeature && (
+            <Popup
+              feature={hoveredFeature}
+              type="hover"
+              onClose={() => setHoveredFeature(null)}
+            />
+          )}
           {selectedFeature && (
             <Popup
               feature={selectedFeature}
               type="detail"
+              closeOnClick={true}
               onClose={() => setSelectedFeature(null)}
             />
           )}

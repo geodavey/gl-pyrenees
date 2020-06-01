@@ -8,6 +8,7 @@
         "id": 17553341150240870000,
         "type": "resupply",
         "place": "Bielsa",
+        "country": "Spain",
         "name": "Solans supermercado",
         "address": "Ctra. Parzán, 2, 22350 Bielsa, Huesca, Spain"
       }
@@ -19,6 +20,7 @@
         "id": 16729563438174657000,
         "type": "resupply",
         "place": "Amélie-les-Bains-Palalda",
+        "country": "France",
         "name": "Leader Price",
         "address": "Ville Nouvelle, 66110 Amélie-les-Bains-Palalda, France"
       }
@@ -30,6 +32,7 @@
         "id": 5201338923052058000,
         "type": "resupply",
         "place": "Le Perthus",
+        "country": "Spain",
         "name": "Boucherie Paco, Super Frontera",
         "address": "Carrer Dr. Subiró, 1, 17709 Le Perthus, Girona, Spain"
       }
@@ -41,6 +44,7 @@
         "id": 6619191199599302000,
         "type": "resupply",
         "place": "Els Límits",
+        "country": "Spain",
         "name": "Novavenda",
         "address": "Sector Duana nova Parcela 1, 17700 Els Límits, Girona, Spain"
       }
@@ -52,6 +56,7 @@
         "id": 8491565122500016000,
         "type": "resupply",
         "place": "Prats-de-Mollo-la-Preste",
+        "country": "France",
         "name": "Relais des Mousquetaires Oulrich",
         "address": "17 Rue du Jardin d'Enfants, 66230 Prats-de-Mollo-la-Preste, France"
       }
@@ -63,6 +68,7 @@
         "id": 9795468901742578000,
         "type": "resupply",
         "place": "Camprodon",
+        "country": "Spain",
         "name": "Esclat",
         "address": "Carrer Freixenet, 46, 17867 Camprodon, Girona, Spain"
       }
@@ -74,6 +80,7 @@
         "id": 10065716869799145000,
         "type": "resupply",
         "place": "Camprodon",
+        "country": "Spain",
         "name": "Charter supermarket",
         "address": "Plaça de la Vila, 9, 10, 17867 Camprodon, Girona, Spain"
       }
@@ -85,6 +92,7 @@
         "id": 8397038916941024000,
         "type": "resupply",
         "place": "Arles-sur-Tech",
+        "country": "France",
         "name": "SPAR",
         "address": "17 Boulevard de La Mairie, 66150 Arles-sur-Tech, France"
       }
@@ -96,6 +104,7 @@
         "id": 182132866873046180,
         "type": "resupply",
         "place": "Puigcerdà",
+        "country": "Spain",
         "name": "Carrefour Market",
         "address": "Carretera Puigcerdá, Ctra. Seu d'Urgell, Km. 0, 1, 17520 Puigcerdà, Girona, Spain"
       }
@@ -107,6 +116,7 @@
         "id": 3455930382501557000,
         "type": "resupply",
         "place": "Bourg-Madame",
+        "country": "France",
         "name": "ALDI",
         "address": "Avenue des Pyrénées, 66760 Bourg-Madame, France"
       }
@@ -118,6 +128,7 @@
         "id": 3445267018488772000,
         "type": "resupply",
         "place": "Bourg-Madame",
+        "country": "France",
         "name": "Carrefour Market",
         "address": "7 Rue du Belloch, 66760 Bourg-Madame, France"
       }
@@ -129,6 +140,7 @@
         "id": 16798961738328293000,
         "type": "resupply",
         "place": "Llívia",
+        "country": "Spain",
         "name": "Supermercat Charter",
         "address": "Carrer del Raval, 55, 17527 Llívia, Girona, Spain"
       }
@@ -140,6 +152,7 @@
         "id": 4770750770831494000,
         "type": "resupply",
         "place": "Les Angles",
+        "country": "France",
         "name": "SPAR",
         "address": "Immeuble Panoramic, Route de Mont Louis, 66210 Les Angles, France"
       }
@@ -151,6 +164,7 @@
         "id": 16066365867150123000,
         "type": "resupply",
         "place": "Égat",
+        "country": "France",
         "name": "Lidl",
         "address": "2 Rue de las Devese, 66120 Égat, France"
       }
@@ -162,6 +176,7 @@
         "id": 9836146454840961000,
         "type": "resupply",
         "place": "Font-Romeu-Odeillo-Via",
+        "country": "France",
         "name": "Carrefour Contact",
         "address": "Avenue Mal Joffre, 66120 Font-Romeu-Odeillo-Via, France"
       }
@@ -173,6 +188,7 @@
         "id": 16059870057129787000,
         "type": "resupply",
         "place": "Pas de la Casa",
+        "country": "Andorra",
         "name": "HIPERPAS II",
         "address": "Carrer Sant Jordi, 45, AD200 Pas de la Casa, Andorra"
       }
@@ -184,6 +200,7 @@
         "id": 14103236470040211000,
         "type": "resupply",
         "place": "Encamp",
+        "country": "Andorra",
         "name": "ECLER",
         "address": "Av. de François Mitterrand, 120, AD200 Encamp, Andorra"
       }
@@ -195,6 +212,7 @@
         "id": 4052607019441302500,
         "type": "resupply",
         "place": "Arinsal",
+        "country": "Andorra",
         "name": "SUPERMERCAT MOLES ARINSAL",
         "address": "Carretera General, 27, AD400 La Massana, Andorra"
       }
@@ -206,6 +224,7 @@
         "id": 11132044082390254000,
         "type": "resupply",
         "place": "Ainet de Cardós",
+        "country": "Spain",
         "name": "IOGURTS CAL JOANET",
         "address": "Carretera Tavascan, 25571 Ainet de Cardós, Lleida, Spain"
       }
@@ -217,6 +236,7 @@
         "id": 9719222803161340000,
         "type": "resupply",
         "place": "Bagnères-de-Luchon",
+        "country": "France",
         "name": "Lidl",
         "address": "18 Rue Clément Ader, 31110 Bagnères-de-Luchon, France"
       }
@@ -228,6 +248,7 @@
         "id": 11698550835854664000,
         "type": "resupply",
         "place": "Cauterets",
+        "country": "France",
         "name": "Carrefour Montagne",
         "address": "5 Bis Avenue du Gén Leclerc, 65110 Cauterets, France"
       }
@@ -239,6 +260,7 @@
         "id": 11520451200684663000,
         "type": "resupply",
         "place": "Biescas",
+        "country": "Spain",
         "name": "DIA",
         "address": "Cajal 7, Calle de Ram, 22630 New York, Huesca, Spain"
       }
@@ -250,6 +272,7 @@
         "id": 7568809878204271000,
         "type": "resupply",
         "place": "Accous",
+        "country": "France",
         "name": "Intermarché CONTACT Accous et Drive",
         "address": "Chemin D'Arrechau, 64490 Accous, France"
       }
@@ -261,6 +284,7 @@
         "id": 12037273213373106000,
         "type": "resupply",
         "place": "Hecho",
+        "country": "Spain",
         "name": "SUPERMARKET ALTO ARAGON DONE",
         "address": "Calle Mayor, 24, 22720 Hecho, Huesca, Spain"
       }
@@ -272,6 +296,7 @@
         "id": 12140028787601263000,
         "type": "resupply",
         "place": "Panticosa",
+        "country": "Spain",
         "name": "Supermercado Altoaragón",
         "address": "Calle Acceso Telesilla, 4, 22661 Panticosa, Huesca, Spain"
       }
@@ -283,6 +308,7 @@
         "id": 12560688254993110000,
         "type": "resupply",
         "place": "Ochagavía",
+        "country": "Spain",
         "name": "Supermercados Coviran",
         "address": "Barrio Irigoyen, 42, 45, 31680 Ochagavía, Navarra, Spain"
       }
@@ -294,6 +320,7 @@
         "id": 8156298889293814000,
         "type": "resupply",
         "place": "Luz-Saint-Sauveur",
+        "country": "France",
         "name": "Carrefour Montagne",
         "address": "Rue d'Ossun, 65120 Luz-Saint-Sauveur, France"
       }
@@ -305,6 +332,7 @@
         "id": 13794734838294145000,
         "type": "resupply",
         "place": "Loudenvielle",
+        "country": "France",
         "name": "Carrefour Montagne",
         "address": "Centre Commercial du Baladan, 65510 Loudenvielle, France"
       }
@@ -316,6 +344,7 @@
         "id": 3444795438321943600,
         "type": "resupply",
         "place": "Bourisp",
+        "country": "France",
         "name": "Carrefour Market",
         "address": "Chemin de Vielle Aure, 65170 Bourisp, France"
       }
@@ -327,6 +356,7 @@
         "id": 10705270588678978000,
         "type": "resupply",
         "place": "Sort",
+        "country": "Spain",
         "name": "Dia",
         "address": "Carrer del Dr. Carles Pol i Aleu, 50, 56, 25560 Sort, Lleida, Spain"
       }
@@ -349,6 +379,7 @@
         "id": 15850063938660225000,
         "type": "resupply",
         "place": "El Pont de Suert",
+        "country": "Spain",
         "name": "Caprabo",
         "address": "Carrer Ciutat de Lleida, 8, 25520 El Pont de Suert, Lleida, Spain"
       }
@@ -360,6 +391,7 @@
         "id": 8330408213250520000,
         "type": "resupply",
         "place": "La Seu d'Urgell",
+        "country": "Spain",
         "name": "MERCADONA",
         "address": "Av. del Valira, s/n, 25700 La Seu d'Urgell, Lleida, Spain"
       }
@@ -371,6 +403,7 @@
         "id": 6081011494404454000,
         "type": "resupply",
         "place": "Viella",
+        "country": "Spain",
         "name": "Mercadona",
         "address": "C/ Anglada (N-230, Av. Castiero, C-28, 25530 Viella, Lleida, Spain"
       }
@@ -382,6 +415,7 @@
         "id": 2018646667793170000,
         "type": "resupply",
         "place": "Benasque",
+        "country": "Spain",
         "name": "Eroski",
         "address": "Av. de Francia, 42, 22440 Benasque, Huesca, Spain"
       }
@@ -393,6 +427,7 @@
         "id": 16016221033121982000,
         "type": "resupply",
         "place": "Parzán",
+        "country": "Spain",
         "name": "Supermercado Mazcaray",
         "address": "22365 Bielsa, Huesca, Spain"
       }
@@ -404,6 +439,7 @@
         "id": 8948555104557468000,
         "type": "resupply",
         "place": "Esquièze-Sère",
+        "country": "France",
         "name": "Carrefour Market",
         "address": "1 place Montblanc, 65120 Esquièze-Sère, France"
       }
@@ -415,6 +451,7 @@
         "id": 13732057601941223000,
         "type": "resupply",
         "place": "Candanchú",
+        "country": "Spain",
         "name": "Supermercado el Canfranero",
         "address": "Av. de Fernando el Católico, N 5, 22880 Canfranc-Estación, Huesca, Spain"
       }
@@ -426,6 +463,7 @@
         "id": 8634755875776470000,
         "type": "resupply",
         "place": "Elizondo",
+        "country": "Spain",
         "name": "EROSKI",
         "address": "Plaza los Fueros, 3, 31700 Elizondo, Navarra, Spain"
       }
@@ -437,6 +475,7 @@
         "id": 4028608422100873700,
         "type": "resupply",
         "place": "Irún",
+        "country": "Spain",
         "name": "Decathlon Irún",
         "address": "Centro Comercial Txingudi, Calle Ventas, 20305 Araso, SS, Spain"
       }

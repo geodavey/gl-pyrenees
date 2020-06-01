@@ -20,6 +20,8 @@ export default (props) => {
       }}
       onClick={(e) => {
         setIsSuppressed(true);
+        if ( "onSuppressed" in props )
+        props.onSuppressed(e);
       }}
     >
       <Loader type="TailSpin" color="#ccc" height={80} width={80} />

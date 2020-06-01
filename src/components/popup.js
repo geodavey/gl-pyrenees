@@ -1,5 +1,9 @@
 import React from "react";
 
+import spainIcon from "../style/spain.png";
+import franceIcon from "../style/france.png";
+import andorraIcon from "../style/andorra.png";
+
 import { Popup } from "@urbica/react-map-gl";
 
 const FeaturePopup = (props) => {
@@ -10,14 +14,41 @@ const FeaturePopup = (props) => {
   let [lon, lat] = feature.geometry.coordinates;
   let popupOffset = offsets[layerId];
 
+  let countryIcons = {
+    France: franceIcon,
+    Spain: spainIcon,
+    Andorra: andorraIcon,
+  };
+
+  console.log("popup", layerId, popupOffset, type, feature);
+
   return (
     <Popup longitude={lon} latitude={lat} offset={popupOffset} {...passedProps}>
+      {/* pyr_resupply */}
+      {layerId === "pyr_resupply" && (
+        <div style={{ textAlign: "center" }}>
+          <div>{featProps.name}</div>
+          <div>
+            <img
+              src={countryIcons[featProps.country]}
+              style={{ height: "1em", marginRight: "0.5em" }}
+            />
+            {featProps.place}, {featProps.country}
+          </div>
+          <div>
+            <a href={`http://maps.google.com/?cid=${featProps.id}`} target="_blank">
+              (view on Google Maps)
+            </a>
+          </div>
+        </div>
+      )}
       {/* pyr_refuges */}
       {layerId === "pyr_refuges" && (
         <div>
           <div
             style={{
               width: "100%",
+              minWidth: "200px",
               paddingBottom: "66%",
               position: "relative",
             }}
@@ -103,6 +134,7 @@ FeaturePopup.defaultProps = {
       right: [0, 0],
     },
     pyr_refuges: 10,
+    pyr_resupply: 10,
   },
 };
 
