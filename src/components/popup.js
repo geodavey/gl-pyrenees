@@ -17,7 +17,7 @@ const FeaturePopup = (props) => {
         <div>
           <div
             style={{
-              width: "280px",
+              width: "100%",
               paddingBottom: "66%",
               position: "relative",
             }}

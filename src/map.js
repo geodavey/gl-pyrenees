@@ -19,6 +19,11 @@ const Map = (props) => {
     longitude: lastUpdate.geometry.coordinates[0],
     latitude: lastUpdate.geometry.coordinates[1],
     zoom: 10,
+    viewportChangeOptions: {
+      padding: {
+        top: 300,
+      },
+    },
   });
 
   //
@@ -34,7 +39,7 @@ const Map = (props) => {
       setViewport({
         longitude: selectedFeature.geometry.coordinates[0],
         latitude: selectedFeature.geometry.coordinates[1],
-        zoom: 14,
+        zoom: 12,
         viewportChangeMethod: "flyTo",
         viewportChangeOptions: {
           duration: 2000,
@@ -80,6 +85,12 @@ const Map = (props) => {
         });
       });
 
+      // initialize with latest update featured
+      setSelectedFeature({
+        ...lastUpdate,
+        layer: { id: "gdv_updates" },
+      });
+
       // add click & hover handlers for popup layers
       let popupLayers = ["pyr_refuges", "gdv_updates"];
 
@@ -97,7 +108,7 @@ const Map = (props) => {
             selectedFeature &&
             feat.properties.id === selectedFeature.properties.id
           )
-          return;
+            return;
 
           setHoveredFeature(feat);
           map.getCanvas().style.setProperty("cursor", "pointer");
@@ -117,7 +128,7 @@ const Map = (props) => {
 
         // fire a fake loading event to trick map to render controls immediately
         // set map loaded on idle (once all rendering stops)
-        map.fire("load", { fake: true });
+       // map.fire("load", { fake: true });
         map.on("load", (e) => {
           if (e)
             map.once("idle", (e) => {
@@ -135,7 +146,7 @@ const Map = (props) => {
       {!isMapLoaded && <Loader />}
       {MapGL && mapStyle && (
         <MapGL.default
-        {...viewport}
+          {...viewport}
           ref={mapRef}
           style={{ width: "100%", height: "100%" }}
           attributionControl={false}
