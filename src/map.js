@@ -75,46 +75,46 @@ const Map = (props) => {
     if (mapStyle && MapGL && mapRef.current) {
       let map = mapRef.current.getMap();
 
-      map.on("style.load", (e) => {
-        let popupLayers = ["pyr_refuges", "gdv_updates"];
+      // add icons
+      // [iconName, iconURL]
+      let icons = [["gdvPin", gdvPin]];
+      icons.forEach((ic) => {
+        map.loadImage(ic[1], (err, data) => {
+          map.addImage(ic[0], data);
+        });
+      });
 
-        // icons [iconName, iconURL]
-        let icons = [["gdvPin", gdvPin]];
-        icons.forEach((ic) => {
-          map.loadImage(ic[1], (err, data) => {
-            map.addImage(ic[0], data);
-          });
+      // add click & hover handlers for popup layers
+      let popupLayers = ["pyr_refuges", "gdv_updates"];
+      popupLayers.forEach((lyr) => {
+        map.on("click", lyr, (e) => {
+          setHoveredFeature(null);
+          setSelectedFeature(e.features[0]);
         });
 
+        map.on("mousemove", lyr, (e) => {
+          let feat = e.features[0];
+
+          if (
+            selectedFeature &&
+            feat.properties.id !== selectedFeature.properties.id
+          )
+            setHoveredFeature(feat);
+
+          map.getCanvas().style.setProperty("cursor", "pointer");
+        });
+
+        map.on("mouseleave", lyr, (e) => {
+          setHoveredFeature(null);
+          map.getCanvas().style.removeProperty("cursor");
+        });
+      });
+
+      map.on("style.load", (e) => {
         // replace test source data with real data
         map.getSource("gdv_tracks").setData(data.tracks);
         map.getSource("gdv_updates").setData(data.updates);
         map.getSource("gdv_waypoints").setData(data.waypoints);
-
-        // add click & hover handlers for popup layers
-        popupLayers.forEach((lyr) => {
-          map.on("click", lyr, (e) => {
-            setHoveredFeature(null);
-            setSelectedFeature(e.features[0]);
-          });
-
-          map.on("mousemove", lyr, (e) => {
-            let feat = e.features[0];
-
-            if (
-              selectedFeature &&
-              feat.properties.id !== selectedFeature.properties.id
-            )
-              setHoveredFeature(feat);
-
-            map.getCanvas().style.setProperty("cursor", "pointer");
-          });
-
-          map.on("mouseleave", lyr, (e) => {
-            setHoveredFeature(null);
-            map.getCanvas().style.removeProperty("cursor");
-          });
-        });
 
         // fire a fake loading event to trick map to render controls immediately
         // set map loaded on idle (once all rendering stops)
