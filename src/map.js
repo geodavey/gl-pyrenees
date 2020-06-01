@@ -39,7 +39,8 @@ const Map = (props) => {
       setViewport({
         longitude: selectedFeature.geometry.coordinates[0],
         latitude: selectedFeature.geometry.coordinates[1],
-        zoom: viewport.zoom + 0.01, // always add tiny bit to zoom to make sure transition is applied
+        // always add tiny bit to zoom to make sure transition is applied
+        zoom: viewport.zoom + 0.000001, 
         viewportChangeMethod: "flyTo",
         viewportChangeOptions: {
           duration: 2000,
@@ -129,10 +130,8 @@ const Map = (props) => {
         // fire a fake loading event to trick map to render controls immediately
         // set map loaded on idle (once all rendering stops)
         // map.fire("load", { fake: true });
-        map.on("load", (e) => {
-          console.log("load", e);
+        map.once("idle", (e) => {
           setIsMapLoaded(true);
-          if (e) map.once("idle", (e) => {});
         });
       });
     }
