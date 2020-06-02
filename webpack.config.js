@@ -39,6 +39,7 @@ const config = {
         ],
       },
       {
+        // .png Icons loading as data URIs
         test: /\.(png)$/i,
         use: [
           {
@@ -48,6 +49,10 @@ const config = {
             }
           },
         ],
+      },
+      {
+        test: /\.woff2$/,
+        use: ["file-loader"]
       },
       {
         // SVG loading

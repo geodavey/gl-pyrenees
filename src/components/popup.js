@@ -4,15 +4,23 @@ import spainIcon from "../style/spain.png";
 import franceIcon from "../style/france.png";
 import andorraIcon from "../style/andorra.png";
 
+import isMobileDevice from "is-mobile";
+
+import { format } from "timeago.js";
 import { Popup } from "@urbica/react-map-gl";
 
 const FeaturePopup = (props) => {
+  console.log(props);
   let { feature, type, offsets, ...passedProps } = props;
   let featProps = feature.properties;
   let layerId = feature.layer.id;
 
   let [lon, lat] = feature.geometry.coordinates;
-  let popupOffset = offsets[layerId];
+  let isMobile = isMobileDevice();
+  let popupOffset =
+    typeof offsets[layerId] === "function"
+      ? offsets[layerId](feature)
+      : offsets[layerId];
 
   let countryIcons = {
     France: franceIcon,
@@ -126,32 +134,85 @@ const FeaturePopup = (props) => {
       {layerId === "gdv_updates" && (
         <div
           style={{
-            width: type === "detail" ? "400px" : "200px",
+            width: type === "detail" ? "360px" : "200px",
             maxWidth: "calc(100vw - 50px)",
-            paddingBottom: "66%",
-            position: "relative",
           }}
         >
           <div
             style={{
-              width: "100%",
-              height: "100%",
-              position: "absolute",
-              display: "flex",
-              alignItems: "cener",
-              justifyContent: "center",
+              paddingBottom: "66%",
+              position: "relative",
             }}
           >
-            {(featProps.photo && (
-              <img
-                src={`${featProps.photo}`}
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                position: "absolute",
+                display: "flex",
+                alignItems: "cener",
+                justifyContent: "center",
+              }}
+            >
+              {(featProps.photo && (
+                <img
+                  src={`${featProps.photo}`}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              )) || <div>(no photo)</div>}
+            </div>
+          </div>
+          <div
+            className="font-barlow"
+            style={{
+              textAlign: "center",
+              fontSize:
+                type === "hover" ? "1.2em" : isMobile ? "1.2em" : "1.5em",
+              margin: type === "hover" ? "0.25em 0" : "0.35em 0",
+            }}
+          >
+            {type === "detail" && (
+              <span>
+                {new Date(featProps.time).toUTCString()} (
+                {format(featProps.time)})
+              </span>
+            )}
+            {type === "hover" && (
+              <span>
+                {featProps.time.split("T")[0]} ({format(featProps.time)})
+              </span>
+            )}
+          </div>
+          <div
+            className="font-palanquin"
+            style={{
+              position: "relative",
+              lineHeight: type === "hover" ? "1.2em" : "1.5em",
+              maxHeight: type === "hover" ? "3.6em" : "6em",
+              fontSize: type === "hover" ? "0.9em" : "auto",
+              overflowY: type === "hover" ? "hidden" : "scroll",
+              textAlign: type === "hover" ? "justify" : "auto",
+            }}
+          >
+            {featProps.caption}
+
+            {type === "hover" && (
+              <div
                 style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
+                  position: "absolute",
+                  bottom: 0,
+                  right: 0,
+                  background: "#fff",
+                  paddingLeft: "0.5em",
                 }}
-              />
-            )) || <div>(no photo)</div>}
+              >
+                ...
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -161,15 +222,26 @@ const FeaturePopup = (props) => {
 
 FeaturePopup.defaultProps = {
   offsets: {
-    gdv_updates: {
-      top: [0, 0],
-      "top-left": [0, 0],
-      "top-right": [0, 0],
-      bottom: [0, -50],
-      "bottom-left": [0, -50],
-      "bottom-right": [0, -50],
-      left: [0, 0],
-      right: [0, 0],
+    gdv_updates: (f) => {
+      let gdvPinHeight = 114;
+
+      // determine offset of popup layer by icon size
+      // have the popup cursor start at 90% of the icon height
+      let pinOffset =
+        typeof f.layer.layout === "undefined"
+          ? 50
+          : gdvPinHeight * 0.9 * f.layer.layout["icon-size"];
+
+      return {
+        top: [0, 0],
+        "top-left": [0, 0],
+        "top-right": [0, 0],
+        bottom: [0, -pinOffset],
+        "bottom-left": [0, -pinOffset],
+        "bottom-right": [0, -pinOffset],
+        left: [0, 0],
+        right: [0, 0],
+      };
     },
     pyr_refuges: 10,
     pyr_resupply: 10,
@@ -179,6 +251,6 @@ FeaturePopup.defaultProps = {
 export default FeaturePopup;
 
 export const popupHeights = {
-  gdv_updates: 300,
+  gdv_updates: 390,
   pyr_resupply: 50,
 };
