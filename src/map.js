@@ -110,7 +110,7 @@ const Map = (props) => {
       // Hover Layers
       let hoverLayers = ["pyr_refuges", "gdv_updates"];
 
-      if (isMobile())
+      if (!isMobile())
         hoverLayers.forEach((lyr) => {
           map.on("mousemove", lyr, (e) => {
             console.log(e);
