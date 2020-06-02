@@ -36,7 +36,12 @@ const FeaturePopup = (props) => {
             {featProps.place}, {featProps.country}
           </div>
           <div>
-            <a href={`http://maps.google.com/?cid=${featProps.id}`} target="_blank">
+            <a
+              href={`https://maps.google.com/?q=${encodeURIComponent(
+                `${featProps.name}, ${featProps.address}`
+              )}`}
+              target="_blank"
+            >
               (view on Google Maps)
             </a>
           </div>
@@ -141,6 +146,6 @@ FeaturePopup.defaultProps = {
 export default FeaturePopup;
 
 export const popupHeights = {
-    gdv_updates: 300,
-    pyr_resupply: 50
+  gdv_updates: 300,
+  pyr_resupply: 50,
 };
