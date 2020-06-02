@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Popup from "./components/popup";
+import Popup, { popupHeights } from "./components/popup";
 import Loader from "./components/loader";
 import isMobile from "is-mobile";
 
@@ -20,12 +20,7 @@ const Map = (props) => {
   let [viewport, setViewport] = useState({
     longitude: lastUpdate.geometry.coordinates[0],
     latitude: lastUpdate.geometry.coordinates[1],
-    zoom: 10,
-    viewportChangeOptions: {
-      padding: {
-        top: 300,
-      },
-    },
+    zoom: 10
   });
 
   //
@@ -37,6 +32,8 @@ const Map = (props) => {
 
   // fly to feature once selected
   useEffect(() => {
+    if (selectedFeature) console.log(popupHeights[selectedFeature.layer.id]);
+
     if (selectedFeature)
       setViewport({
         longitude: selectedFeature.geometry.coordinates[0],
@@ -46,7 +43,7 @@ const Map = (props) => {
         viewportChangeOptions: {
           duration: 2000,
           padding: {
-            top: 300,
+            top: popupHeights[selectedFeature.layer.id],
           },
         },
       });
@@ -103,6 +100,8 @@ const Map = (props) => {
       popupLayers.forEach((lyr) => {
         map.on("click", lyr, (e) => {
           setHoveredFeature(null);
+          // this fires before <Popup onClose={}> sometimes which is problematic
+          // give it a lil' delay, won't hurt no body
           setTimeout(setSelectedFeature, 100, e.features[0]);
         });
       });
