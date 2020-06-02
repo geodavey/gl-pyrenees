@@ -23,7 +23,7 @@ const FeaturePopup = (props) => {
   console.log("popup", layerId, popupOffset, type, feature);
 
   return (
-    <Popup longitude={lon} latitude={lat} offset={popupOffset} {...passedProps}>
+    <Popup longitude={lon} latitude={lat} offset={popupOffset} maxWidth={512} {...passedProps}>
       {/* pyr_resupply */}
       {layerId === "pyr_resupply" && (
         <div style={{ textAlign: "center" }}>
@@ -120,7 +120,36 @@ const FeaturePopup = (props) => {
       )}
       {/* gdv_updates */}
       {layerId === "gdv_updates" && (
-        <div style={{ height: 250, width: 300 }}>sko buffs</div>
+        <div
+          style={{
+            width: "100%",
+            minWidth: type === "detail" ? "512px" : "200px",
+            paddingBottom: "66%",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              display: "flex",
+              alignItems: "cener",
+              justifyContent: "center",
+            }}
+          >
+            {(featProps.photo && (
+              <img
+                src={`${featProps.photo}`}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            )) || <div>(no photo)</div>}
+          </div>
+        </div>
       )}
     </Popup>
   );

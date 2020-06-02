@@ -4,9 +4,8 @@
         {
             "type": "Feature",
             "properties": {
-                "photo": "",
+                "photo": "/data/test/update.jpg",
                 "caption": "",
-                "location": "San Sebastian",
                 "time": ""
             },
             "geometry": {
@@ -17,9 +16,8 @@
         {
             "type": "Feature",
             "properties": {
-                "photo": "",
+                "photo": "/data/test/update.jpg",
                 "caption": "",
-                "location": "Elizondo",
                 "time": ""
             },
             "geometry": {
@@ -30,9 +28,8 @@
         {
             "type": "Feature",
             "properties": {
-                "photo": "",
+                "photo": "/data/test/update.jpg",
                 "caption": "",
-                "location": "Somewhere",
                 "time": ""
             },
             "geometry": {
@@ -43,9 +40,8 @@
         {
             "type": "Feature",
             "properties": {
-                "photo": "",
+                "photo": "/data/test/update.jpg",
                 "caption": "",
-                "location":"Huesca",
                 "time": ""
             },
             "geometry": {
@@ -56,9 +52,8 @@
         {
             "type": "Feature",
             "properties": {
-                "photo": "",
+                "photo": "/data/test/update.jpg",
                 "caption": "",
-                "location":"Parzan",
                 "time": ""
             },
             "geometry": {
