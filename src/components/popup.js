@@ -23,7 +23,13 @@ const FeaturePopup = (props) => {
   console.log("popup", layerId, popupOffset, type, feature);
 
   return (
-    <Popup longitude={lon} latitude={lat} offset={popupOffset} maxWidth={512} {...passedProps}>
+    <Popup
+      longitude={lon}
+      latitude={lat}
+      offset={popupOffset}
+      maxWidth={512}
+      {...passedProps}
+    >
       {/* pyr_resupply */}
       {layerId === "pyr_resupply" && (
         <div style={{ textAlign: "center" }}>
@@ -52,8 +58,8 @@ const FeaturePopup = (props) => {
         <div>
           <div
             style={{
-              width: "100%",
-              minWidth: "200px",
+              maxWidth: "calc(100vw - 50px)",
+              width: type === "detail" ? "512px" : "200px",
               paddingBottom: "66%",
               position: "relative",
             }}
@@ -122,8 +128,8 @@ const FeaturePopup = (props) => {
       {layerId === "gdv_updates" && (
         <div
           style={{
-            width: "100%",
-            minWidth: type === "detail" ? "512px" : "200px",
+            width: type === "detail" ? "512px" : "200px",
+            maxWidth: "calc(100vw - 50px)",
             paddingBottom: "66%",
             position: "relative",
           }}
