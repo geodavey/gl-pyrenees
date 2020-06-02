@@ -177,23 +177,16 @@ const Map = (props) => {
           }}
         >
           {/* Popup */}
-          {() => {
-            if (hoveredFeature) {
-              // don't display hover popup on selected feature
-              if (
-                selectedFeature &&
-                selectedFeature.properties.id == hoveredFeature.properties.id
-              )
-                return;
-              else
-                return (
-                  <Popup
-                    feature={hoveredFeature}
-                    type="hover"
-                    onClose={() => setHoveredFeature(null)}
-                  />
-                );
-            }
+          {hoveredFeature &&
+            (!selectedFeature ||
+              selectedFeature.properties.id !==
+                hoveredFeature.properties.id) && (
+              <Popup
+                feature={hoveredFeature}
+                type="hover"
+                onClose={() => setHoveredFeature(null)}
+              />
+            )}
           }}
           {selectedFeature && (
             <Popup
@@ -203,7 +196,6 @@ const Map = (props) => {
               onClose={() => setSelectedFeature(null)}
             />
           )}
-
           {/* Controls */}
           <MapGL.NavigationControl showZoom position="top-left" />
           <MapGL.FullscreenControl position="top-left" />
