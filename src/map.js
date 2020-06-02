@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Popup from "./components/popup";
 import Loader from "./components/loader";
+import isMobile from "is-mobile";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import gdvPin from "./style/gdvPin.png";
@@ -109,24 +110,26 @@ const Map = (props) => {
       // Hover Layers
       let hoverLayers = ["pyr_refuges", "gdv_updates"];
 
-      hoverLayers.forEach((lyr) => {
-        map.on("mousemove", lyr, (e) => {
-          let feat = e.features[0];
+      if (isMobile())
+        hoverLayers.forEach((lyr) => {
+          map.on("mousemove", lyr, (e) => {
+            console.log(e);
+            let feat = e.features[0];
 
-          // no hover popup on features already selected
-          if (
-            selectedFeature &&
-            feat.properties.id === selectedFeature.properties.id
-          )
-            return;
+            // no hover popup on features already selected
+            if (
+              selectedFeature &&
+              feat.properties.id === selectedFeature.properties.id
+            )
+              return;
 
-          setHoveredFeature(feat);
+            setHoveredFeature(feat);
+          });
+
+          map.on("mouseleave", lyr, (e) => {
+            setHoveredFeature(null);
+          });
         });
-
-        map.on("mouseleave", lyr, (e) => {
-          setHoveredFeature(null);
-        });
-      });
 
       // Set cursor to pointer on popup & hover layers
       let cursorLayers = [...popupLayers, ...hoverLayers];
@@ -169,6 +172,7 @@ const Map = (props) => {
           ref={mapRef}
           style={{ width: "100%", height: "100%" }}
           attributionControl={false}
+          refreshExpiredTiles={false}
           onViewportChange={setViewport}
           mapStyle={mapStyle}
           transformRequest={(url) => {
