@@ -70,8 +70,6 @@ const Map = (props) => {
 
   let [isMapLoaded, setIsMapLoaded] = useState(false);
 
-  let onMouseMove = useCallback((e) => {}, [selectedFeature]);
-
   useEffect(() => {
     if (mapStyle && MapGL && mapRef.current) {
       let map = mapRef.current.getMap();
@@ -109,9 +107,11 @@ const Map = (props) => {
       // Hover Layers
       let hoverLayers = ["pyr_refuges", "gdv_updates"];
 
+      // only set hover layers on mobile
       if (!isMobile())
         hoverLayers.forEach((lyr) => {
           map.on("mousemove", lyr, (e) => {
+            console.log(e.features[0]);
             setHoveredFeature(e.features[0]);
           });
 
@@ -183,6 +183,7 @@ const Map = (props) => {
                 hoveredFeature.properties.id) && (
               <Popup
                 feature={hoveredFeature}
+                closeButton={false}
                 type="hover"
                 onClose={() => setHoveredFeature(null)}
               />

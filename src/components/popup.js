@@ -126,7 +126,7 @@ const FeaturePopup = (props) => {
       {layerId === "gdv_updates" && (
         <div
           style={{
-            width: type === "detail" ? "512px" : "200px",
+            width: type === "detail" ? "400px" : "200px",
             maxWidth: "calc(100vw - 50px)",
             paddingBottom: "66%",
             position: "relative",
