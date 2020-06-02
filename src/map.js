@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Popup, { popupHeights} from "./components/popup";
+import React, { useState, useEffect, useCallback } from "react";
+import Popup, { popupHeights } from "./components/popup";
 import Loader from "./components/loader";
 import isMobile from "is-mobile";
 
@@ -20,7 +20,7 @@ const Map = (props) => {
   let [viewport, setViewport] = useState({
     longitude: lastUpdate.geometry.coordinates[0],
     latitude: lastUpdate.geometry.coordinates[1],
-    zoom: 10
+    zoom: 10,
   });
 
   //
@@ -32,8 +32,6 @@ const Map = (props) => {
 
   // fly to feature once selected
   useEffect(() => {
-    if (selectedFeature) console.log(popupHeights[selectedFeature.layer.id]);
-
     if (selectedFeature)
       setViewport({
         longitude: selectedFeature.geometry.coordinates[0],
@@ -71,6 +69,8 @@ const Map = (props) => {
   //
 
   let [isMapLoaded, setIsMapLoaded] = useState(false);
+
+  let onMouseMove = useCallback((e) => {}, [selectedFeature]);
 
   useEffect(() => {
     if (mapStyle && MapGL && mapRef.current) {
@@ -112,17 +112,7 @@ const Map = (props) => {
       if (!isMobile())
         hoverLayers.forEach((lyr) => {
           map.on("mousemove", lyr, (e) => {
-            console.log(e);
-            let feat = e.features[0];
-
-            // no hover popup on features already selected
-            if (
-              selectedFeature &&
-              feat.properties.id === selectedFeature.properties.id
-            )
-              return;
-
-            setHoveredFeature(feat);
+            setHoveredFeature(e.features[0]);
           });
 
           map.on("mouseleave", lyr, (e) => {
@@ -187,13 +177,24 @@ const Map = (props) => {
           }}
         >
           {/* Popup */}
-          {hoveredFeature && (
-            <Popup
-              feature={hoveredFeature}
-              type="hover"
-              onClose={() => setHoveredFeature(null)}
-            />
-          )}
+          {() => {
+            if (hoveredFeature) {
+              // don't display hover popup on selected feature
+              if (
+                selectedFeature &&
+                selectedFeature.properties.id == hoveredFeature.properties.id
+              )
+                return;
+              else
+                return (
+                  <Popup
+                    feature={hoveredFeature}
+                    type="hover"
+                    onClose={() => setHoveredFeature(null)}
+                  />
+                );
+            }
+          }}
           {selectedFeature && (
             <Popup
               feature={selectedFeature}

@@ -20,8 +20,6 @@ const FeaturePopup = (props) => {
     Andorra: andorraIcon,
   };
 
-  console.log("popup", layerId, popupOffset, type, feature);
-
   return (
     <Popup
       longitude={lon}
@@ -59,7 +57,7 @@ const FeaturePopup = (props) => {
           <div
             style={{
               maxWidth: "calc(100vw - 50px)",
-              width: type === "detail" ? "512px" : "200px",
+              width: type === "detail" ? "320px" : "200px",
               paddingBottom: "66%",
               position: "relative",
             }}

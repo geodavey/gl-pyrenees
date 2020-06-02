@@ -4,6 +4,7 @@
         {
             "type": "Feature",
             "properties": {
+                "id": 0,
                 "photo": "/data/test/update.jpg",
                 "caption": "",
                 "time": ""
@@ -16,6 +17,7 @@
         {
             "type": "Feature",
             "properties": {
+                "id": 1,
                 "photo": "/data/test/update.jpg",
                 "caption": "",
                 "time": ""
@@ -28,6 +30,7 @@
         {
             "type": "Feature",
             "properties": {
+                "id": 2,
                 "photo": "/data/test/update.jpg",
                 "caption": "",
                 "time": ""
@@ -40,6 +43,7 @@
         {
             "type": "Feature",
             "properties": {
+                "id": 3,
                 "photo": "/data/test/update.jpg",
                 "caption": "",
                 "time": ""
@@ -52,6 +56,7 @@
         {
             "type": "Feature",
             "properties": {
+                "id": 4,
                 "photo": "/data/test/update.jpg",
                 "caption": "",
                 "time": ""
