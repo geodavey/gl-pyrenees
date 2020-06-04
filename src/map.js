@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Popup, { popupHeights } from "./components/popup";
 import Loader from "./components/loader";
+import Infobox from "./components/infobox";
 import isMobile from "is-mobile";
 
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -197,6 +198,8 @@ const Map = (props) => {
               onClose={() => setSelectedFeature(null)}
             />
           )}
+          {/* Infobox */}
+          <Infobox />
           {/* Controls */}
           <MapGL.NavigationControl showZoom position="top-left" />
           <MapGL.FullscreenControl position="top-left" />

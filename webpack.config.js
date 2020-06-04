@@ -51,6 +51,17 @@ const config = {
         ],
       },
       {
+        test: /\.md$/,
+        use: [
+            {
+                loader: "html-loader"
+            },
+            {
+                loader: "markdown-loader",
+            }
+        ]
+    },
+      {
         test: /\.woff2$/,
         use: ["file-loader"]
       },

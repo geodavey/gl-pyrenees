@@ -1,4 +1,54 @@
+//
+.mapboxgl-ctrl-infobox {
 
+  font-family: "Palanquin";
+  font-size: 1.1em;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Barlow Condensed";
+    &:not(:first-child) {
+      margin: 0.35em 0 0.35em 0;
+    }
+    &:first-child {
+      margin: 0 0 0.35em 0;
+    }
+  }
+  p {
+    line-height: 1.2;
+    &:not(:last-child) {
+      margin: 0 0 0.25em 0;
+    }
+    &:last-child {
+      margin: 0;
+    }
+  }
+  .icon {
+    & > svg:hover {
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #eee;
+    }
+  }
+  .symbol {
+    margin-right: 8px;
+    .symbol-icon {
+      vertical-align: middle;
+      height: 18px;
+    }
+  }
+  ul {
+    padding-left: 1em;
+    margin: 0
+  }
+}
+//
+// Fonts
+//
 @font-face {
   font-family: "Palanquin";
   font-style: normal;
@@ -12,11 +62,11 @@
 }
 
 @font-face {
-  font-family: 'Barlow Condensed';
+  font-family: "Barlow Condensed";
   font-style: normal;
   font-weight: 400;
-  src: local('Barlow Condensed Regular'), local('BarlowCondensed-Regular'),
-       url('./style/fonts/barlow-condensed-v4-latin-regular.woff2') format('woff2'), 
+  src: local("Barlow Condensed Regular"), local("BarlowCondensed-Regular"),
+    url("./style/fonts/barlow-condensed-v4-latin-regular.woff2") format("woff2");
 }
 
 .font-barlow {
@@ -28,13 +78,12 @@
 //
 
 .mapboxgl-ctrl-attrib {
-  &.mapboxgl-compact
-  {
-      &::after {
-        background-image: url(./style/heart.png) !important;
-      }
+  &.mapboxgl-compact {
+    &::after {
+      background-image: url(./style/heart.png) !important;
+    }
 
-      text-align: center;
+    text-align: center;
   }
 }
 
@@ -43,10 +92,10 @@
   font-size: 1em;
   width: 24px;
   height: 26px;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255, 255, 255, 0.4);
 
   &:hover {
-    background-color: rgba(255,255,255,0.9) !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
   }
 }
 
