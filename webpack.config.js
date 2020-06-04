@@ -1,6 +1,10 @@
 const resolve = require("path").resolve;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+const BABEL_CONFIG = {
+  presets: ["@babel/preset-env", "@babel/preset-react"],
+};
+
 const config = {
   devServer: {
     disableHostCheck: true,
@@ -11,14 +15,13 @@ const config = {
     compress: true,
   },
 
-  entry: {
-    app: resolve("./src/app.js"),
-  },
+  entry: "./src/index.js",
 
   output: {
+    filename: "map.js",
     chunkFilename: "[name].bundle.js",
     path: resolve("public"),
-    libraryTarget: "commonjs2",
+    libraryTarget: 'commonjs2'
   },
 
   module: {
@@ -28,7 +31,12 @@ const config = {
         test: /\.js$/,
         include: [resolve(".")],
         exclude: [/node_modules/],
-        use: "babel-loader",
+        use: [
+          {
+            loader: "babel-loader",
+            options: BABEL_CONFIG,
+          },
+        ],
       },
       {
         // .png Icons loading as data URIs
