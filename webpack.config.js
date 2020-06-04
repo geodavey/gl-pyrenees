@@ -46,24 +46,24 @@ const config = {
             loader: "url-loader",
             options: {
               limit: 10240,
-            }
+            },
           },
         ],
       },
       {
         test: /\.md$/,
         use: [
-            {
-                loader: "html-loader"
-            },
-            {
-                loader: "markdown-loader",
-            }
-        ]
-    },
+          {
+            loader: "html-loader",
+          },
+          {
+            loader: "markdown-loader",
+          },
+        ],
+      },
       {
         test: /\.woff2$/,
-        use: ["file-loader"]
+        use: ["file-loader"],
       },
       {
         // SVG loading

@@ -252,5 +252,6 @@ export default FeaturePopup;
 
 export const popupHeights = {
   gdv_updates: 390,
+  pyr_refuges: 250,
   pyr_resupply: 50,
 };

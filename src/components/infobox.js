@@ -30,7 +30,7 @@ export default (props) => {
               width: 300,
               maxWidth: "calc(100vw - 20px)",
               maxHeight: "calc(100vh - 20px)",
-              overflowY: "auto"
+              overflowY: "auto",
             }
           : {
               position: "absolute",
@@ -51,8 +51,8 @@ export default (props) => {
         <div className="content" style={{ padding: 10 }}>
           <h1>Pyrenees Adventure Map</h1>
           <p>
-            Interactive online map of Pyrenees mountain range with backpacker
-            tracking
+            Open source interactive online map of Pyrenees mountain range with
+            live backpacker tracking
           </p>
           <h2>Map Symbology</h2>
           <div
@@ -92,7 +92,7 @@ export default (props) => {
                   { stroke: "#f00", strokeWidth: 3 },
                 ]}
               />{" "}
-              Haute Route Pyrenees (HRP)
+              Haute Randonnée Pyrénéenne (HRP)
             </div>
             <div className="symbol">
               <SvgLine
@@ -111,31 +111,58 @@ export default (props) => {
                   { stroke: "#fff", strokeWidth: 5 },
                   {
                     stroke: "rgba(234, 118, 24, 1)",
-                    "stroke-dasharray": "3 2",
+                    strokeDasharray: "3 2",
                     strokeWidth: 2,
                   },
                 ]}
               />{" "}
               Minor Route
             </div>
+            <div className="symbol">
+              <SvgLine
+                className="symbol-icon"
+                lines={[
+                  { stroke: "#fff", strokeWidth: 5 },
+                  {
+                    stroke: "#000",
+                    strokeWidth: 2,
+                  },
+                ]}
+              />{" "}
+              Automobile Road
+            </div>
           </div>
           <h2>Map Data Sources</h2>
           <ul>
             <li>
               <div style={{ fontSize: "1.1em" }}>
-                <a href="https://openstreetmap.org">OpenStreetMap</a>
+                <a href="https://openstreetmap.org" target="_blank">
+                  OpenStreetMap
+                </a>
               </div>
               <div>Hiking routes, peaks, base vector data</div>
             </li>
             <li>
               <div style={{ fontSize: "1.1em" }}>
-                <a href="https://pyrenees-refuges.com">pyrenees-refuges.com</a>
+                <a href="https://maptiler.com" target="_blank">
+                  MapTiler
+                </a>
+              </div>
+              <div>Hillshade, contours, tile hosting</div>
+            </li>
+            <li>
+              <div style={{ fontSize: "1.1em" }}>
+                <a href="https://pyrenees-refuges.com" target="_blank">
+                  pyrenees-refuges.com
+                </a>
               </div>
               <div>Pyrenees refuges database &amp; photos</div>
             </li>
             <li>
               <div style={{ fontSize: "1.1em" }}>
-                <a href="https://maps.google.com">Google Maps</a>
+                <a href="https://maps.google.com" target="_blank">
+                  Google Maps
+                </a>
               </div>
               <div>Resupply supermarket locations</div>
             </li>
@@ -144,15 +171,27 @@ export default (props) => {
           <ul>
             <li>
               <div style={{ fontSize: "1.1em" }}>
-                <a href="https://github.com/1papaya/gl-pyrenees">gl-pyrenees</a>
+                <a
+                  href="https://github.com/1papaya/gl-pyrenees"
+                  target="_blank"
+                >
+                  gl-pyrenees
+                </a>
               </div>
-              <div>Interactive map source code</div>
+              <p>
+                Interactive map source code, written in React and Mapbox GL JS
+              </p>
             </li>
             <li>
               <div style={{ fontSize: "1.1em" }}>
-                <a href="https://github.com/1papaya/caminoBot">caminoBot</a>
+                <a href="https://github.com/1papaya/caminoBot" target="_blank">
+                  caminoBot
+                </a>
               </div>
-              <div>Location updater source code</div>
+              <p>
+                Location updater source code, using Telegram, Netlify, FaunaDB,
+                OpenRouteService
+              </p>
             </li>
           </ul>
           <h2>Special Acknowledgements</h2>
@@ -162,11 +201,14 @@ export default (props) => {
             <a href="https://wiki.openstreetmap.org/wiki/HRP" target="_blank">
               those who worked on the massive HRP route relation
             </a>
-            . Bon travail ! :)
+            . Bon travail / Buen trabajo ! :)
           </p>
           <p>
-            Also big shout out to pyrenees-refuges.com! Amazing dataset, merci
-            for making it available!
+            Also big shout out to{" "}
+            <a href="https://pyrenees-refuges.com" target="_blank">
+              pyrenees-refuges.com
+            </a>
+            ! Amazing dataset, merci for making it available!
           </p>
           <p>
             Last, big ups to Mapbox, Netlify, MapTiler and Github for their free

@@ -37,7 +37,7 @@ const Map = (props) => {
       setViewport({
         longitude: selectedFeature.geometry.coordinates[0],
         latitude: selectedFeature.geometry.coordinates[1],
-        zoom: viewport.zoom + 1,
+        zoom: viewport.zoom + 0.000001,
         viewportChangeMethod: "flyTo",
         viewportChangeOptions: {
           duration: 2000,
@@ -112,7 +112,6 @@ const Map = (props) => {
       if (!isMobile())
         hoverLayers.forEach((lyr) => {
           map.on("mousemove", lyr, (e) => {
-            console.log(e.features[0]);
             setHoveredFeature(e.features[0]);
           });
 
@@ -171,9 +170,11 @@ const Map = (props) => {
             let url_ = new URL(url);
             let loc = window.location;
 
+            let baseURL = (props.dataBaseURL) ? props.dataBaseURL : `${loc.origin}${loc.pathname}`;
+
             if (url.search("//localhost") != -1)
               return {
-                url: `${loc.origin}${loc.pathname}${url_.pathname}`,
+                url: `${baseURL}${url_.pathname}`,
               };
           }}
         >
@@ -219,5 +220,14 @@ const Map = (props) => {
     </div>
   );
 };
+
+Map.defaultProps = {
+  data: {
+    updates: [],
+    tracks: [],
+    waypoints: [],
+  },
+  baseDataURL: null
+}
 
 export default Map;

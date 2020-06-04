@@ -14,7 +14,7 @@ let data = {
 
 const App = (props) => {
   return (
-    <Map data={data} />
+    <Map data={data}/>
   );
 };
 
