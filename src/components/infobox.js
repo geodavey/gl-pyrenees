@@ -8,11 +8,7 @@ import iconMountain from "../style/mountain.png";
 import iconRefuge from "../style/refuge.png";
 
 export default (props) => {
-  let [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    setIsOpen(props.isOpen);
-  }, []);
+  let [isOpen, setIsOpen] = useState(props.isOpen);
 
   let iconProps = {
     onClick: () => {

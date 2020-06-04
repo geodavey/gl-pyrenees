@@ -199,7 +199,7 @@ const Map = (props) => {
             />
           )}
           {/* Infobox */}
-          <Infobox />
+          <Infobox isOpen={!isMobile()}/>
           {/* Controls */}
           <MapGL.NavigationControl showZoom position="top-left" />
           <MapGL.FullscreenControl position="top-left" />
