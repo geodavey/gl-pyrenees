@@ -34,6 +34,7 @@ export default (props) => {
               width: 300,
               maxWidth: "calc(100vw - 20px)",
               maxHeight: "calc(100vh - 20px)",
+              overflowY: "auto"
             }
           : {
               position: "absolute",
