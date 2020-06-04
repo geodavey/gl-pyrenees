@@ -1,3 +1,3 @@
-import Map from "./app";
+import Map from "./map";
 
 export default Map;

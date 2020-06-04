@@ -1,0 +1,7 @@
+public/
+node_modules/
+.env
+.gitignore
+src/data
+src/scripts
+index.html
