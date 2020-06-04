@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Popup, { popupHeights } from "./components/popup";
 import Loader from "./components/loader";
 import Infobox from "./components/infobox";

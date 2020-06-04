@@ -2,7 +2,7 @@ const resolve = require("path").resolve;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const BABEL_CONFIG = {
-  presets: ["@babel/env", "@babel/react"],
+  presets: ["@babel/preset-env", "@babel/preset-react"],
 };
 
 const config = {
