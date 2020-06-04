@@ -99,6 +99,10 @@ const config = {
       template: "index.html",
     }),
   ],
+
+  externals: {
+    react: "commonjs react",
+  },
 };
 
 module.exports = config;
