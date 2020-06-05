@@ -1,19 +1,3 @@
-function ___$insertStyle(css) {
-  if (!css) {
-    return;
-  }
-  if (typeof window === 'undefined') {
-    return;
-  }
-
-  var style = document.createElement('style');
-
-  style.setAttribute('type', 'text/css');
-  style.innerHTML = css;
-  document.head.appendChild(style);
-  return css;
-}
-
 var version = 8;
 var name = "Topo";
 var metadata = {
@@ -6762,4 +6746,4 @@ var style = {
 
 export default style;
 export { glyphs, id, layers, metadata, name, sources, sprite, version };
-//# sourceMappingURL=style-69db9709.js.map
+//# sourceMappingURL=style-5e679520.js.map

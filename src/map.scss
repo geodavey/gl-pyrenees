@@ -1,4 +1,5 @@
-//
+@import "../node_modules/mapbox-gl/dist/mapbox-gl.css";
+
 .mapboxgl-ctrl-infobox {
 
   font-family: "Palanquin";
@@ -37,6 +38,7 @@
   .symbol {
     margin-right: 8px;
     .symbol-icon {
+      display: inline-block;
       vertical-align: middle;
       height: 18px;
     }
