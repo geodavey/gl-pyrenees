@@ -9,13 +9,11 @@ import "./app.scss";
 let data = {
   tracks: require("../public/data/test/gdv_tracks.geojson"),
   waypoints: require("../public/data/test/gdv_waypoints.geojson"),
-  updates: require("../public/data/test/gdv_updates.geojson")
-}
+  updates: require("../public/data/test/gdv_updates.geojson"),
+};
 
 const App = (props) => {
-  return (
-    <Map data={data}/>
-  );
+  return <Map data={data} />;
 };
 
 ReactDOM.render(<App />, document.body);

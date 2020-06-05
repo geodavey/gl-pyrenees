@@ -162,6 +162,9 @@ const Map = (props) => {
           refreshExpiredTiles={false}
           onViewportChange={setViewport}
           mapStyle={mapStyle}
+          onLoad={(e) => {
+            if (typeof e !== "undefined" && !("fake" in e)) props.onLoad(e);
+          }}
           transformRequest={(url) => {
             // rewrite references from style
 
@@ -227,6 +230,7 @@ Map.defaultProps = {
     tracks: [],
   },
   baseDataURL: null,
+  onLoad: () => {},
 };
 
 export default Map;
