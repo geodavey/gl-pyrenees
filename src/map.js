@@ -137,7 +137,6 @@ const Map = (props) => {
         // replace test source data with real data
         map.getSource("gdv_tracks").setData(data.tracks);
         map.getSource("gdv_updates").setData(data.updates);
-        map.getSource("gdv_waypoints").setData(data.waypoints);
       });
     }
   }, [mapStyle, MapGL]);
@@ -227,7 +226,6 @@ Map.defaultProps = {
   data: {
     updates: [],
     tracks: [],
-    waypoints: [],
   },
   baseDataURL: null,
 };
