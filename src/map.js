@@ -57,7 +57,7 @@ const Map = (props) => {
 
   useEffect(() => {
     import(
-      /* webpackChunkName: "MapGL" */ "@urbica/react-map-gl"
+      /* webpackChunkName: "mapGL" */ "@urbica/react-map-gl"
     ).then((MapGL) => setMapGL(MapGL));
 
     import(
@@ -170,7 +170,9 @@ const Map = (props) => {
             let url_ = new URL(url);
             let loc = window.location;
 
-            let baseURL = (props.dataBaseURL) ? props.dataBaseURL : `${loc.origin}${loc.pathname}`;
+            let baseURL = props.dataBaseURL
+              ? props.dataBaseURL
+              : `${loc.origin}${loc.pathname}`;
 
             if (url.search("//localhost") != -1)
               return {
@@ -200,7 +202,7 @@ const Map = (props) => {
             />
           )}
           {/* Infobox */}
-          <Infobox isOpen={!isMobile()}/>
+          <Infobox isOpen={!isMobile()} />
           {/* Controls */}
           <MapGL.NavigationControl showZoom position="top-left" />
           <MapGL.FullscreenControl position="top-left" />
@@ -227,7 +229,7 @@ Map.defaultProps = {
     tracks: [],
     waypoints: [],
   },
-  baseDataURL: null
-}
+  baseDataURL: null,
+};
 
 export default Map;

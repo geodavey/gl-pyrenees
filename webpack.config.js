@@ -2,7 +2,7 @@ const resolve = require("path").resolve;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const BABEL_CONFIG = {
-  presets: ["@babel/preset-env", "@babel/preset-react"],
+  presets: ["@babel/env", "@babel/react"],
 };
 
 const config = {
@@ -15,13 +15,13 @@ const config = {
     compress: true,
   },
 
-  entry: "./src/index.js",
+  entry: {
+    app: resolve("./src/app.js"),
+  },
 
   output: {
-    filename: "map.js",
     chunkFilename: "[name].bundle.js",
     path: resolve("public"),
-    libraryTarget: 'commonjs2'
   },
 
   module: {
@@ -107,10 +107,6 @@ const config = {
       template: "index.html",
     }),
   ],
-
-  externals: {
-    react: "commonjs react",
-  },
 };
 
 module.exports = config;
