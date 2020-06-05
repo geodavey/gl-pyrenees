@@ -1,6 +1,5 @@
 import sass from "rollup-plugin-sass";
 import url from "rollup-plugin-url";
-import pkg from "./package.json";
 import external from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
