@@ -4,6 +4,7 @@ import url from "rollup-plugin-url";
 import external from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
+import fontBase64 from "postcss-font-base64";
 import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 
@@ -19,8 +20,12 @@ export default {
   plugins: [
     external({ includeDependencies: true }),
     resolve(),
+    url({
+      include: ["**/*.woff2", "**/*.png"],
+      limit: Infinity,
+    }),
     postcss({
-      plugins: [postcssImport()]
+      plugins: [postcssImport(), fontBase64()]
     }),
     json(),
     babel({
@@ -28,10 +33,6 @@ export default {
       exclude: "node_modules/**",
     }),
     commonjs(),
-    url({
-      include: ["**/*.woff2", "**/*.png"],
-      limit: Infinity,
-    }),
   ],
   external: ["react", "react-dom"],
 };

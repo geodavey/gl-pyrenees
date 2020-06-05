@@ -4,7 +4,6 @@ import Loader from "./components/loader";
 import Infobox from "./components/infobox";
 import isMobile from "is-mobile";
 
-import "mapbox-gl/dist/mapbox-gl.css";
 import gdvPin from "./style/gdvPin.png";
 import "./map.scss";
 
