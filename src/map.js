@@ -55,6 +55,9 @@ const Map = (props) => {
   let [mapStyle, setMapStyle] = useState(null);
 
   useEffect(() => {
+    // fire onLoad when render beginning
+    props.onLoad();
+
     import(
       /* webpackChunkName: "mapGL" */ "@urbica/react-map-gl"
     ).then((MapGL) => setMapGL(MapGL));

@@ -686,6 +686,8 @@ var Map = function Map(props) {
       setMapStyle = _useState10[1];
 
   useEffect(function () {
+    // fire onLoad when render beginning
+    props.onLoad();
     import(
     /* webpackChunkName: "mapGL" */
     '@urbica/react-map-gl').then(function (MapGL) {
@@ -787,6 +789,9 @@ var Map = function Map(props) {
     refreshExpiredTiles: false,
     onViewportChange: setViewport,
     mapStyle: mapStyle,
+    onLoad: function onLoad(e) {
+      if (typeof e !== "undefined" && !("fake" in e)) props.onLoad(e);
+    },
     transformRequest: function transformRequest(url) {
       // rewrite references from style
       var url_ = new URL(url);
@@ -835,7 +840,8 @@ Map.defaultProps = {
     updates: [],
     tracks: []
   },
-  baseDataURL: null
+  baseDataURL: null,
+  onLoad: function onLoad() {}
 };
 
 export default Map;
