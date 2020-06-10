@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Popup, { popupHeights } from "./components/popup";
-import Loader from "./components/loader";
 import Infobox from "./components/infobox";
 import isMobile from "is-mobile";
 
@@ -55,9 +54,6 @@ const Map = (props) => {
   let [mapStyle, setMapStyle] = useState(null);
 
   useEffect(() => {
-    // fire onLoad when render beginning
-    props.onLoad();
-
     import(
       /* webpackChunkName: "mapGL" */ "@urbica/react-map-gl"
     ).then((MapGL) => setMapGL(MapGL));
@@ -147,15 +143,6 @@ const Map = (props) => {
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
-      {!isMapLoaded && (
-        <Loader
-          onSuppressed={() =>
-            // fire fake load event on loader suppression
-            // will force controls to be rendered
-            mapRef.current.getMap().fire("load", { fake: true })
-          }
-        />
-      )}
       {MapGL && mapStyle && (
         <MapGL.default
           {...viewport}
