@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Popup, { popupHeights } from "./components/popup";
 import Infobox from "./components/infobox";
 import isMobile from "is-mobile";
+
 import "fontsource-barlow-condensed/latin-400-normal.css";
 import "fontsource-palanquin/latin-400-normal.css";
-
 import gdvPin from "./style/gdvPin.png";
 import "./map.scss";
 
@@ -207,7 +207,7 @@ const Map = (props) => {
           <MapGL.AttributionControl
             compact={true}
             position="bottom-right"
-            customAttribution="<a style='display:block;text-align:center;font-size:20px;margin:0.3em 0 0.3em 0.8em;border-bottom:1px solid #ccc' href='https://github.com/1papaya/gl-pyrenees'>¡ Viva La Open Source !</a>"
+            customAttribution="<a style='display:block;text-align:center;font-size:20px;margin:0.3em 0 0.3em 0.8em;border-bottom:1px solid #ccc' href='https://github.com/geoDavey/gl-pyrenees'>¡ Viva La Open Source !</a>"
           />
           <MapGL.GeolocateControl position="top-left" />
         </MapGL.default>
