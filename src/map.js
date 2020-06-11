@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Popup, { popupHeights } from "./components/popup";
 import Infobox from "./components/infobox";
 import isMobile from "is-mobile";
+import "fontsource-barlow-condensed/latin-400-normal.css";
+import "fontsource-palanquin/latin-400-normal.css";
 
 import gdvPin from "./style/gdvPin.png";
 import "./map.scss";

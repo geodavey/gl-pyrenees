@@ -62,7 +62,7 @@ const config = {
         ],
       },
       {
-        test: /\.woff2$/,
+        test: /\.(woff2|woff)$/,
         use: ["file-loader"],
       },
       {
