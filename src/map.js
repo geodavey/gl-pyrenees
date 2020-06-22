@@ -6,6 +6,7 @@ import isMobile from "is-mobile";
 import "fontsource-barlow-condensed/latin-400-normal.css";
 import "fontsource-palanquin/latin-400-normal.css";
 import gdvPin from "./style/gdvPin.png";
+import "mapbox-gl/dist/mapbox-gl.css";
 import "./map.scss";
 
 const Map = (props) => {
@@ -101,6 +102,7 @@ const Map = (props) => {
           setHoveredFeature(null);
           // this fires before <Popup onClose={}> sometimes which is problematic
           // give it a lil' delay, won't hurt no body
+          // ......right??
           setTimeout(setSelectedFeature, 100, e.features[0]);
         });
       });

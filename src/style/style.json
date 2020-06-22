@@ -1011,7 +1011,7 @@
       "id": "hr_gr",
       "type": "line",
       "source": "pyr",
-      "source-layer": "hiking_routes",
+      "source-layer": "hiking",
       "paint": {
         "line-width": 2,
         "line-color": [
@@ -1047,10 +1047,104 @@
       }
     },
     {
+      "id": "hr_all-copy-copy",
+      "type": "line",
+      "source": "pyr",
+      "source-layer": "tracks",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all"
+      ],
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-blur": 0.1,
+        "line-width": {
+          "stops": [
+            [
+              6,
+              2
+            ],
+            [
+              10,
+              2.5
+            ]
+          ]
+        }
+      },
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "hr_all-copy",
+      "type": "line",
+      "source": "pyr",
+      "source-layer": "paths",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all"
+      ],
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-blur": 0.1,
+        "line-width": {
+          "stops": [
+            [
+              6,
+              2
+            ],
+            [
+              10,
+              2.5
+            ]
+          ]
+        }
+      },
+      "layout": {
+        "visibility": "none"
+      }
+    },
+    {
+      "id": "hr_all",
+      "type": "line",
+      "source": "pyr",
+      "source-layer": "paths",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all"
+      ],
+      "paint": {
+        "line-color": "rgba(149, 91, 5, 1)",
+        "line-blur": 0,
+        "line-width": {
+          "stops": [
+            [
+              10,
+              0.9
+            ],
+            [
+              15,
+              1.8
+            ]
+          ]
+        },
+        "line-dasharray": [
+          4,
+          1
+        ]
+      },
+      "layout": {
+        "visibility": "visible"
+      }
+    },
+    {
       "id": "hr_minor-casing",
       "type": "line",
       "source": "pyr",
-      "source-layer": "hiking_routes",
+      "source-layer": "hiking",
       "minzoom": 10,
       "maxzoom": 24,
       "filter": [
@@ -1073,14 +1167,14 @@
         }
       },
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       }
     },
     {
       "id": "hr_minor",
       "type": "line",
       "source": "pyr",
-      "source-layer": "hiking_routes",
+      "source-layer": "hiking",
       "minzoom": 10,
       "maxzoom": 24,
       "filter": [
@@ -1107,14 +1201,14 @@
         ]
       },
       "layout": {
-        "visibility": "visible"
+        "visibility": "none"
       }
     },
     {
       "id": "hr_major-casing",
       "type": "line",
       "source": "pyr",
-      "source-layer": "hiking_routes",
+      "source-layer": "hiking",
       "minzoom": 7,
       "maxzoom": 24,
       "filter": [
@@ -1133,7 +1227,7 @@
           "stops": [
             [
               6,
-              2
+              2.6
             ],
             [
               10,
@@ -1150,7 +1244,7 @@
       "id": "hr_major",
       "type": "line",
       "source": "pyr",
-      "source-layer": "hiking_routes",
+      "source-layer": "hiking",
       "minzoom": 7,
       "maxzoom": 24,
       "filter": [
@@ -1169,11 +1263,11 @@
           "stops": [
             [
               6,
-              0.6
+              0.9
             ],
             [
               10,
-              1.7
+              1.9
             ]
           ]
         }
@@ -1183,7 +1277,7 @@
       "id": "hr_hrp-casing",
       "type": "line",
       "source": "pyr",
-      "source-layer": "hiking_routes",
+      "source-layer": "hiking",
       "filter": [
         "all",
         [
@@ -1217,7 +1311,7 @@
       "id": "hr_hrp",
       "type": "line",
       "source": "pyr",
-      "source-layer": "hiking_routes",
+      "source-layer": "hiking",
       "filter": [
         "all",
         [
@@ -3001,13 +3095,13 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "#fff",
+        "line-color": "#000",
         "line-opacity": 1,
         "line-width": {
           "base": 1.2,
           "stops": [
             [
-              13.5,
+              10.5,
               0
             ],
             [
@@ -3340,7 +3434,7 @@
           ]
         }
       },
-      "minzoom": 9.5,
+      "minzoom": 9,
       "maxzoom": 24
     },
     {
@@ -3420,7 +3514,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "#000",
@@ -3442,7 +3536,8 @@
           ]
         }
       },
-      "minzoom": 9.5
+      "minzoom": 9,
+      "maxzoom": 24
     },
     {
       "id": "road_trunk_primary_construction",
@@ -3499,7 +3594,7 @@
           ]
         }
       },
-      "minzoom": 9.5,
+      "minzoom": 9,
       "maxzoom": 24
     },
     {
@@ -3508,7 +3603,7 @@
       "metadata": {},
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 9.5,
+      "minzoom": 9,
       "filter": [
         "all",
         [
@@ -5113,7 +5208,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "rgba(136, 136, 136, 1)",
@@ -5332,7 +5427,7 @@
             ],
             [
               12,
-              1
+              0.7
             ]
           ]
         }
@@ -5416,7 +5511,7 @@
       "layout": {
         "symbol-placement": "line",
         "text-anchor": "center",
-        "text-field": "{name:latin} {name:nonlatin}",
+        "text-field": "{ref}",
         "text-font": [
           "Roboto Regular",
           "Noto Sans Regular"
@@ -5438,13 +5533,20 @@
             ]
           ]
         },
-        "visibility": "visible"
+        "visibility": "visible",
+        "text-pitch-alignment": "auto",
+        "text-max-angle": 360,
+        "text-rotation-alignment": "viewport",
+        "text-keep-upright": true,
+        "symbol-z-order": "auto",
+        "text-ignore-placement": false
       },
       "paint": {
-        "text-color": "rgba(99, 94, 84, 1)",
+        "text-color": "#fff",
         "text-halo-blur": 0.5,
-        "text-halo-color": "rgba(255,255,255,0.5)",
-        "text-halo-width": 1
+        "text-halo-color": "#000",
+        "text-halo-width": 100,
+        "text-translate-anchor": "map"
       }
     },
     {
@@ -5663,10 +5765,74 @@
       }
     },
     {
+      "id": "hr_major-name",
+      "type": "symbol",
+      "source": "pyr",
+      "source-layer": "hiking",
+      "paint": {
+        "text-halo-color": "rgba(234, 118, 24, 1)",
+        "text-halo-width": 100,
+        "text-halo-blur": 0,
+        "text-color": "rgba(255,255,255,1)",
+        "text-opacity": 1,
+        "text-translate": [
+          0,
+          0
+        ],
+        "text-translate-anchor": "viewport"
+      },
+      "minzoom": 0,
+      "layout": {
+        "symbol-spacing": {
+          "stops": [
+            [
+              7,
+              10
+            ],
+            [
+              10,
+              600
+            ]
+          ]
+        },
+        "text-font": [
+          "Roboto Regular",
+          "Noto Sans Regular"
+        ],
+        "text-offset": [
+          0,
+          0
+        ],
+        "text-rotation-alignment": "viewport",
+        "text-size": 11,
+        "icon-size": 0.8,
+        "text-field": "{ref}",
+        "text-allow-overlap": false,
+        "visibility": "none",
+        "symbol-placement": "line",
+        "text-ignore-placement": false,
+        "symbol-z-order": "auto",
+        "symbol-avoid-edges": false,
+        "text-max-width": 10,
+        "text-max-angle": 360,
+        "text-keep-upright": true,
+        "text-letter-spacing": -0.05
+      },
+      "filter": [
+        "all",
+        [
+          "in",
+          "network",
+          "iwn",
+          "nwn"
+        ]
+      ]
+    },
+    {
       "id": "hr_hrp-name",
       "type": "symbol",
       "source": "pyr",
-      "source-layer": "hiking_routes",
+      "source-layer": "hiking",
       "paint": {
         "text-halo-color": "rgba(255, 0, 0, 1)",
         "text-halo-width": 100,
@@ -6147,7 +6313,7 @@
           ]
         },
         "text-transform": "uppercase",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "text-color": "rgba(94, 95, 101, 1)",
@@ -6422,7 +6588,7 @@
       "id": "pyr_peaks3000",
       "type": "symbol",
       "source": "pyr",
-      "source-layer": "peaks3000",
+      "source-layer": "peaks",
       "layout": {
         "icon-image": "mountain_11",
         "icon-allow-overlap": false,
