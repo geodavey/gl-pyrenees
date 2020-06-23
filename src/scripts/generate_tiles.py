@@ -8,8 +8,7 @@ log = logging.getLogger()
 
 def exec(cmd):
     log.info("Executing: {}".format("\n            ".join([str(c) for c in cmd])))
-    return subprocess.Popen(cmd,
-                            stdout=subprocess.PIPE).communicate()
+    return subprocess.Popen(cmd, stdout=subprocess.PIPE).communicate()
 
 exec(["tippecanoe",
       "--force",
@@ -23,10 +22,13 @@ exec(["tippecanoe",
 exec(["tippecanoe",
       "--force",
       "--maximum-zoom=14",
+      "-r1",
       "-o", s.out_dir/"hiking.mbtiles"]
      +
-     [s.pyr_dir/"hiking.geojson",
-      s.pyr_dir/"peaks.geojson"])
+     [s.pyr_dir/"refuges.geojson",
+      s.pyr_dir/"hiking.geojson",
+      s.pyr_dir/"peaks.geojson",
+      s.pyr_dir/"pois.geojson"])
 
 exec(["tile-join",
       "--force",

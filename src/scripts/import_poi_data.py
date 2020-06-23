@@ -24,7 +24,7 @@ def main(saved_places_json):
     in_pois = get_json(in_path)
 
     ## Output GeoJSON
-    out_path = s.out_dir / "pois.geojson"
+    out_path = s.pyr_dir / "pois.geojson"
     out_pois = gpd.GeoDataFrame.from_file(out_path) if out_path.exists() else gpd.GeoDataFrame()
 
     ## Map saved-places properties to flat geojson properties
@@ -71,7 +71,7 @@ def main(saved_places_json):
     ref_gdf.drop(columns=["altitude", "cap_hiver", "cap_ete", "region", "url", "type_hebergement"], inplace=True)
 
     log.info("Adding {} refuges".format(len(ref_gdf)))
-    ref_gdf.to_file(s.out_dir / "refuges.geojson", driver="GeoJSON")
+    ref_gdf.to_file(s.pyr_dir / "refuges.geojson", driver="GeoJSON")
 
 def get_cid(url):
     return url.split("?cid=")[1] if url.find("?cid=") > -1 else url
