@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Info, ChevronsRight } from "react-feather";
 
 import SvgLine from "../components/svgline";
-import gdvPin from "../style/gdvPin.png";
-import iconShopping from "../style/shopping.png";
-import iconMountain from "../style/mountain.png";
-import iconRefuge from "../style/refuge.png";
+import gdvPin from "../style/img/gdvPin.png";
+import iconShopping from "../style/img/shopping.png";
+import iconMountain from "../style/img/mountain.png";
+import iconRefuge from "../style/img/refuge.png";
 
 export default (props) => {
   let [isOpen, setIsOpen] = useState(props.isOpen);

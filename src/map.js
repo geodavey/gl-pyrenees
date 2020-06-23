@@ -5,7 +5,7 @@ import isMobile from "is-mobile";
 
 import "fontsource-barlow-condensed/latin-400-normal.css";
 import "fontsource-palanquin/latin-400-normal.css";
-import gdvPin from "./style/gdvPin.png";
+import gdvPin from "./style/img/gdvPin.png";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./map.scss";
 
@@ -63,7 +63,7 @@ const Map = (props) => {
 
     import(
       /* webpackChunkName: "mapStyle" */ "./style/style.json"
-    ).then((mapStyle) => setMapStyle(mapStyle));
+    ).then((mapStyle) => setMapStyle(mapStyle)); // TODO filter out 
   }, []);
 
   //
@@ -110,7 +110,7 @@ const Map = (props) => {
       // Hover Layers
       let hoverLayers = ["pyr_refuges", "gdv_updates"];
 
-      // only set hover layers on mobile
+      // only set hover layers on non-mobile
       if (!isMobile())
         hoverLayers.forEach((lyr) => {
           map.on("mousemove", lyr, (e) => {

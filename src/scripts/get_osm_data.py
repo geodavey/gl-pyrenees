@@ -128,7 +128,7 @@ def main(overwrite, redownload):
 
         ## interpret ele as integer and sort by ele
         peaks["ele"] = peaks['ele'].apply(lambda d: re.findall("[0-9]{4}", d)[0]).astype(np.int64)
-        peaks = peaks.sort_values("ele", ascending=False).reset_index(drop=True)
+        peaks = peaks.sort_values("ele", ascending=True).reset_index(drop=True)
 
         save_gjn(peaks, "peaks")
 

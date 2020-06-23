@@ -1,8 +1,8 @@
 import React from "react";
 
-import spainIcon from "../style/spain.png";
-import franceIcon from "../style/france.png";
-import andorraIcon from "../style/andorra.png";
+import spainIcon from "../style/img/spain.png";
+import franceIcon from "../style/img/france.png";
+import andorraIcon from "../style/img/andorra.png";
 
 import isMobileDevice from "is-mobile";
 
