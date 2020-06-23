@@ -4,7 +4,6 @@ import url from "rollup-plugin-url";
 import external from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
-import fontBase64 from "postcss-font-base64";
 import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 import del from 'rollup-plugin-delete'
@@ -21,13 +20,14 @@ export default {
   plugins: [
     external({ includeDependencies: true }),
     resolve(),
-    url({
-      include: ["**/*.woff2", "**/*.png"],
+    // encode all images as base64
+    url({ 
+      include: ["**/*.png"],
       limit: Infinity,
     }),
     del({ targets: 'build/*' }),
     postcss({
-      plugins: [postcssImport(), fontBase64()]
+      plugins: [postcssImport()]
     }),
     json(),
     babel({
