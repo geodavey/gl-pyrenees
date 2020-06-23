@@ -86,6 +86,7 @@ def main(overwrite, redownload):
 
     log.info("Loading data {}".format(s.rel_path(out_pbf)))
     pyr = pyrosm.OSM(str(out_pbf))
+    log.info("Loaded")
 
     s.pyr_dir.mkdir(exist_ok=True)
 
