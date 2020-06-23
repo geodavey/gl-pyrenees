@@ -7,6 +7,7 @@ import json from "@rollup/plugin-json";
 import fontBase64 from "postcss-font-base64";
 import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
+import del from 'rollup-plugin-delete'
 
 export default {
   input: "src/index.js",
@@ -24,6 +25,7 @@ export default {
       include: ["**/*.woff2", "**/*.png"],
       limit: Infinity,
     }),
+    del({ targets: 'build/*' }),
     postcss({
       plugins: [postcssImport(), fontBase64()]
     }),
