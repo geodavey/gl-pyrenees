@@ -12,7 +12,7 @@ def exec(cmd):
 
 exec(["tippecanoe",
       "--force",
-      "--minimum-zoom=10",
+      "--minimum-zoom=9",
       "--maximum-zoom=14",
       "-o", s.out_dir/"highway.mbtiles"]
      +
