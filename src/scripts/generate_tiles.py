@@ -7,7 +7,7 @@ import logging
 log = logging.getLogger()
 
 def exec(cmd):
-    log.info("Executing: \n          {}".format("\n            ".join([str(c) for c in cmd])))
+    log.info("Executing: {}".format("\n            ".join([str(c) for c in cmd])))
     return subprocess.Popen(cmd,
                             stdout=subprocess.PIPE).communicate()
 
