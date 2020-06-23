@@ -4,7 +4,7 @@ from logging.config import dictConfig
 from pathlib import Path
 import geopandas as gpd
 
-base_dir = Path("../../").resolve()
+base_dir = (Path(__file__).parent / "../../").resolve()
 in_dir  = base_dir / "src/data/input"
 osm_dir = base_dir / "src/data/osm/"
 pyr_dir = base_dir / "src/data/pyr/"
