@@ -1,6 +1,9 @@
 node_modules/
 build/
 .env
-public/
-public/data/*/
-src/data/raw/
+static/data/pyr/
+
+src/data/osm
+src/data/pyr
+.*
+Thumbs.db*

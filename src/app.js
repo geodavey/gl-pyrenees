@@ -7,9 +7,9 @@ import "./app.scss";
 // data in public folder to be accessible to Maputnik served
 // by webpack-dev-server
 let data = {
-  tracks: require("../public/data/test/gdv_tracks.geojson"),
-  waypoints: require("../public/data/test/gdv_waypoints.geojson"),
-  updates: require("../public/data/test/gdv_updates.geojson"),
+  tracks: require("../static/data/test/gdv_tracks.geojson"),
+  waypoints: require("../static/data/test/gdv_waypoints.geojson"),
+  updates: require("../static/data/test/gdv_updates.geojson"),
 };
 
 const App = (props) => {

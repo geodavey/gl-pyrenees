@@ -1,5 +1,6 @@
 const resolve = require("path").resolve;
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const BABEL_CONFIG = {
   presets: ["@babel/env", "@babel/react"],
@@ -8,7 +9,7 @@ const BABEL_CONFIG = {
 const config = {
   devServer: {
     disableHostCheck: true,
-    contentBase: resolve("public"),
+    contentBase: resolve("static"),
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
@@ -106,6 +107,11 @@ const config = {
     new HtmlWebpackPlugin({
       template: "index.html",
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: resolve("static"), to: resolve("public") }
+      ]
+    })
   ],
 };
 
