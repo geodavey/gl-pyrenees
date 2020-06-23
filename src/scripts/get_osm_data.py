@@ -42,7 +42,7 @@ def main(overwrite, redownload):
     ## Merge & Crop to pyrenees region
     ##
 
-    if not out_pbf.exists() or overwrite:
+    if not out_pbf.exists() or redownload:
         log.info("Merging and Cropping...".format(s.rel_path(out_pbf)))
 
         ## Get pyrenees footprint for cropping
@@ -78,7 +78,7 @@ def main(overwrite, redownload):
         log.info("Output: {}".format(s.rel_path(out_pbf)))
 
     else:
-        log.info("{} exists. Skipping data merge & crop...".format(s.rel_path(out_pbf)))
+        log.info("Using cached {}".format(s.rel_path(out_pbf)))
 
     ##
     ## Extract to GeoJSON 
@@ -137,15 +137,15 @@ def main(overwrite, redownload):
     ## Major hiking routes
     ##
 
-    if not gjn_exists("hiking") or overwrite:
-        hiking = pyr.get_data_by_custom_criteria(custom_filter = {"route": ["hiking"], "network": ["iwn", "nwn"]},
+    if not gjn_exists("routes") or overwrite:
+        routes = pyr.get_data_by_custom_criteria(custom_filter = {"route": ["hiking"], "network": ["iwn", "nwn"]},
                                                  osm_keys_to_keep = "route",
                                                  extra_attributes = ["ref", "name", "network"],
                                                  keep_nodes = False)
 
-        hiking = hiking[["name", "ref", "geometry"]]
+        routes = routes[["name", "ref", "network", "geometry"]]
 
-        save_gjn(hiking, "hiking")
+        save_gjn(routes, "hiking")
 
     log.info("Done")
     

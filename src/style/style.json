@@ -1008,46 +1008,7 @@
       }
     },
     {
-      "id": "hr_gr",
-      "type": "line",
-      "source": "pyr",
-      "source-layer": "hiking",
-      "paint": {
-        "line-width": 2,
-        "line-color": [
-          "match",
-          [
-            "get",
-            "ref"
-          ],
-          "HRP",
-          "#fbb03b",
-          "GR 11",
-          "#223b53",
-          "GR11",
-          "#223b53",
-          "GR 10",
-          "#e55e5e",
-          "#000000"
-        ]
-      },
-      "minzoom": 0,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ref",
-          "GR 11",
-          "GR10",
-          "GR 10"
-        ]
-      ],
-      "layout": {
-        "visibility": "none"
-      }
-    },
-    {
-      "id": "hr_all-copy-copy",
+      "id": "pyr_tracks",
       "type": "line",
       "source": "pyr",
       "source-layer": "tracks",
@@ -1077,37 +1038,7 @@
       }
     },
     {
-      "id": "hr_all-copy",
-      "type": "line",
-      "source": "pyr",
-      "source-layer": "paths",
-      "minzoom": 10,
-      "maxzoom": 24,
-      "filter": [
-        "all"
-      ],
-      "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-blur": 0.1,
-        "line-width": {
-          "stops": [
-            [
-              6,
-              2
-            ],
-            [
-              10,
-              2.5
-            ]
-          ]
-        }
-      },
-      "layout": {
-        "visibility": "none"
-      }
-    },
-    {
-      "id": "hr_all",
+      "id": "pyr_paths",
       "type": "line",
       "source": "pyr",
       "source-layer": "paths",
@@ -1141,71 +1072,7 @@
       }
     },
     {
-      "id": "hr_minor-casing",
-      "type": "line",
-      "source": "pyr",
-      "source-layer": "hiking",
-      "minzoom": 10,
-      "maxzoom": 24,
-      "filter": [
-        "all"
-      ],
-      "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-blur": 0,
-        "line-width": {
-          "stops": [
-            [
-              6,
-              2
-            ],
-            [
-              10,
-              2.5
-            ]
-          ]
-        }
-      },
-      "layout": {
-        "visibility": "none"
-      }
-    },
-    {
-      "id": "hr_minor",
-      "type": "line",
-      "source": "pyr",
-      "source-layer": "hiking",
-      "minzoom": 10,
-      "maxzoom": 24,
-      "filter": [
-        "all"
-      ],
-      "paint": {
-        "line-color": "rgba(234, 118, 24, 1)",
-        "line-blur": 0,
-        "line-width": {
-          "stops": [
-            [
-              6,
-              0.6
-            ],
-            [
-              10,
-              1.2
-            ]
-          ]
-        },
-        "line-dasharray": [
-          3,
-          1
-        ]
-      },
-      "layout": {
-        "visibility": "none"
-      }
-    },
-    {
-      "id": "hr_major-casing",
+      "id": "pyr_hiking",
       "type": "line",
       "source": "pyr",
       "source-layer": "hiking",
@@ -1274,7 +1141,7 @@
       }
     },
     {
-      "id": "hr_hrp-casing",
+      "id": "pyr_hrp-casing",
       "type": "line",
       "source": "pyr",
       "source-layer": "hiking",
@@ -1308,7 +1175,7 @@
       "minzoom": 0
     },
     {
-      "id": "hr_hrp",
+      "id": "pyr_hrp",
       "type": "line",
       "source": "pyr",
       "source-layer": "hiking",
@@ -5765,71 +5632,7 @@
       }
     },
     {
-      "id": "hr_major-name",
-      "type": "symbol",
-      "source": "pyr",
-      "source-layer": "hiking",
-      "paint": {
-        "text-halo-color": "rgba(234, 118, 24, 1)",
-        "text-halo-width": 100,
-        "text-halo-blur": 0,
-        "text-color": "rgba(255,255,255,1)",
-        "text-opacity": 1,
-        "text-translate": [
-          0,
-          0
-        ],
-        "text-translate-anchor": "viewport"
-      },
-      "minzoom": 0,
-      "layout": {
-        "symbol-spacing": {
-          "stops": [
-            [
-              7,
-              10
-            ],
-            [
-              10,
-              600
-            ]
-          ]
-        },
-        "text-font": [
-          "Roboto Regular",
-          "Noto Sans Regular"
-        ],
-        "text-offset": [
-          0,
-          0
-        ],
-        "text-rotation-alignment": "viewport",
-        "text-size": 11,
-        "icon-size": 0.8,
-        "text-field": "{ref}",
-        "text-allow-overlap": false,
-        "visibility": "none",
-        "symbol-placement": "line",
-        "text-ignore-placement": false,
-        "symbol-z-order": "auto",
-        "symbol-avoid-edges": false,
-        "text-max-width": 10,
-        "text-max-angle": 360,
-        "text-keep-upright": true,
-        "text-letter-spacing": -0.05
-      },
-      "filter": [
-        "all",
-        [
-          "in",
-          "network",
-          "iwn",
-          "nwn"
-        ]
-      ]
-    },
-    {
-      "id": "hr_hrp-name",
+      "id": "pyr_hrp-label",
       "type": "symbol",
       "source": "pyr",
       "source-layer": "hiking",
