@@ -1008,11 +1008,89 @@
       }
     },
     {
+      "id": "pyr_auto",
+      "type": "line",
+      "metadata": {},
+      "source": "pyr",
+      "source-layer": "highways",
+      "minzoom": 10,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "!in",
+          "highway",
+          "path",
+          "track"
+        ]
+      ],
+      "paint": {
+        "line-color": "#000",
+        "line-blur": 0,
+        "line-width": {
+          "stops": [
+            [
+              10,
+              0.9
+            ],
+            [
+              15,
+              1.8
+            ]
+          ]
+        }
+      },
+      "layout": {
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "pyr_trails",
+      "type": "line",
+      "metadata": {},
+      "source": "pyr",
+      "source-layer": "highways",
+      "minzoom": 11,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "in",
+          "highway",
+          "path",
+          "track"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(149, 91, 5, 1)",
+        "line-blur": 0,
+        "line-width": {
+          "stops": [
+            [
+              10,
+              0.9
+            ],
+            [
+              15,
+              1.8
+            ]
+          ]
+        },
+        "line-dasharray": [
+          4,
+          1
+        ]
+      },
+      "layout": {
+        "visibility": "visible"
+      }
+    },
+    {
       "id": "pyr_paths",
       "type": "line",
       "source": "pyr",
       "source-layer": "paths",
-      "minzoom": 9,
+      "minzoom": 11,
       "maxzoom": 24,
       "filter": [
         "all"
@@ -1046,7 +1124,7 @@
       "type": "line",
       "source": "pyr",
       "source-layer": "tracks",
-      "minzoom": 9,
+      "minzoom": 11,
       "maxzoom": 24,
       "filter": [
         "all"
@@ -1065,7 +1143,11 @@
               1.8
             ]
           ]
-        }
+        },
+        "line-dasharray": [
+          4,
+          1
+        ]
       },
       "layout": {
         "visibility": "visible"
@@ -2854,7 +2936,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "#000",

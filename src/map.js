@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import Popup, { popupHeights } from "./components/popup";
 import Infobox from "./components/infobox";
 import isMobile from "is-mobile";
@@ -9,14 +9,14 @@ import gdvPin from "./style/img/gdvPin.png";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./map.scss";
 
-const Map = (props) => {
-  let mapRef = React.createRef();
+const Map = forwardRef((props, ref) => {
+  let mapRef = ref || React.createRef();
 
   //
   // Viewport
   //
 
-  // set initial view to be last update
+  // set initial view to be last update location
   let lastUpdate =
     props.data.updates.features[props.data.updates.features.length - 1];
   let [viewport, setViewport] = useState({
@@ -216,7 +216,7 @@ const Map = (props) => {
       )}
     </div>
   );
-};
+});
 
 Map.defaultProps = {
   data: {

@@ -111,6 +111,22 @@ def main(overwrite, redownload):
         save_gjn(tracks[["highway", "geometry"]], "tracks")
 
     ##
+    ## Highways
+    ##
+
+
+    if not gjn_exists("highways_maj") or overwrite:
+
+        highways = pyr.get_data_by_custom_criteria(custom_filter = {},
+                                                  osm_keys_to_keep = "highway",
+                                                  filter_type = "keep",
+                                                  tags_as_columns = ["highway"],
+                                                  keep_nodes = False,
+                                                  keep_relations = False)
+
+        save_gjn(highways[["highway", "geometry"]], "highways_")
+
+    ##
     ## Peaks
     ##
 
@@ -151,6 +167,7 @@ def main(overwrite, redownload):
     
 def gjn_exists(name):
     return (s.pyr_dir / "{}.geojson".format(name)).exists()
+
 def save_gjn(gdf, name):
     out_path = s.pyr_dir / "{}.geojson".format(name)
     logging.getLogger().info("Saving {}".format(s.rel_path(out_path)))
@@ -175,4 +192,4 @@ def polygon_to_polyfile(polygon):
     return polyfile.name
 
 if __name__ == "__main__":
-                 main()
+    main()

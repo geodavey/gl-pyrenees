@@ -16,8 +16,7 @@ exec(["tippecanoe",
       "--maximum-zoom=14",
       "-o", s.out_dir/"highway.mbtiles"]
      +
-     [s.pyr_dir/"paths.geojson",
-      s.pyr_dir/"tracks.geojson"])
+     [s.pyr_dir/"highways.geojson",])
 
 exec(["tippecanoe",
       "--force",

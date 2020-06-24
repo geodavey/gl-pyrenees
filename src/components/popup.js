@@ -10,7 +10,6 @@ import { format } from "timeago.js";
 import { Popup } from "@urbica/react-map-gl";
 
 const FeaturePopup = (props) => {
-  console.log(props);
   let { feature, type, offsets, ...passedProps } = props;
   let featProps = feature.properties;
   let layerId = feature.layer.id;

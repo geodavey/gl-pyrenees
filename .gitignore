@@ -7,3 +7,4 @@ src/data/osm
 src/data/pyr
 .*
 Thumbs.db*
+node_modules
