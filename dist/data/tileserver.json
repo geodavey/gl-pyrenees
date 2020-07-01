@@ -1,0 +1,15 @@
+{
+  "options": {
+    "paths": {
+      "root": "./"
+    }
+  },
+  "data": {
+    "openmaptiles": {
+      "mbtiles": "openmaptiles.mbtiles"
+    },
+    "pyrenees": {
+      "mbtiles": "pyrenees.mbtiles"
+    }
+  }
+}

@@ -7,19 +7,14 @@
     "build"
   ],
   "scripts": {
-    "dev:maputnik": "maputnik --watch -f src/style/style.json",
+    "dev:maputnik": "maputnik --watch -f src/style.json",
     "dev:app": "webpack-dev-server --config webpack.config.js --progress --hot",
-    "develop": "npm-run-all -p dev:app dev:maputnik",
+    "dev:vtile": "tileserver-gl-light --port 6001 --config ./dist/data/tileserver.json",
+    "develop": "npm-run-all -p dev:app dev:maputnik dev:vtile",
     "preprocess": "npm-run-all pre:osm pre:poi pre:vtile",
-    "pre:install": "conda env create -f conda-env.yml",
-    "pre:vtile": "conda run -v -n gl-pyrenees python3 src/scripts/generate_tiles.py",
-    "pre:osm": "conda run -v -n gl-pyrenees python3 src/scripts/get_osm_data.py",
-    "pre:poi": "conda run -v -n gl-pyrenees python3 src/scripts/import_poi_data.py",
     "serve:app": "webpack --config=webpack.config.js --mode=production",
-    "serve:vtile": "mbtiles2ungzpbf -f static/data/pyr.mbtiles -d public/data/pyr/",
     "serve": "npm-run-all serve:app serve:vtile",
-    "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c"
   },
   "author": "",
   "license": "MIT",
@@ -78,6 +73,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-postcss": "^3.1.2",
     "rollup-plugin-sass": "^1.2.2",
-    "rollup-plugin-url": "^3.0.1"
+    "rollup-plugin-url": "^3.0.1",
+    "tileserver-gl-light": "^3.0.0"
   }
 }

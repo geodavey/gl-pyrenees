@@ -22,7 +22,7 @@ export default {
     resolve(),
     // encode all images as base64
     url({ 
-      include: ["**/*.png"],
+      include: ["**/*.(png|jpg)"],
       limit: Infinity,
     }),
     del({ targets: 'build/*' }),

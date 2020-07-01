@@ -9,7 +9,8 @@ const BABEL_CONFIG = {
 const config = {
   devServer: {
     disableHostCheck: true,
-    contentBase: resolve("static"),
+    contentBase: resolve("dist"),
+    publicPath: "/",
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
@@ -22,7 +23,7 @@ const config = {
 
   output: {
     chunkFilename: "[name].bundle.js",
-    path: resolve("public"),
+    path: resolve("dist"),
   },
 
   module: {
@@ -109,7 +110,7 @@ const config = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: resolve("static"), to: resolve("public") }
+        { from: resolve("./src/data/test/"), to: resolve("./dist/data/test/") }
       ]
     })
   ],

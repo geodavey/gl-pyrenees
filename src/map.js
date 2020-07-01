@@ -3,9 +3,9 @@ import Popup, { popupHeights } from "./components/popup";
 import Infobox from "./components/infobox";
 import isMobile from "is-mobile";
 
+import gdvPin from "./img/gdvPin.png";
 import "fontsource-barlow-condensed/latin-400-normal.css";
 import "fontsource-palanquin/latin-400-normal.css";
-import gdvPin from "./style/img/gdvPin.png";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./map.scss";
 
@@ -61,9 +61,23 @@ const Map = forwardRef((props, ref) => {
       /* webpackChunkName: "mapGL" */ "@urbica/react-map-gl"
     ).then((MapGL) => setMapGL(MapGL));
 
-    import(
-      /* webpackChunkName: "mapStyle" */ "./style/style.json"
-    ).then((mapStyle) => setMapStyle(mapStyle)); // TODO filter out 
+    import(/* webpackChunkName: "mapStyle" */ "./style.json").then(
+      (mapStyle) => {
+        // intercept map style and add passed data to sources
+
+        [
+          ["gdv_tracks", data.tracks],
+          ["gdv_updates", data.updates],
+        ].forEach((src) => {
+          mapStyle.sources[src[0]] = {
+            type: "geojson",
+            data: src[1]
+          }
+        });
+
+        setMapStyle(mapStyle);
+      }
+    ); // TODO filter out
   }, []);
 
   //
@@ -134,12 +148,6 @@ const Map = forwardRef((props, ref) => {
           map.getCanvas().style.removeProperty("cursor");
         });
       });
-
-      map.on("style.load", (e) => {
-        // replace test source data with real data
-        map.getSource("gdv_tracks").setData(data.tracks);
-        map.getSource("gdv_updates").setData(data.updates);
-      });
     }
   }, [mapStyle, MapGL]);
 
@@ -160,18 +168,14 @@ const Map = forwardRef((props, ref) => {
             if (typeof e !== "undefined" && !("fake" in e)) props.onLoad(e);
           }}
           transformRequest={(url) => {
-            // rewrite references from style
+            // if data url has localhost in it, and baseDataURL is set,
+            // replace any localhost references with baseDataURL
 
             let url_ = new URL(url);
-            let loc = window.location;
 
-            let baseURL = props.dataBaseURL
-              ? props.dataBaseURL
-              : `${loc.origin}${loc.pathname}`;
-
-            if (url.search("//localhost") != -1)
+            if (url.search("//localhost") != -1 && props.baseDataURL)
               return {
-                url: `${baseURL}${url_.pathname}`,
+                url: `${baseDataURL}${url_.pathname}`,
               };
           }}
         >
