@@ -182,8 +182,7 @@ const Map = forwardRef((props, ref) => {
               if (pageLoc.search("//localhost") < 0)
                 if (props.baseDataURL)
                   return { url: `${props.baseDataURL}${dataURL.pathname}` };
-                else
-                  return { url: `${pageLoc}${dataURL.pathname}`};
+                else return { url: `${pageLoc}${dataURL.pathname}` };
             }
           }}
         >
@@ -223,7 +222,15 @@ const Map = forwardRef((props, ref) => {
             position="bottom-right"
             customAttribution="<a style='display:block;text-align:center;font-size:20px;margin:0.3em 0 0.3em 0.8em;border-bottom:1px solid #ccc' href='https://github.com/geoDavey/gl-pyrenees'>¡ Viva La Open Source !</a>"
           />
-          <MapGL.GeolocateControl position="top-left" />
+          <MapGL.GeolocateControl
+            position="top-left"
+            trackUserLocation={true}
+            onError={() => {
+              window.alert(
+                "Error! Geolocate not working. Maybe check your browser permissions?"
+              );
+            }}
+          />
         </MapGL.default>
       )}
     </div>
