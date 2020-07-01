@@ -42,7 +42,7 @@ const config = {
       },
       {
         // .png Icons loading as data URIs
-        test: /\.(png)$/i,
+        test: /\.(png|jpg)$/i,
         use: [
           {
             loader: "url-loader",

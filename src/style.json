@@ -25,6 +25,14 @@
       "minZoom": 0,
       "maxZoom": 14,
       "maxzoom": 13
+    },
+    "gdv_tracks": {
+      "type": "geojson",
+      "data": "http://localhost:8080/data/test/gdv_tracks.geojson"
+    },
+    "gdv_updates": {
+      "type": "geojson",
+      "data": "http://localhost:8080/data/test/gdv_updates.geojson"
     }
   },
   "sprite": "https://api.maptiler.com/maps/topo/sprite",

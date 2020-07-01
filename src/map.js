@@ -63,7 +63,7 @@ const Map = forwardRef((props, ref) => {
 
     import(/* webpackChunkName: "mapStyle" */ "./style.json").then(
       (mapStyle) => {
-        // intercept map style and add passed data to sources
+        // intercept map style and replace sources with passed data
 
         [
           ["gdv_tracks", data.tracks],
@@ -71,13 +71,13 @@ const Map = forwardRef((props, ref) => {
         ].forEach((src) => {
           mapStyle.sources[src[0]] = {
             type: "geojson",
-            data: src[1]
-          }
+            data: src[1],
+          };
         });
 
         setMapStyle(mapStyle);
       }
-    ); // TODO filter out
+    );
   }, []);
 
   //
@@ -168,15 +168,20 @@ const Map = forwardRef((props, ref) => {
             if (typeof e !== "undefined" && !("fake" in e)) props.onLoad(e);
           }}
           transformRequest={(url) => {
-            // if data url has localhost in it, and baseDataURL is set,
-            // replace any localhost references with baseDataURL
+            // modify data urls if the map is not hosted locally (development)
 
-            let url_ = new URL(url);
+            let dataURL = new URL(url);
+            let pageLoc = `${window.location.origin}${window.location.pathname}`;
 
-            if (url.search("//localhost") != -1 && props.baseDataURL)
-              return {
-                url: `${baseDataURL}${url_.pathname}`,
-              };
+            // if data URL is a localhost
+            if (url.search("//localhost") >= 0) {
+              // if current page has localhost in it, it's a dev server, no modify
+              if (pageLoc.search("//localhost") >= 0) return;
+
+              // if current page is not localhost and baseDataURL is set, replace it
+              if (pageLoc.search("//localhost") < 0 && props.baseDataURL)
+               return `${props.baseDataURL}${dataURL.pathname}`;
+            }
           }}
         >
           {/* Popup */}
