@@ -2,7 +2,7 @@
   "name": "@geodavey/gl-pyrenees",
   "version": "0.1.1",
   "description": "",
-  "main": "build/index.js",
+  "main": "build/map.js",
   "files": [
     "build"
   ],
