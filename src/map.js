@@ -162,6 +162,7 @@ const Map = forwardRef((props, ref) => {
           style={{ width: "100%", height: "100%" }}
           attributionControl={false}
           refreshExpiredTiles={false}
+          hash={true}
           onViewportChange={setViewport}
           mapStyle={mapStyle}
           onLoad={(e) => {
@@ -239,8 +240,8 @@ const Map = forwardRef((props, ref) => {
 
 Map.defaultProps = {
   data: {
-    updates: [],
-    tracks: [],
+    updates: null,
+    tracks: null,
   },
   baseDataURL: null,
   onLoad: () => {},
