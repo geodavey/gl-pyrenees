@@ -178,9 +178,12 @@ const Map = forwardRef((props, ref) => {
               // if current page has localhost in it, it's a dev server, no modify
               if (pageLoc.search("//localhost") >= 0) return;
 
-              // if current page is not localhost and baseDataURL is set, replace it
-              if (pageLoc.search("//localhost") < 0 && props.baseDataURL)
-               return `${props.baseDataURL}${dataURL.pathname}`;
+              // if current page is not localhost, gonna have to rewrite
+              if (pageLoc.search("//localhost") < 0)
+                if (props.baseDataURL)
+                  return { url: `${props.baseDataURL}${dataURL.pathname}` };
+                else
+                  return { url: `${pageLoc}${dataURL.pathname}`};
             }
           }}
         >
