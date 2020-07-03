@@ -32,7 +32,7 @@ const FeaturePopup = (props) => {
       longitude={lon}
       latitude={lat}
       offset={popupOffset}
-      maxWidth={512}
+      maxWidth={320}
       {...passedProps}
     >
       {/* pyr_resupply */}
@@ -155,7 +155,7 @@ const FeaturePopup = (props) => {
             >
               {(featProps.photo && (
                 <img
-                  src={`${featProps.photo}`}
+                  src={`${featProps.photo.replace("upload/", "upload/c_scale,w_512/")}`}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -176,13 +176,13 @@ const FeaturePopup = (props) => {
           >
             {type === "detail" && (
               <span>
-                {new Date(featProps.time).toUTCString()} (
-                {format(featProps.time)})
+                {new Date(featProps.date).toUTCString()} (
+                {format(featProps.date)})
               </span>
             )}
             {type === "hover" && (
               <span>
-                {featProps.time.split("T")[0]} ({format(featProps.time)})
+                {featProps.date.split("T")[0]} ({format(featProps.date)})
               </span>
             )}
           </div>

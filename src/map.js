@@ -84,15 +84,9 @@ const Map = forwardRef((props, ref) => {
   // Swap layer Sources & Set-up Interactivity
   //
 
-  let [isMapLoaded, setIsMapLoaded] = useState(false);
-
   useEffect(() => {
     if (mapStyle && MapGL && mapRef.current) {
       let map = mapRef.current.getMap();
-
-      map.once("load", (e) => {
-        setIsMapLoaded(true);
-      });
 
       // add custom icons [iconName, iconURL]
       let icons = [["gdvPin", gdvPin]];

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Info, ChevronsRight } from "react-feather";
 
 import SvgLine from "../components/svgline";
@@ -116,7 +116,7 @@ export default (props) => {
                   },
                 ]}
               />{" "}
-              Minor Trail
+              Path/Track
             </div>
             <div className="symbol">
               <SvgLine
@@ -172,7 +172,7 @@ export default (props) => {
             <li>
               <div style={{ fontSize: "1.1em" }}>
                 <a
-                  href="https://github.com/1papaya/gl-pyrenees"
+                  href="https://github.com/geoDavey/gl-pyrenees"
                   target="_blank"
                 >
                   gl-pyrenees
@@ -184,7 +184,7 @@ export default (props) => {
             </li>
             <li>
               <div style={{ fontSize: "1.1em" }}>
-                <a href="https://github.com/1papaya/caminoBot" target="_blank">
+                <a href="https://github.com/geoDavey/caminoBot" target="_blank">
                   caminoBot
                 </a>
               </div>
@@ -194,26 +194,6 @@ export default (props) => {
               </p>
             </li>
           </ul>
-          <h2>Special Acknowledgements</h2>
-          <p>
-            Big shout out to the OSM France &amp; Spain communities for
-            contributing such quality data to the OSM basemap, especially{" "}
-            <a href="https://wiki.openstreetmap.org/wiki/HRP" target="_blank">
-              those who worked on the massive HRP route relation
-            </a>
-            . Bon travail / Buen trabajo ! :)
-          </p>
-          <p>
-            Also big shout out to{" "}
-            <a href="https://pyrenees-refuges.com" target="_blank">
-              pyrenees-refuges.com
-            </a>
-            ! Amazing dataset, merci for making it available!
-          </p>
-          <p>
-            Last, big ups to Mapbox, Netlify, MapTiler and Github for their free
-            offerings which make this site possible. You da real MVP!
-          </p>
         </div>
       </div>
     </div>
