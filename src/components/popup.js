@@ -155,7 +155,10 @@ const FeaturePopup = (props) => {
             >
               {(featProps.photo && (
                 <img
-                  src={`${featProps.photo.replace("upload/", "upload/c_scale,w_512/")}`}
+                  src={`${featProps.photo.replace(
+                    "upload/",
+                    "upload/c_scale,w_512/"
+                  )}`}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -176,13 +179,21 @@ const FeaturePopup = (props) => {
           >
             {type === "detail" && (
               <span>
-                {new Date(featProps.date).toUTCString()} (
-                {format(featProps.date)})
+                {("title" in featProps && <>{featProps.title}</>) || (
+                  <>
+                    {new Date(featProps.date).toUTCString()} (
+                    {format(featProps.date)})
+                  </>
+                )}
               </span>
             )}
             {type === "hover" && (
               <span>
-                {featProps.date.split("T")[0]} ({format(featProps.date)})
+                {("title" in featProps && <>{featProps.title})</>) || (
+                  <>
+                    {featProps.date.split("T")[0]} ({format(featProps.date)})
+                  </>
+                )}
               </span>
             )}
           </div>

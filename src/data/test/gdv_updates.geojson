@@ -6,12 +6,13 @@
       "properties": {
         "id": 0,
         "photo": "/test-update.jpg",
-        "caption": "This is a test post for the live backpacker tracking! Feel free to check out the map as you like. And, check out the source code at https://github.com/geoDavey/gl-pyrenees ! :)",
+        "title": "Welcome to gl-pyrenees map!",
+        "caption": "This is an interactive webmap for the Pyrenees Mountain Range, using data from OpenStreetMap. Zoom around to explore the trails! Click the info button for more information. Happy exploring! :)",
         "date": "2020-05-02T14:08:52.664Z"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [-1.7740366, 43.3730068]
+        "coordinates": [0.209093, 42.6620534]
       }
     }
   ]

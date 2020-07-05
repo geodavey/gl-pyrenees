@@ -23,7 +23,7 @@ const Map = forwardRef((props, ref) => {
   let [viewport, setViewport] = useState({
     longitude: lastUpdate.geometry.coordinates[0],
     latitude: lastUpdate.geometry.coordinates[1],
-    zoom: 10,
+    zoom: props.zoom,
   });
 
   //
@@ -216,7 +216,7 @@ const Map = forwardRef((props, ref) => {
           <MapGL.AttributionControl
             compact={true}
             position="bottom-right"
-            customAttribution="<a style='display:block;text-align:center;font-size:20px;margin:0.3em 0 0.3em 0.8em;border-bottom:1px solid #ccc' href='https://github.com/geoDavey/gl-pyrenees'>¡ Viva La Open Source !</a>"
+            customAttribution="<a style='display:block;text-align:center;font-size:16px;margin:0.3em 0 0.3em 0.8em' href='https://github.com/geoDavey/gl-pyrenees'>¡ Viva La Open Source !</a>"
           />
           <MapGL.GeolocateControl
             position="top-left"
@@ -234,6 +234,7 @@ const Map = forwardRef((props, ref) => {
 });
 
 Map.defaultProps = {
+  zoom: 10,
   data: {
     updates: [],
     tracks: [],

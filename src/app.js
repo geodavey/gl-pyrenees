@@ -5,8 +5,9 @@ import PyreneesMap from "./map";
 
 ReactDOM.render(
   <PyreneesMap
+    zoom={8}
     data={{
-      tracks: {},
+      tracks: require("./data/test/gdv_tracks.geojson"),
       updates: require("./data/test/gdv_updates.geojson"),
     }}
   />,
