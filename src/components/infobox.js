@@ -111,7 +111,6 @@ export default (props) => {
                   { stroke: "#fff", strokeWidth: 5 },
                   {
                     stroke: "rgba(149, 91, 5, 1)",
-                    strokeDasharray: "3 2",
                     strokeWidth: 2,
                   },
                 ]}

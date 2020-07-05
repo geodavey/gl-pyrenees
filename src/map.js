@@ -17,6 +17,7 @@ const Map = forwardRef((props, ref) => {
   //
 
   // set initial view to be last update location
+  
   let lastUpdate =
     props.data.updates.features[props.data.updates.features.length - 1];
   let [viewport, setViewport] = useState({
@@ -234,8 +235,8 @@ const Map = forwardRef((props, ref) => {
 
 Map.defaultProps = {
   data: {
-    updates: null,
-    tracks: null,
+    updates: [],
+    tracks: [],
   },
   baseDataURL: null,
   onLoad: () => {},

@@ -32,7 +32,7 @@ const FeaturePopup = (props) => {
       longitude={lon}
       latitude={lat}
       offset={popupOffset}
-      maxWidth={320}
+      maxWidth={480}
       {...passedProps}
     >
       {/* pyr_resupply */}

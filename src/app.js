@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Map from "./map";
+import PyreneesMap from "./map";
 
 ReactDOM.render(
-  <Map
+  <PyreneesMap
     data={{
-      tracks: require("./data/test/gdv_tracks.geojson"),
+      tracks: {},
       updates: require("./data/test/gdv_updates.geojson"),
     }}
   />,
