@@ -1829,7 +1829,7 @@
       "id": "pyr_peaks3000",
       "type": "symbol",
       "source": "pyr",
-      "source-layer": "peaks",
+      "source-layer": "peaks3000",
       "layout": {
         "icon-image": "mountain_11",
         "icon-allow-overlap": false,
