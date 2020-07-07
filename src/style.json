@@ -1101,64 +1101,6 @@
       "minzoom": 0
     },
     {
-      "id": "osm_roads_major",
-      "type": "line",
-      "metadata": {},
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        [
-          "in",
-          "class",
-          "trunk",
-          "motorway",
-          "primary",
-          "secondary",
-          "tertiary"
-        ],
-        [
-          "all",
-          [
-            "!=",
-            "layer",
-            -1
-          ],
-          [
-            "!=",
-            "brunnel",
-            "tunnel"
-          ]
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#000",
-        "line-blur": 0,
-        "line-width": {
-          "stops": [
-            [
-              9,
-              1
-            ],
-            [
-              10,
-              1.2
-            ],
-            [
-              15,
-              2.1
-            ]
-          ]
-        }
-      },
-      "minzoom": 9
-    },
-    {
       "id": "osm_roads_minor",
       "type": "line",
       "metadata": {},
@@ -1221,6 +1163,104 @@
         }
       },
       "minzoom": 10
+    },
+    {
+      "id": "osm_roads_kinda_major",
+      "type": "line",
+      "metadata": {},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "secondary",
+          "tertiary"
+        ],
+        [
+          "all",
+          [
+            "!=",
+            "layer",
+            -1
+          ],
+          [
+            "!=",
+            "brunnel",
+            "tunnel"
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#000",
+        "line-blur": 0,
+        "line-width": {
+          "stops": [
+            [
+              9,
+              1.0
+            ],
+            [
+              10,
+              1.2
+            ],
+            [
+              15,
+              2.1
+            ]
+          ]
+        }
+      },
+      "minzoom": 9
+    },
+    {
+      "id": "osm_roads_major",
+      "type": "line",
+      "metadata": {},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        [
+          "in",
+          "class",
+          "trunk",
+          "motorway",
+          "primary"
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#000",
+        "line-blur": 0,
+        "line-width": {
+          "stops": [
+            [
+              9,
+              1.2
+            ],
+            [
+              10,
+              1.5
+            ],
+            [
+              15,
+              2.1
+            ]
+          ]
+        }
+      },
+      "minzoom": 9
     },
     {
       "id": "road_area_bridge",
