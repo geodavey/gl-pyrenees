@@ -52,7 +52,8 @@ export default (props) => {
           <h1>Pyrenees Adventure Map</h1>
           <p>
             Open source interactive online map of Pyrenees mountain range with
-            live backpacker tracking
+            live backpacker tracking<br/>
+            Check out the <a href="https://geodavey.us/proj/gl-pyrenees">project page</a> for more info.
           </p>
           <h2>Map Symbology</h2>
           <div
