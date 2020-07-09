@@ -15,11 +15,11 @@
     },
     "contours": {
       "type": "vector",
-      "url": "https://api.maptiler.com/tiles/contours/tiles.json?key=CtAoXvIMV1y0OjjSbPRb"
+      "url": "https://api.maptiler.com/tiles/contours/tiles.json?key=yfyziadsPjoWOZMeCnD8"
     },
     "terrain-rgb": {
       "type": "raster-dem",
-      "url": "https://api.maptiler.com/tiles/terrain-rgb/tiles.json?key=CtAoXvIMV1y0OjjSbPRb"
+      "url": "https://api.maptiler.com/tiles/terrain-rgb/tiles.json?key=yfyziadsPjoWOZMeCnD8"
     },
     "pyr": {
       "type": "vector",
@@ -40,7 +40,7 @@
     }
   },
   "sprite": "https://api.maptiler.com/maps/topo/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=CtAoXvIMV1y0OjjSbPRb",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=yfyziadsPjoWOZMeCnD8",
   "layers": [
     {
       "id": "background",
