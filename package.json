@@ -10,7 +10,7 @@
     "dev:maputnik": "maputnik --watch -f src/style.json",
     "dev:app": "webpack-dev-server --config webpack.config.js --progress --hot",
     "dev:vtile": "tileserver-gl-light --port 6001 --config ./dist/data/tileserver.json",
-    "develop": "npm-run-all -p dev:app dev:maputnik dev:vtile",
+    "develop": "npm-run-all -p dev:app dev:vtile",
     "preprocess": "npm-run-all pre:osm pre:poi pre:vtile",
     "serve:app": "webpack --config=webpack.config.js --mode=production",
     "serve:vtile": "npm-run-all serve:vtile1 serve:vtile2",
