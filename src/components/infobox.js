@@ -55,7 +55,7 @@ export default (props) => {
             live backpacker tracking
             <br />
             Check out the{" "}
-            <a href="https://geodavey.us/proj/gl-pyrenees">project page</a> for
+            <a href="https://geodavey.eu/proj/gl-pyrenees">project page</a> for
             more info.
           </p>
           <h2>Map Symbology</h2>
@@ -175,7 +175,7 @@ export default (props) => {
             <li>
               <div style={{ fontSize: "1.1em" }}>
                 <a
-                  href="https://github.com/geoDavey/gl-pyrenees"
+                  href="https://github.com/geodavey/gl-pyrenees"
                   target="_blank"
                 >
                   gl-pyrenees
@@ -187,7 +187,7 @@ export default (props) => {
             </li>
             <li>
               <div style={{ fontSize: "1.1em" }}>
-                <a href="https://github.com/geoDavey/caminoBot" target="_blank">
+                <a href="https://github.com/geodavey/caminoBot" target="_blank">
                   caminoBot
                 </a>
               </div>
